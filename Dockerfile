@@ -4,7 +4,7 @@ FROM node:18 AS build-stage
 WORKDIR /app
 
 # Copiar el proyecto Angular
-COPY gestionTiendaOnline/ .
+COPY camper/ .
 
 # Instalar dependencias
 RUN npm install
@@ -22,8 +22,7 @@ FROM nginx:stable-alpine AS production-stage
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copia los archivos compilados de Angular
-#COPY --from=build-stage /app/dist/Camper /usr/share/nginx/html
-COPY --from=build-stage /app/dist/Camper/browser /usr/share/nginx/html
+COPY --from=build-stage /app/dist/camper/browser /usr/share/nginx/html
 
 # Copia configuración personalizada de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
