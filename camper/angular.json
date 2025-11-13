@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sistema_reserva_plazas": {
+    "camper": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "sistema_reserva_plazas:build:production"
+              "buildTarget": "camper:build:production"
             },
             "development": {
-              "buildTarget": "sistema_reserva_plazas:build:development"
+              "buildTarget": "camper:build:development"
             }
           },
           "defaultConfiguration": "development"
