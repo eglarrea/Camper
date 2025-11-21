@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="registrar()">
+
+  <label>Nombre:</label>
+  <input formControlName="nombre">
+
+  <label>Apellidos:</label>
+  <input formControlName="apellidos">
+
+  <label>Fecha nacimiento:</label>
+  <input type="date" formControlName="fechaNacimiento">
+
+  <label>DNI:</label>
+  <input formControlName="dni">
+
+  <label>IBAN:</label>
+  <input formControlName="iban">
+
+  <label>Email:</label>
+  <input type="email" formControlName="email">
+
+  <label>Contraseña:</label>
+  <input type="password" formControlName="password">
+
+  <button type="submit">Probar registro</button>
+</form>
+
+<div *ngIf="errorMsg" class="error">{{ errorMsg }}</div>
