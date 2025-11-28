@@ -1,0 +1,18 @@
+<nav>
+  <span>App Parking</span>
+  <span>
+    <a routerLink="/">Home</a>
+    <a routerLink="/auth/login-client">Login</a>
+    <a routerLink="/admin">Admin</a>
+    <a routerLink="/client/profile">Perfil</a>
+  </span>
+  <select 
+    [ngModel]="languageService.currentLang()" 
+    (ngModelChange)="onLangChange($event)"
+    class="lang-selector">
+    <option value="es">ES</option>
+    <option value="en">EN</option>
+    <option value="eu">EU</option> 
+  </select>
+  <button (click)="logout()">Logout</button>
+</nav>
