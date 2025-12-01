@@ -1,0 +1,41 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label>Correo Electrónico</label>
+        <input
+            id="email"
+            type="email"
+            formControlName="email"
+            placeholder="ejemplo@correo.com"
+            [class.error-input]="isFieldInvalid('email')"
+        >
+        <div *ngIf="isFieldInvalid('email')">
+            <small *ngIf="loginForm.get('email')?.hasError('required')">El email es obligatorio.</small>
+            <small *ngIf="loginForm.get('email')?.hasError('email')">Formato de email incorrecto.</small>
+        </div>
+    </div>
+
+    <div>
+        <label>Contraseña</label>
+        <input
+            id="password"
+            type="password"
+            formControlName="password"
+            placeholder="******"
+            [class.error-input]="isFieldInvalid('password')"
+        >
+        <div *ngIf="isFieldInvalid('password')">
+            <small>La contraseña es obligatoria.</small>
+        </div>
+    </div>
+
+    <div *ngIf="errorMessage">
+    {{ errorMessage }}
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
+    Entrar
+    </button>
+</form>
+
+<p>¿No tienes cuenta? <a routerLink="/auth/register">Regístrate aquí</a></p>
+<a routerLink="/">Volver al inicio</a>

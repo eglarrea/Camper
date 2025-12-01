@@ -1,0 +1,39 @@
+<div>
+      <div>
+        <div>
+          <h2>Mi Perfil</h2>
+          <p>Consulta tus datos personales registrados.</p>
+        </div>
+
+        <div *ngIf="isLoading">Cargando datos...</div>
+
+        <form [formGroup]="profileForm" *ngIf="!isLoading">
+          
+            <div>
+              <label>Nombre</label>
+              <input type="text" formControlName="nombrePersona">
+            </div>
+            <div>
+              <label>Apellidos</label>
+              <input type="text" formControlName="apellidosPersona">
+            </div>
+            <div>
+                <label>DNI</label>
+                <input type="text" formControlName="dniPersona">
+            </div>
+            <div>
+                <label>Fecha Nacimiento</label>
+                <input type="date" formControlName="fecNacimientoPersona">
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" formControlName="emailPersona">
+            </div>
+            <div>
+                <label>IBAN</label>
+                <input type="text" formControlName="ibanPersona">
+            </div>
+
+        </form>
+      </div>
+    </div>
