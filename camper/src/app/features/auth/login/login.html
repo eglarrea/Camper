@@ -1,10 +1,10 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div>
         <label>Correo Electrónico</label>
-        <input 
-            id="email" 
-            type="email" 
-            formControlName="email" 
+        <input
+            id="email"
+            type="email"
+            formControlName="email"
             placeholder="ejemplo@correo.com"
             [class.error-input]="isFieldInvalid('email')"
         >
@@ -16,9 +16,9 @@
 
     <div>
         <label>Contraseña</label>
-        <input 
-            id="password" 
-            type="password" 
+        <input
+            id="password"
+            type="password"
             formControlName="password"
             placeholder="******"
             [class.error-input]="isFieldInvalid('password')"
@@ -32,9 +32,10 @@
     {{ errorMessage }}
     </div>
 
-    <button type="submit" [disabled]="loginForm.invalid && loginForm.touched">
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
     Entrar
     </button>
 </form>
+
 <p>¿No tienes cuenta? <a routerLink="/auth/register">Regístrate aquí</a></p>
 <a routerLink="/">Volver al inicio</a>
