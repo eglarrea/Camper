@@ -6,7 +6,7 @@ import { Footer } from '../../../shared/components/footer/footer';
   selector: 'app-search-parking',
   imports: [Header, Footer],
   templateUrl: './search-parking.html',
-  styleUrl: './search-parking.css',
+  styleUrl: './search-parking.scss',
 })
 export class SearchParking {
 

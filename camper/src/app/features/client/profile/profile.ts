@@ -8,7 +8,7 @@ import { User } from '../../../core/models/user';
   selector: 'app-profile',
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './profile.html',
-  styleUrl: './profile.css',
+  styleUrl: './profile.scss',
 })
 export class Profile implements OnInit {
   private fb = inject(FormBuilder);

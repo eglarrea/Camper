@@ -6,7 +6,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
   imports: [RouterOutlet, RouterModule],
   standalone: true,
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = signal('camper');
