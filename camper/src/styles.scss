@@ -1,20 +1,7 @@
 
-
-/* ============================
-   2. Abstracts (variables + mixins)
-   ============================ */
-/* OJO: rutas relativas desde src/styles.scss */
 @use './styles/abstracts/variables' as *;
 @use './styles/abstracts/mixins' as *;
-
-/* ============================
-   3. Base
-   ============================ */
-@use './styles/base/reset';
-@use './styles/base/globals';
 @use './styles/base/typography';
-
-@use './styles/layout/buttons';
+@use './styles/components/buttons';
+@use './styles/components/forms';
 @use './styles/layout/layout';
-
-@import "bootstrap/dist/css/bootstrap.min.css";

@@ -1,0 +1,56 @@
+@use "../abstracts/variables" as *;
+
+/* WRAPPERS GENERALES DE FORMULARIOS */
+.form-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+/* CONTENEDOR */
+.form-standard {
+  width: 100%;
+  max-width: 600px;
+}
+
+/* INPUT GROUP */
+.form-group-standard {
+  margin-bottom: 1.5rem;
+
+  input, select {
+    width: 100%;
+    padding: 0.65rem;
+    border: 1px solid $color-brown-main;
+    border-radius: $radius-sm;
+    font-size: 1rem;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+  }
+
+  .error-input {
+    border-color: $color-error;
+  }
+}
+
+/* ERRORES */
+.error-msg-standard {
+  margin-top: $space-xxs;
+  color: $color-error;
+  font-size: .85rem;
+}
+
+/* BOTÓN */
+.button-wide {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1.1rem;
+  border-radius: $radius-md;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .6rem;
+}

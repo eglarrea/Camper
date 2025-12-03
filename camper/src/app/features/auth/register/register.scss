@@ -1,0 +1,19 @@
+@use "../../../../styles/abstracts/variables" as *;
+
+.form-2-group {
+  margin-bottom: 0px !important;
+}
+
+/* ERRORES DEL BACKEND */
+.error-backend ul {
+  padding-left: 1rem;
+  color: $color-error;
+  font-size: .9rem;
+}
+
+/* MENSAJE DE ÉXITO */
+.success-msg {
+  color: $color-green-accent;
+  font-weight: $font-weight-medium;
+  text-align: center;
+}

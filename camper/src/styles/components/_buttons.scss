@@ -1,0 +1,40 @@
+@use "../abstracts/variables" as *;
+
+.btn-primary {
+  background-color: $color-primary;
+  color: $color-white;
+  border: none;
+  padding: $space-xs $space-lg;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-strong;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: darken($color-primary, 8%);
+  }
+}
+
+.btn-secondary {
+  background-color: $color-primary-dark;
+  color: $color-white;
+  border: none;
+  padding: $space-xs $space-lg;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-sm;
+  box-shadow: $shadow-strong;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: rgba($color-primary-dark, 0.1);
+  }
+}
+
+.badge-rating {
+  background-color: $color-brown-accent;
+  color: $color-white;
+  border-radius: $radius-sm;
+  padding: $space-xxs $space-xs;
+  font-size: 1rem;
+  box-shadow: $shadow-strong;
+}
