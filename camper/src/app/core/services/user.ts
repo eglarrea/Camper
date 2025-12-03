@@ -12,9 +12,13 @@ export class UserService {
 
   /*
   Obtiene los datos del usuario logueado.
-  NO necesitamos pasar headers manuales, el interceptor lo hará.
+  No necesitamos pasar headers manuales, el interceptor lo hará.
   */
   getMe(): Observable<User> {
     return this.http.get<User>(`${this.apiUrl}/me`);
+  }
+
+  updateProfile(userData: any): Observable<User> {
+    return this.http.put<User>(`${this.apiUrl}/update`, userData);
   }
 }

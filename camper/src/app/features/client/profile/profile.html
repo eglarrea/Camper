@@ -5,35 +5,67 @@
           <p>Consulta tus datos personales registrados.</p>
         </div>
 
-        <div *ngIf="isLoading">Cargando datos...</div>
+        <div *ngIf="isLoading && !currentUser">Cargando datos...</div>
 
-        <form [formGroup]="profileForm" *ngIf="!isLoading">
+        <form [formGroup]="profileForm" *ngIf="!isLoading || currentUser" (ngSubmit)="saveChanges()">
           
-            <div>
-              <label>Nombre</label>
-              <input type="text" formControlName="nombrePersona">
-            </div>
-            <div>
-              <label>Apellidos</label>
-              <input type="text" formControlName="apellidosPersona">
-            </div>
-            <div>
-                <label>DNI</label>
-                <input type="text" formControlName="dniPersona">
-            </div>
-            <div>
-                <label>Fecha Nacimiento</label>
-                <input type="date" formControlName="fecNacimientoPersona">
-            </div>
-            <div>
-                <label>Email</label>
-                <input type="email" formControlName="emailPersona">
-            </div>
-            <div>
-                <label>IBAN</label>
-                <input type="text" formControlName="ibanPersona">
-            </div>
+          <div *ngIf="successMessage">{{ successMessage }}</div>
+          <div *ngIf="errorMessage">{{ errorMessage }}</div>
 
+          <h3>Datos Personales</h3>
+          <div>
+            <label>Nombre</label>
+            <input type="text" formControlName="nombrePersona" [readonly]="!isEditing">
+            <small *ngIf="isInvalid('nombrePersona')">Requerido</small>
+          </div>
+          <div class="form-group half">
+            <label>Apellidos</label>
+            <input type="text" formControlName="apellidosPersona" [readonly]="!isEditing">
+            <small *ngIf="isInvalid('apellidosPersona')">Requerido</small>
+          </div>
+          <div>
+            <label>DNI <span>No editable</span></label>
+            <input type="text" formControlName="dniPersona">
+          </div>
+          <div>
+            <label>Email <span>No editable</span></label>
+            <input type="email" formControlName="emailPersona">
+          </div>
+          <div>
+            <label>Fecha Nacimiento</label>
+            <input type="date" formControlName="fecNacimientoPersona" [readonly]="!isEditing">
+            <small *ngIf="isInvalid('fecNacimientoPersona')">Debes ser mayor de edad</small>
+          </div>
+          <div>
+            <label>IBAN</label>
+            <input type="text" formControlName="ibanPersona" [readonly]="!isEditing">
+            <small *ngIf="isInvalid('ibanPersona')">IBAN inválido</small>
+          </div>
+
+          <h3>Cambiar Contraseña</h3>
+          <p>Deja estos campos vacíos si no quieres cambiar tu clave.</p>
+          
+          <div>
+            <div>
+              <label>Nueva Contraseña</label>
+              <input type="password" formControlName="passPersona">
+            </div>
+            <div>
+              <label>Confirmar Contraseña</label>
+              <input type="password" formControlName="confirmPassPersona">
+              <small *ngIf="profileForm.hasError('passwordsMismatch')">No coinciden</small>
+            </div>
+          </div>
+
+          <div>
+            <button type="button" *ngIf="!isEditing" (click)="enableEdit()">Editar Datos</button>
+            <div *ngIf="isEditing">
+              <button type="button" (click)="cancelEdit()">Cancelar</button>
+              <button type="submit" [disabled]="profileForm.invalid || isLoading">
+                {{ isLoading ? 'Guardando...' : 'Guardar Cambios' }}
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
