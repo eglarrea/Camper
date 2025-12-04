@@ -1,87 +1,86 @@
-<div>
-      <div>
-        <h2>Registro de Usuario</h2>
-        
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-          
-          <div>
-            <div>
-              <label>Nombre *</label>
+<div class="form-page-wrapper">
+
+        <h2 class="page-title">Registro de Usuario</h2>
+
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-standard">
+
+          <div class="row g-4 mb-3 form-2-group">
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">Nombre *</label>
               <input type="text" formControlName="nombre" [class.error-input]="isInvalid('nombre')">
-              <small *ngIf="isInvalid('nombre')">Obligatorio</small>
+              <small class="error-msg-standard" *ngIf="isInvalid('nombre')">Obligatorio</small>
             </div>
-            <div>
-              <label>Apellidos *</label>
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">Apellidos *</label>
               <input type="text" formControlName="apellidos" [class.error-input]="isInvalid('apellidos')">
-              <small *ngIf="isInvalid('apellidos')">Obligatorio</small>
+              <small class="error-msg-standard" *ngIf="isInvalid('apellidos')">Obligatorio</small>
             </div>
           </div>
 
-          <div>
-            <div>
-              <label>DNI *</label>
+          <div class="row g-4 mb-3 form-2-group">
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">DNI *</label>
               <input type="text" formControlName="dni" placeholder="12345678Z" [class.error-input]="isInvalid('dni')">
               <div *ngIf="isInvalid('dni')">
-                <small *ngIf="registerForm.get('dni')?.hasError('required')">Obligatorio.</small>
-                <small *ngIf="registerForm.get('dni')?.hasError('dniFormato')">Formato incorrecto.</small>
-                <small *ngIf="registerForm.get('dni')?.hasError('dniInvalido')">Letra incorrecta.</small>
+                <small class="error-msg-standard" *ngIf="registerForm.get('dni')?.hasError('required')">Obligatorio.</small>
+                <small class="error-msg-standard" *ngIf="registerForm.get('dni')?.hasError('dniFormato')">Formato incorrecto.</small>
+                <small class="error-msg-standard" *ngIf="registerForm.get('dni')?.hasError('dniInvalido')">Letra incorrecta.</small>
               </div>
             </div>
-            <div>
-              <label>Fecha Nacimiento *</label>
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">Fecha Nacimiento *</label>
               <input type="date" formControlName="fechaNacimiento" [class.error-input]="isInvalid('fechaNacimiento')">
               <div *ngIf="isInvalid('fechaNacimiento')">
-                <small *ngIf="registerForm.get('fechaNacimiento')?.hasError('required')">Obligatorio.</small>
-                <small *ngIf="registerForm.get('fechaNacimiento')?.hasError('menorDeEdad')">Debes ser mayor de 18.</small>
+                <small class="error-msg-standard" *ngIf="registerForm.get('fechaNacimiento')?.hasError('required')">Obligatorio.</small>
+                <small class="error-msg-standard" *ngIf="registerForm.get('fechaNacimiento')?.hasError('menorDeEdad')">Debes ser mayor de 18.</small>
               </div>
             </div>
           </div>
 
-          <div>
-            <label>IBAN (Cuenta Bancaria)</label>
+          <div class="mb-3 form-group-standard">
+            <label class="form-label-custom">IBAN (Cuenta Bancaria)</label>
             <input type="text" formControlName="iban" placeholder="ES..." [class.error-input]="isInvalid('iban')">
-            <small *ngIf="registerForm.get('iban')?.hasError('ibanInvalido')">Formato IBAN inválido (ES + 22 dígitos).</small>
+            <small class="error-msg-standard" *ngIf="registerForm.get('iban')?.hasError('ibanInvalido')">Formato IBAN inválido (ES + 22 dígitos).</small>
           </div>
 
-          <div>
-            <label>Email *</label>
+          <div class="mb-3 form-group-standard">
+            <label class="form-label-custom">Email *</label>
             <input type="email" formControlName="email" [class.error-input]="isInvalid('email')">
-            <small *ngIf="isInvalid('email')">Email inválido.</small>
+            <small class="error-msg-standard" *ngIf="isInvalid('email')">Email inválido.</small>
           </div>
 
-          <div>
-            <div>
-              <label>Contraseña *</label>
+          <div class="row g-4 mb-3 form-2-group">
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">Contraseña *</label>
               <input type="password" formControlName="password" [class.error-input]="isInvalid('password')">
-              <small *ngIf="isInvalid('password')">Obligatoria</small>
+              <small class="error-msg-standard" *ngIf="isInvalid('password')">Obligatoria</small>
             </div>
-            <div>
-              <label>Confirmar *</label>
+            <div class="col-md-6 form-group-standard">
+              <label class="form-label-custom">Confirmar *</label>
               <input type="password" formControlName="confirmPassword" [class.error-input]="isInvalid('confirmPassword')">
-              <small *ngIf="registerForm.hasError('passwordsMismatch') && registerForm.get('confirmPassword')?.touched">
+              <small class="error-msg-standard" *ngIf="registerForm.hasError('passwordsMismatch') && registerForm.get('confirmPassword')?.touched">
                 No coinciden
               </small>
             </div>
           </div>
 
-          <div *ngIf="apiErrors.length > 0">
+          <div class="error-backend mb-3" *ngIf="apiErrors.length > 0">
             <ul>
               <li *ngFor="let err of apiErrors">{{ err }}</li>
             </ul>
           </div>
 
-          <div *ngIf="successMessage">
+          <div class="success-msg mb-3" *ngIf="successMessage">
             {{ successMessage }}
             <br>
             <a routerLink="/auth/login-client">Ir a Login</a>
           </div>
 
-          <button type="submit" [disabled]="registerForm.invalid || isLoading">
+          <button class="btn btn-primary button-wide" type="submit" [disabled]="registerForm.invalid || isLoading">
             {{ isLoading ? 'Registrando...' : 'Registrar' }}
+            <i class="fa-solid fa-chevron-right"></i>
           </button>
 
         </form>
 
-        <p>¿Ya tienes cuenta? <a routerLink="/auth/login-client">Inicia sesión</a></p>
-      </div>
     </div>

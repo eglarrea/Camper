@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-history',
   imports: [],
   templateUrl: './history.html',
-  styleUrl: './history.css',
+  styleUrl: './history.scss',
 })
 export class History {
 

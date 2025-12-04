@@ -1,18 +1,52 @@
-<nav>
-  <span>App Parking</span>
-  <span>
-    <a routerLink="/">Home</a>
-    <a routerLink="/auth/login-client">Login</a>
-    <a routerLink="/admin">Admin</a>
-    <a routerLink="/client/profile">Perfil</a>
-  </span>
-  <select 
-    [ngModel]="languageService.currentLang()" 
-    (ngModelChange)="onLangChange($event)"
-    class="lang-selector">
-    <option value="es">ES</option>
-    <option value="en">EN</option>
-    <option value="eu">EU</option> 
-  </select>
-  <button (click)="logout()">Logout</button>
+<nav class="header navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- LOGO -->
+        <div class="col-auto">
+          <a routerLink="/" class="logo-wrapper">
+            <img src="/images/logos/logo-horizontal.png" class="logo" alt="Logo Hemen-Go!">
+          </a>
+        </div>
+
+        <!-- ESPACIADOR CENTRAL -->
+        <div class="col"></div>
+
+        <!-- MENÚ / IDIOMA / ICONO -->
+        <div class="col-auto d-flex align-items-center gap-3 nav-links position-relative">
+
+          <select
+            [ngModel]="languageService.currentLang()"
+            (ngModelChange)="onLangChange($event)"
+            class="lang-selector">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="eu">EU</option>
+          </select>
+
+          <!-- NO LOGUEADO -->
+          <ng-container *ngIf="!isLogged">
+            <a routerLink="/auth/login-client" class="btn btn-primary">Identifícate</a>
+            <a routerLink="/auth/register" class="btn btn-primary">Regístrate</a>
+          </ng-container>
+
+          <!-- LOGUEADO -->
+          <ng-container *ngIf="isLogged">
+            <div class="user-wrapper" (click)="toggleMenu($event)">
+              <i class="fa-solid fa-circle-user user-icon" [class.icon-active]="menuOpen"></i>
+            </div>
+
+            <div class="user-menu" *ngIf="menuOpen">
+              <a routerLink="/client/profile">Mis datos</a>
+              <a routerLink="/">Historial de reservas</a>
+              <button (click)="logout()">Desconectarse</button>
+            </div>
+          </ng-container>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
 </nav>

@@ -8,7 +8,7 @@ import { Auth } from '../../../core/services/auth';
   selector: 'app-login',
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './login.html',
-  styleUrl: './login.css',
+  styleUrl: './login.scss',
 })
 export class Login {
   private fb = inject(FormBuilder);

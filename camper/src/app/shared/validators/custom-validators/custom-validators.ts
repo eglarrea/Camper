@@ -5,7 +5,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
   selector: 'app-custom-validators',
   imports: [],
   templateUrl: './custom-validators.html',
-  styleUrl: './custom-validators.css',
+  styleUrl: './custom-validators.scss',
 })
 
 export class CustomValidators {
@@ -13,7 +13,7 @@ export class CustomValidators {
   // 1. Validar Mayoría de Edad
   static mayorDeEdad(control: AbstractControl): ValidationErrors | null {
     if (!control.value) return null;
-    
+
     const fechaNacimiento = new Date(control.value);
     const hoy = new Date();
     const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
@@ -27,7 +27,7 @@ export class CustomValidators {
     return null;
   }
 
-  // 2. Validar DNI Español 
+  // 2. Validar DNI Español
   static dniValido(control: AbstractControl): ValidationErrors | null {
     const dni = control.value;
     if (!dni) return null;

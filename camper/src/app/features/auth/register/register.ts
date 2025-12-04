@@ -9,7 +9,7 @@ import { CustomValidators } from '../../../shared/validators/custom-validators/c
   selector: 'app-register',
   imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './register.html',
-  styleUrl: './register.css',
+  styleUrl: './register.scss',
 })
 export class Register {
   private fb = inject(FormBuilder);
@@ -29,8 +29,8 @@ export class Register {
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     confirmPassword: ['', Validators.required]
-  }, { 
-    validators: CustomValidators.matchPasswords('password', 'confirmPassword') 
+  }, {
+    validators: CustomValidators.matchPasswords('password', 'confirmPassword')
   });
 
   isInvalid(field: string): boolean {
@@ -58,15 +58,15 @@ export class Register {
       emailPersona: formValue.email,
       passPersona: formValue.password,
       confirmPassPersona: formValue.confirmPassword,
-      admin: false 
+      admin: false
     };
 
     this.authService.register(requestData).subscribe({
       next: (response) => {
-        this.successMessage = response; 
+        this.successMessage = response;
         this.isLoading = false;
         this.registerForm.reset();
-        
+
         setTimeout(() => {
           this.router.navigate(['/auth/login-client']);
         }, 3000);
@@ -74,11 +74,11 @@ export class Register {
       error: (err) => {
         console.error('Error registro:', err);
         this.isLoading = false;
-        
+
         if (err.status === 409) {
           this.apiErrors = [err.error || 'El usuario ya existe.'];
-        } 
-        
+        }
+
         else if (err.status === 400) {
           if (typeof err.error === 'string') {
              try {
@@ -90,8 +90,8 @@ export class Register {
           } else if (Array.isArray(err.error)) {
              this.apiErrors = err.error;
           }
-        } 
-        
+        }
+
         else {
           this.apiErrors = ['Ocurrió un error inesperado. Inténtalo de nuevo.'];
         }

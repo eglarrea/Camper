@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-parking-list',
   imports: [],
   templateUrl: './parking-list.html',
-  styleUrl: './parking-list.css',
+  styleUrl: './parking-list.scss',
 })
 export class ParkingList {
 

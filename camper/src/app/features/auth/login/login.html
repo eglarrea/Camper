@@ -1,6 +1,10 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label>Correo Electrónico</label>
+<div class="form-page-wrapper">
+
+  <h2 class="page-title">Inicia Sesión</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-standard">
+    <div class="form-group-standard">
+        <label class="form-label-custom" for="email">Correo Electrónico</label>
         <input
             id="email"
             type="email"
@@ -8,14 +12,14 @@
             placeholder="ejemplo@correo.com"
             [class.error-input]="isFieldInvalid('email')"
         >
-        <div *ngIf="isFieldInvalid('email')">
+        <div class="error-msg-standard" *ngIf="isFieldInvalid('email')">
             <small *ngIf="loginForm.get('email')?.hasError('required')">El email es obligatorio.</small>
             <small *ngIf="loginForm.get('email')?.hasError('email')">Formato de email incorrecto.</small>
         </div>
     </div>
 
-    <div>
-        <label>Contraseña</label>
+    <div class="form-group-standard">
+        <label class="form-label-custom" for="password">Contraseña</label>
         <input
             id="password"
             type="password"
@@ -23,19 +27,17 @@
             placeholder="******"
             [class.error-input]="isFieldInvalid('password')"
         >
-        <div *ngIf="isFieldInvalid('password')">
+        <div class="error-msg-standard" *ngIf="isFieldInvalid('password')">
             <small>La contraseña es obligatoria.</small>
         </div>
     </div>
 
-    <div *ngIf="errorMessage">
+    <div class="error-msg-standard general" *ngIf="errorMessage">
     {{ errorMessage }}
     </div>
 
-    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
-    Entrar
+    <button class="btn btn-primary button-wide" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
+    Entrar <i class="fa-solid fa-chevron-right"></i>
     </button>
-</form>
-
-<p>¿No tienes cuenta? <a routerLink="/auth/register">Regístrate aquí</a></p>
-<a routerLink="/">Volver al inicio</a>
+  </form>
+</div>
