@@ -82,9 +82,9 @@ export class Profile implements OnInit {
     };
 
     this.userService.updateProfile(updateData).subscribe({
-      next: (updatedUser) => {
-        this.successMessage = '¡Datos actualizados correctamente!';
-        this.currentUser = updatedUser;
+      next: (responseMessage: string) => {
+        this.successMessage = responseMessage;
+        this.currentUser = { ...this.currentUser!, ...formData };
         this.isEditing = false;
         this.isLoading = false;
         this.profileForm.patchValue({ passPersona: '', confirmPassPersona: '' });

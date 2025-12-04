@@ -27,8 +27,8 @@
 
           <!-- NO LOGUEADO -->
           <ng-container *ngIf="!isLogged">
-            <a routerLink="/auth/login-client" class="btn btn-primary">Identifícate</a>
-            <a routerLink="/auth/register" class="btn btn-primary">Regístrate</a>
+            <a routerLink="/auth/login-client" class="btn btn-primary">{{ 'HEADER.LOGIN' | translate }}</a>
+            <a routerLink="/auth/register" class="btn btn-primary">{{ 'HEADER.REGISTER' | translate }}</a>
           </ng-container>
 
           <!-- LOGUEADO -->
@@ -38,9 +38,9 @@
             </div>
 
             <div class="user-menu" *ngIf="menuOpen">
-              <a routerLink="/client/profile">Mis datos</a>
-              <a routerLink="/">Historial de reservas</a>
-              <button (click)="logout()">Desconectarse</button>
+              <a routerLink="/client/profile">{{ 'HEADER.PROFILE' | translate }}</a>
+              <a routerLink="/client/history">{{ 'HEADER.HISTORY' | translate }}</a>
+              <button (click)="logout()">{{ 'HEADER.LOGOUT' | translate }}</button>
             </div>
           </ng-container>
 

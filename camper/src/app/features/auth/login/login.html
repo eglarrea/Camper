@@ -39,5 +39,6 @@
     <button class="btn btn-primary button-wide" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
     Entrar <i class="fa-solid fa-chevron-right"></i>
     </button>
+    <span *ngIf="isLoading">Cargando...</span>
   </form>
 </div>
