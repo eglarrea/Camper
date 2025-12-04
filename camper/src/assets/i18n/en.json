@@ -1,0 +1,12 @@
+{
+  "HEADER": {
+    "LOGIN": "Log In",
+    "REGISTER": "Sign Up",
+    "PROFILE": "My profile",
+    "HISTORY": "Booking history",
+    "LOGOUT": "Logout"
+  },
+  "FOOTER": {
+  
+  }
+}

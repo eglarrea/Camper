@@ -1,0 +1,12 @@
+{
+  "HEADER": {
+    "LOGIN": "Identifícate",
+    "REGISTER": "Registrarse",
+    "PROFILE": "Mis datos",
+    "HISTORY": "Historial de reservas",
+    "LOGOUT": "Salir"
+  },
+  "FOOTER": {
+  
+  }
+}

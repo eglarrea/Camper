@@ -4,10 +4,11 @@ import { RouterLink } from '@angular/router';
 import { Auth } from '../../../core/services/auth';
 import { LanguageService, Language } from '../../../core/services/language';
 import { FormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core'; 
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, NgIf, RouterLink, FormsModule],
+  imports: [CommonModule, NgIf, RouterLink, FormsModule, TranslateModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })

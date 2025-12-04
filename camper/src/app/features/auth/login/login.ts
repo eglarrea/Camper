@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../../core/services/auth';
+import { finalize, timeout, TimeoutError } from 'rxjs';
 
 @Component({
   selector: 'app-login',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -16,6 +17,7 @@ export class Login {
   private router = inject(Router);
 
   errorMessage: string = '';
+  isLoading: boolean = false; 
 
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -34,17 +36,28 @@ export class Login {
     }
 
     this.errorMessage = '';
+    this.isLoading = true; 
+    this.loginForm.disable();
 
     const credentials = this.loginForm.value;
 
-    this.authService.login(credentials).subscribe({
+    this.authService.login(credentials)
+      .pipe(
+        timeout(5000),
+        finalize(() => {
+          this.isLoading = false; 
+          this.loginForm.enable(); 
+        })
+      ).subscribe({
       next: (response) => {
         console.log('Login exitoso:', response);
         this.router.navigate(['/public']);
       },
       error: (err) => {
         console.error('Error en login:', err);
-        if (err.status === 401 || err.status === 404) {
+        if (err instanceof TimeoutError) {
+             this.errorMessage = 'El servidor tarda demasiado en responder. Inténtalo más tarde.';
+        } else if (err.status === 401 || err.status === 404) {
           this.errorMessage = 'Credenciales inválidas. Comprueba tu email y contraseña.';
         } else {
           this.errorMessage = 'Ocurrió un error inesperado. Inténtalo más tarde.';

@@ -4,6 +4,7 @@ import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth, RegisterRequest } from '../../../core/services/auth';
 import { CustomValidators } from '../../../shared/validators/custom-validators/custom-validators';
+import { finalize, timeout, TimeoutError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -45,6 +46,7 @@ export class Register {
     }
 
     this.isLoading = true;
+    this.registerForm.disable();
     this.apiErrors = [];
     this.successMessage = '';
 
@@ -61,7 +63,13 @@ export class Register {
       admin: false
     };
 
-    this.authService.register(requestData).subscribe({
+    this.authService.register(requestData).pipe(
+      timeout(5000),
+        finalize(() => {
+          this.isLoading = false;
+          this.registerForm.enable(); 
+        })
+      ).subscribe({
       next: (response) => {
         this.successMessage = response;
         this.isLoading = false;
@@ -73,9 +81,11 @@ export class Register {
       },
       error: (err) => {
         console.error('Error registro:', err);
-        this.isLoading = false;
 
-        if (err.status === 409) {
+        if (err instanceof TimeoutError) {
+             this.apiErrors = ['El servidor tarda demasiado en responder. Inténtalo más tarde.'];
+          }
+        else if (err.status === 409) {
           this.apiErrors = [err.error || 'El usuario ya existe.'];
         }
 

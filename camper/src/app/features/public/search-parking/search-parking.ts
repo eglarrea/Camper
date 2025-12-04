@@ -4,7 +4,7 @@ import { Footer } from '../../../shared/components/footer/footer';
 
 @Component({
   selector: 'app-search-parking',
-  imports: [Header, Footer],
+  imports: [],
   templateUrl: './search-parking.html',
   styleUrl: './search-parking.scss',
 })
