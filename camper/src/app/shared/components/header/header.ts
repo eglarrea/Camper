@@ -4,7 +4,7 @@ import { RouterLink } from '@angular/router';
 import { Auth } from '../../../core/services/auth';
 import { LanguageService, Language } from '../../../core/services/language';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core'; 
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +16,7 @@ export class Header {
   authService = inject(Auth);
   languageService = inject(LanguageService);
   menuOpen = false;
+  mobileMenuOpen = false;
 
   get userName(): string {
     const user = this.authService.getUser();
@@ -35,8 +36,12 @@ export class Header {
   }
 
   toggleMenu(event: Event) {
-    event.stopPropagation();  // evita que el click se propague al documento
+    event.stopPropagation();
     this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+  this.menuOpen = false;
   }
 
   @HostListener('document:click', ['$event'])
@@ -52,5 +57,13 @@ export class Header {
     if (!insideMenu) {
       this.menuOpen = false;
     }
+  }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
   }
 }

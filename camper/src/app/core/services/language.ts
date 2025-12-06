@@ -14,7 +14,7 @@ export class LanguageService {
   );
 
   constructor() {
-    const initialLang = this.currentLang();  
+    const initialLang = this.currentLang();
     this.translate.use(initialLang);
   }
 

@@ -1,10 +1,14 @@
 <div class="form-page-wrapper">
 
-  <h2 class="page-title">Inicia Sesión</h2>
+  <h2 class="page-title">{{ 'LOGIN.TITLE' | translate }}</h2>
+
+  <div class="error-msg-standard error-general" *ngIf="errorMessage">
+    {{ errorMessage | translate}}
+  </div>
 
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-standard">
     <div class="form-group-standard">
-        <label class="form-label-custom" for="email">Correo Electrónico</label>
+        <label class="form-label-custom" for="email">{{ 'LOGIN.EMAIL' | translate }}</label>
         <input
             id="email"
             type="email"
@@ -13,13 +17,13 @@
             [class.error-input]="isFieldInvalid('email')"
         >
         <div class="error-msg-standard" *ngIf="isFieldInvalid('email')">
-            <small *ngIf="loginForm.get('email')?.hasError('required')">El email es obligatorio.</small>
-            <small *ngIf="loginForm.get('email')?.hasError('email')">Formato de email incorrecto.</small>
+            <small *ngIf="loginForm.get('email')?.hasError('required')">{{ 'LOGIN.ERROR.REQUIRED_EMAIL' | translate }}</small>
+            <small *ngIf="loginForm.get('email')?.hasError('email')">{{ 'LOGIN.ERROR.INVALID_EMAIL' | translate }}</small>
         </div>
     </div>
 
     <div class="form-group-standard">
-        <label class="form-label-custom" for="password">Contraseña</label>
+        <label class="form-label-custom" for="password">{{ 'LOGIN.PASSWORD' | translate }}</label>
         <input
             id="password"
             type="password"
@@ -28,17 +32,18 @@
             [class.error-input]="isFieldInvalid('password')"
         >
         <div class="error-msg-standard" *ngIf="isFieldInvalid('password')">
-            <small>La contraseña es obligatoria.</small>
+            <small>{{ 'LOGIN.ERROR.REQUIRED_PASSWORD' | translate }}</small>
         </div>
     </div>
 
-    <div class="error-msg-standard general" *ngIf="errorMessage">
-    {{ errorMessage }}
-    </div>
-
-    <button class="btn btn-primary button-wide" type="submit" [disabled]="loginForm.invalid && loginForm.touched">
-    Entrar <i class="fa-solid fa-chevron-right"></i>
+    <button class="btn btn-primary button-wide" type="submit"
+        [disabled]="loginForm.invalid && loginForm.touched || isLoading">
+      {{ 'LOGIN.BUTTON' | translate }} <i class="fa-solid fa-chevron-right"></i>
     </button>
-    <span *ngIf="isLoading">Cargando...</span>
+
+    <div *ngIf="isLoading" class="loading-msg">
+      <i class="fa-solid fa-spinner loading-icon"></i>
+      {{ 'LOGIN.LOADING' | translate }}
+    </div>
   </form>
 </div>

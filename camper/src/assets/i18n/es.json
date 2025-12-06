@@ -4,9 +4,105 @@
     "REGISTER": "Registrarse",
     "PROFILE": "Mis datos",
     "HISTORY": "Historial de reservas",
-    "LOGOUT": "Salir"
+    "LOGOUT": "Cerrar sesión"
   },
+
   "FOOTER": {
-  
+    "CONTACT": "Contáctanos",
+    "PROJECT": "Proyecto para TFG de DAW"
+  },
+
+  "LOGIN": {
+    "TITLE": "Inicia Sesión",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "PLACEHOLDER_EMAIL": "ejemplo@correo.com",
+    "PLACEHOLDER_PASSWORD": "******",
+    "BUTTON": "Entrar",
+    "LOADING": "Cargando...",
+    "ERROR": {
+      "REQUIRED_EMAIL": "El email es obligatorio.",
+      "INVALID_EMAIL": "Formato de email incorrecto.",
+      "REQUIRED_PASSWORD": "La contraseña es obligatoria.",
+      "INVALID_CREDENTIALS": "Credenciales inválidas. Comprueba tu email y contraseña.",
+      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde.",
+      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo más tarde."
+    }
+  },
+  "REGISTER": {
+    "TITLE": "Registro de Usuario",
+    "BUTTON": "Crear cuenta",
+    "LOADING": "Procesando...",
+    "SUCCESS": "Registro completado correctamente.",
+
+    "FIELDS": {
+      "NAME": "Nombre *",
+      "LASTNAME": "Apellidos *",
+      "DNI": "DNI *",
+      "BIRTHDATE": "Fecha de nacimiento *",
+      "IBAN": "IBAN (Cuenta bancaria)",
+      "EMAIL": "Correo electrónico *",
+      "PASSWORD": "Contraseña *",
+      "CONFIRM": "Confirmar *"
+    },
+
+    "PLACEHOLDERS": {
+      "DNI": "12345678Z",
+      "IBAN": "ES...",
+      "EMAIL": "ejemplo@correo.com",
+      "PASSWORD": "Contraseña"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Obligatorio.",
+      "INVALID_EMAIL": "Email inválido.",
+      "INVALID_DNI_FORMAT": "Formato incorrecto.",
+      "INVALID_DNI_LETTER": "Letra incorrecta.",
+      "UNDER_AGE": "Debes ser mayor de 18.",
+      "INVALID_IBAN": "Formato IBAN inválido (ES + 22 dígitos).",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden."
+    },
+
+    "BACKEND": {
+      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde.",
+      "USER_EXISTS": "El usuario ya existe.",
+      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo de nuevo."
+    }
+  },
+
+  "PROFILE": {
+  "TITLE": "Mis Datos",
+  "SUBTITLE": "Consulta y actualiza tu información personal.",
+  "LOADING": "Cargando datos...",
+  "PERSONAL_DATA": "Datos Personales",
+  "NOT_EDITABLE": "No editable",
+
+  "FIELDS": {
+    "NAME": "Nombre",
+    "LASTNAME": "Apellidos",
+    "DNI": "DNI",
+    "EMAIL": "Email",
+    "BIRTHDATE": "Fecha de nacimiento",
+    "IBAN": "IBAN",
+    "NEW_PASSWORD": "Nueva contraseña",
+    "CONFIRM_PASSWORD": "Confirmar contraseña"
+  },
+
+  "ERROR": {
+    "REQUIRED": "Campo obligatorio.",
+    "UNDER_AGE": "Debes ser mayor de edad.",
+    "INVALID_IBAN": "IBAN inválido.",
+    "PASSWORDS_MISMATCH": "Las contraseñas no coinciden."
+  },
+
+  "CHANGE_PASSWORD": "Cambiar contraseña",
+  "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave.",
+
+  "BUTTONS": {
+    "EDIT": "Editar datos",
+    "CANCEL": "Cancelar",
+    "SAVE": "Guardar cambios",
+    "SAVING": "Guardando..."
   }
+}
 }

@@ -3,6 +3,11 @@
     <div class="container">
       <div class="row align-items-center">
 
+        <!-- HAMBURGUESA (solo móvil) -->
+        <div class="col-auto d-lg-none">
+          <i class="fa-solid fa-bars menu-icon" (click)="toggleMobileMenu()"></i>
+        </div>
+
         <!-- LOGO -->
         <div class="col-auto">
           <a routerLink="/" class="logo-wrapper">
@@ -13,8 +18,8 @@
         <!-- ESPACIADOR CENTRAL -->
         <div class="col"></div>
 
-        <!-- MENÚ / IDIOMA / ICONO -->
-        <div class="col-auto d-flex align-items-center gap-3 nav-links position-relative">
+        <!-- MENÚ SUPERIOR (solo desktop) -->
+        <div class="col-auto d-none d-lg-flex align-items-center gap-3 nav-links position-relative">
 
           <select
             [ngModel]="languageService.currentLang()"
@@ -38,9 +43,9 @@
             </div>
 
             <div class="user-menu" *ngIf="menuOpen">
-              <a routerLink="/client/profile">{{ 'HEADER.PROFILE' | translate }}</a>
-              <a routerLink="/client/history">{{ 'HEADER.HISTORY' | translate }}</a>
-              <button (click)="logout()">{{ 'HEADER.LOGOUT' | translate }}</button>
+              <a routerLink="/client/profile" (click)="closeMenu()">{{ 'HEADER.PROFILE' | translate }}</a>
+              <a routerLink="/client/history" (click)="closeMenu()">{{ 'HEADER.HISTORY' | translate }}</a>
+              <button (click)="logout(); closeMenu()">{{ 'HEADER.LOGOUT' | translate }}</button>
             </div>
           </ng-container>
 
@@ -49,4 +54,32 @@
       </div>
     </div>
   </div>
+
+  <!-- MENÚ MÓVIL LATERAL -->
+  <div class="mobile-menu" [class.open]="mobileMenuOpen">
+
+    <select
+      [ngModel]="languageService.currentLang()"
+      (ngModelChange)="onLangChange($event)"
+      class="lang-selector mobile-lang">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+      <option value="eu">EU</option>
+    </select>
+
+    <ng-container *ngIf="!isLogged">
+      <a routerLink="/auth/register" (click)="closeMobileMenu()">{{ 'HEADER.REGISTER' | translate }}</a>
+      <a routerLink="/auth/login-client" (click)="closeMobileMenu()">{{ 'HEADER.LOGIN' | translate }}</a>
+    </ng-container>
+
+    <ng-container *ngIf="isLogged">
+      <a routerLink="/client/profile" (click)="closeMobileMenu()">{{ 'HEADER.PROFILE' | translate }}</a>
+      <a routerLink="/client/history" (click)="closeMobileMenu()">{{ 'HEADER.HISTORY' | translate }}</a>
+      <button (click)="logout(); closeMobileMenu()">{{ 'HEADER.LOGOUT' | translate }}</button>
+    </ng-container>
+
+  </div>
+
+  <div class="menu-backdrop" *ngIf="mobileMenuOpen" (click)="closeMobileMenu()"></div>
+
 </nav>

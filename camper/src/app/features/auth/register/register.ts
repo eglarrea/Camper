@@ -5,10 +5,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Auth, RegisterRequest } from '../../../core/services/auth';
 import { CustomValidators } from '../../../shared/validators/custom-validators/custom-validators';
 import { finalize, timeout, TimeoutError } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslateModule],
   templateUrl: './register.html',
   styleUrl: './register.scss',
 })
@@ -67,7 +68,7 @@ export class Register {
       timeout(5000),
         finalize(() => {
           this.isLoading = false;
-          this.registerForm.enable(); 
+          this.registerForm.enable();
         })
       ).subscribe({
       next: (response) => {
@@ -83,10 +84,10 @@ export class Register {
         console.error('Error registro:', err);
 
         if (err instanceof TimeoutError) {
-             this.apiErrors = ['El servidor tarda demasiado en responder. Inténtalo más tarde.'];
+             this.apiErrors = ['REGISTER.BACKEND.TIMEOUT'];
           }
         else if (err.status === 409) {
-          this.apiErrors = [err.error || 'El usuario ya existe.'];
+          this.apiErrors = [err.error || 'REGISTER.BACKEND.USER_EXISTS'];
         }
 
         else if (err.status === 400) {
@@ -103,7 +104,7 @@ export class Register {
         }
 
         else {
-          this.apiErrors = ['Ocurrió un error inesperado. Inténtalo de nuevo.'];
+          this.apiErrors = ['REGISTER.BACKEND.UNKNOWN'];
         }
       }
     });
