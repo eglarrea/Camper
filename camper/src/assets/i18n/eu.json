@@ -7,6 +7,101 @@
     "LOGOUT": "Irten"
   },
   "FOOTER": {
-  
+    "CONTACT": "",
+    "PROJECT": ""
+  },
+
+  "LOGIN": {
+    "TITLE": "",
+    "EMAIL": "",
+    "PASSWORD": "",
+    "PLACEHOLDER_EMAIL": "",
+    "PLACEHOLDER_PASSWORD": "******",
+    "BUTTON": "",
+    "LOADING": "",
+    "ERROR": {
+      "REQUIRED_EMAIL": "",
+      "INVALID_EMAIL": "",
+      "REQUIRED_PASSWORD": "",
+      "INVALID_CREDENTIALS": "",
+      "TIMEOUT": "",
+      "UNKNOWN": ""
+    }
+  },
+
+  "REGISTER": {
+    "TITLE": "",
+    "BUTTON": "",
+    "LOADING": "",
+    "SUCCESS": "",
+
+    "FIELDS": {
+      "NAME": "",
+      "LASTNAME": "",
+      "DNI": "",
+      "BIRTHDATE": "",
+      "IBAN": "",
+      "EMAIL": "",
+      "PASSWORD": "",
+      "CONFIRM": ""
+    },
+
+    "PLACEHOLDERS": {
+      "DNI": "12345678Z",
+      "IBAN": "ES...",
+      "EMAIL": "",
+      "PASSWORD": ""
+    },
+
+    "ERROR": {
+      "REQUIRED": "",
+      "INVALID_EMAIL": "",
+      "INVALID_DNI_FORMAT": "",
+      "INVALID_DNI_LETTER": "",
+      "UNDER_AGE": "",
+      "INVALID_IBAN": "",
+      "PASSWORDS_MISMATCH": ""
+    },
+
+    "BACKEND": {
+      "USER_EXISTS": "",
+      "UNKNOWN": ""
+    }
+  },
+
+  "PROFILE": {
+  "TITLE": "",
+  "SUBTITLE": "",
+  "LOADING": "",
+  "PERSONAL_DATA": "",
+  "NOT_EDITABLE": "",
+
+  "FIELDS": {
+    "NAME": "",
+    "LASTNAME": "",
+    "DNI": "",
+    "EMAIL": "",
+    "BIRTHDATE": "",
+    "IBAN": "",
+    "NEW_PASSWORD": "",
+    "CONFIRM_PASSWORD": ""
+  },
+
+  "ERROR": {
+    "REQUIRED": "",
+    "UNDER_AGE": "",
+    "INVALID_IBAN": "",
+    "PASSWORDS_MISMATCH": ""
+  },
+
+  "CHANGE_PASSWORD": "",
+  "PASSWORD_NOTE": "",
+
+  "BUTTONS": {
+    "EDIT": "",
+    "CANCEL": "",
+    "SAVE": "",
+    "SAVING": ""
   }
+}
 }

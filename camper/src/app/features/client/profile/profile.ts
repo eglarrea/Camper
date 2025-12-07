@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { UserService } from '../../../core/services/user';
 import { User } from '../../../core/models/user';
 import { CustomValidators } from '../../../shared/validators/custom-validators/custom-validators';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-profile',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './profile.html',
   styleUrl: './profile.scss',
 })

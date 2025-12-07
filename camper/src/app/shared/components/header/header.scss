@@ -85,3 +85,115 @@
     background-size: 14px;
   }
 }
+
+// ICONO MENU
+.menu-icon {
+  font-size: 1.8rem;
+  color: $color-white;
+  cursor: pointer;
+
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+}
+
+// MENU LATERAL
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: $color-green-main;
+  padding: 2rem 1.5rem;
+  transform: translateX(-100%);
+  transition: transform .3s ease;
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  a, button {
+    color: $color-white;
+    font-size: 1.1rem;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+}
+
+.mobile-lang {
+  margin-top: $space-lg;
+  background-color: $color-white;
+  color: $color-blackish;
+  border: 1px solid $color-grey-border;
+}
+
+// BACKDROP OSCURO
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 1500;
+
+  @media (min-width: $bp-lg) {
+    display: none;
+  }
+}
+
+// RESET DEL GRID PARA HEADER EN MOVIL
+@media (max-width: $bp-lg) {
+
+  .header .container,
+  .header .container-fluid {
+    padding: 0 !important;
+  }
+
+  .header .row {
+    margin: 0 !important;
+    width: 100% !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between !important;
+  }
+
+  .header .row > div {
+    padding: 0 !important;
+    flex: none !important;
+  }
+
+  .menu-icon {
+    order: 1 !important;
+  }
+
+  .logo-wrapper {
+    order: 2 !important;
+    margin-left: auto !important;
+    display: flex !important;
+    align-items: center;
+  }
+
+  .logo-wrapper img {
+    height: 55px !important;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+}

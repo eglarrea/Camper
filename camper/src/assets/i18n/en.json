@@ -1,12 +1,109 @@
 {
   "HEADER": {
-    "LOGIN": "Log In",
+    "LOGIN": "Log in",
     "REGISTER": "Sign Up",
     "PROFILE": "My profile",
     "HISTORY": "Booking history",
     "LOGOUT": "Logout"
   },
+
   "FOOTER": {
-  
+    "CONTACT": "Contact Us",
+    "PROJECT": "TFG project for DAW"
+  },
+
+  "LOGIN": {
+    "TITLE": "Log in",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "PLACEHOLDER_EMAIL": "example@mail.com",
+    "PLACEHOLDER_PASSWORD": "******",
+    "BUTTON": "Log in",
+    "LOADING": "Loading...",
+    "ERROR": {
+      "REQUIRED_EMAIL": "Email is required.",
+      "INVALID_EMAIL": "Email format is invalid.",
+      "REQUIRED_PASSWORD": "Password is required.",
+      "INVALID_CREDENTIALS": "Invalid credentials. Check your email and password.",
+      "TIMEOUT": "The server is taking too long to respond. Please try again later.",
+      "UNKNOWN": "An unexpected error occurred. Try again later."
+    }
+  },
+
+  "REGISTER": {
+    "TITLE": "Sign up",
+    "BUTTON": "Create account",
+    "LOADING": "Processing...",
+    "SUCCESS": "Registration completed successfully.",
+
+    "FIELDS": {
+      "NAME": "Name *",
+      "LASTNAME": "Last name *",
+      "DNI": "ID number *",
+      "BIRTHDATE": "Birthdate *",
+      "IBAN": "IBAN (bank account)",
+      "EMAIL": "Email *",
+      "PASSWORD": "Password *",
+      "CONFIRM": "Confirm password *"
+    },
+
+    "PLACEHOLDERS": {
+      "DNI": "12345678Z",
+      "IBAN": "ES...",
+      "EMAIL": "example@mail.com",
+      "PASSWORD": "Password"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Required.",
+      "INVALID_EMAIL": "Invalid email.",
+      "INVALID_DNI_FORMAT": "Invalid format.",
+      "INVALID_DNI_LETTER": "Incorrect letter.",
+      "UNDER_AGE": "You must be at least 18.",
+      "INVALID_IBAN": "Invalid IBAN format (ES + 22 digits).",
+      "PASSWORDS_MISMATCH": "Passwords do not match."
+    },
+
+    "BACKEND": {
+      "TIMEOUT": "The server is taking too long to respond. Please try again later.",
+      "USER_EXISTS": "User already exists.",
+      "UNKNOWN": "An unexpected error occurred. Please try again."
+    }
+  },
+
+  "PROFILE": {
+    "TITLE": "Personal Information",
+    "SUBTITLE": "View and update your personal details.",
+    "LOADING": "Loading user data...",
+    "PERSONAL_DATA": "Personal Data",
+    "NOT_EDITABLE": "Not editable",
+
+    "FIELDS": {
+      "NAME": "First name",
+      "LASTNAME": "Last name",
+      "DNI": "ID number",
+      "EMAIL": "Email",
+      "BIRTHDATE": "Birthdate",
+      "IBAN": "IBAN",
+      "NEW_PASSWORD": "New password",
+      "CONFIRM_PASSWORD": "Confirm password"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Required field.",
+      "UNDER_AGE": "You must be at least 18.",
+      "INVALID_IBAN": "Invalid IBAN.",
+      "PASSWORDS_MISMATCH": "Passwords do not match."
+    },
+
+    "CHANGE_PASSWORD": "Change Password",
+    "PASSWORD_NOTE": "Leave these fields empty if you don't want to change your password.",
+
+    "BUTTONS": {
+      "EDIT": "Edit data",
+      "CANCEL": "Cancel",
+      "SAVE": "Save changes",
+      "SAVING": "Saving..."
+    }
   }
 }

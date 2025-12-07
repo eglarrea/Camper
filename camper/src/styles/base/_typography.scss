@@ -39,7 +39,34 @@ h1.page-title {
   font-family: $font-body;
   font-weight: $font-weight-semibold;
   font-size: 1.3rem;
-  color: $color-green-main;
+  color: $color-brown-main;
+}
+
+// Subtítulo general
+.page-subtitle {
+  font-size: 1.05rem;
+  color: $color-grey-soft;
+  margin-top: -$space-sm;
+  margin-bottom: $space-lg;
+  font-weight: $font-weight-medium;
+}
+
+// Subtítulo pequeño para secciones internas
+.subtitle-small {
+  font-size: 0.9rem;
+  color: $color-grey-main;
+  margin-bottom: $space-md;
+  font-weight: $font-weight-regular;
+}
+
+// Etiquetas
+.label-tag {
+  background-color: $color-primary-soft;
+  color: $color-white;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: $radius-sm;
+  margin-left: $space-xs;
 }
 
 // Párrafos
