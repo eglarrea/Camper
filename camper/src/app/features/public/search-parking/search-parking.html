@@ -1,2 +1,93 @@
+<div>
+  
+  <div>
+    <h3>Filtrar Búsqueda</h3>
+    
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      
+      <div>
+        <label>Fecha Entrada</label>
+        <input type="date" formControlName="fechaDesde">
+      </div>
+      
+      <div>
+        <label>Fecha Salida</label>
+        <input type="date" formControlName="fechaHasta">
+      </div>
 
-<p>search-parking works!</p>
+      <div class="form-group">
+        <label>Provincia</label>
+        <input type="text" formControlName="provincia" placeholder="Ej: Bizkaia">
+      </div>
+
+      <div>
+        <label>Localidad / Municipio</label>
+        <input type="text" formControlName="localidad" placeholder="Ej: Getxo">
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" formControlName="tomaElectricidad">
+          Electricidad
+        </label>
+        
+        <label>
+          <input type="checkbox" formControlName="limpiezaAguasResiduales">
+          Aguas Residuales
+        </label>
+        
+        <label>
+          <input type="checkbox" formControlName="plazasVip">
+          Plazas VIP
+        </label>
+      </div>
+
+      <button type="submit" [disabled]="isLoading">
+        {{ isLoading ? 'Buscando...' : 'Buscar Parkings' }}
+      </button>
+
+      <button type="button" (click)="clearFilters()">
+        Limpiar Filtros
+      </button>
+    </form>
+</div>
+
+  <main>
+    
+    <div *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <div>
+      <article *ngFor="let parking of parkings">
+        <div>
+          <span *ngIf="parking.plazasVip">VIP</span>
+        </div>
+        
+        <div>
+          <h2>{{ parking.nombre }}</h2>
+
+          <p>
+            {{ parking.municipio || parking.localidad || 'Ubicación desconocida' }}
+          </p>
+          
+          <div>
+            <span *ngIf="parking.tomaElectricidad" title="Electricidad">Electricidad</span>
+            <span *ngIf="parking.limpiezaAguasResiduales" title="Aguas">Aguas</span>
+          </div>
+
+          <div>
+            <a [routerLink]="['/public/parking', parking.id]" class="btn-detail">
+              Ver Parking &rarr;
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div *ngIf="isLoading && parkings.length === 0">
+      <p>Cargando disponibilidad...</p>
+    </div>
+
+  </main>
+</div>
