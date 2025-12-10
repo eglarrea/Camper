@@ -1,1 +1,80 @@
-<p>history works!</p>
+<div>
+  <h2>Histórico reservas</h2>
+
+  <div>
+    <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+      
+      <div>
+        <label>Fecha Desde</label>
+        <input type="date" formControlName="fechaDesde">
+      </div>
+
+      <div>
+        <label>Fecha Hasta</label>
+        <input type="date" formControlName="fechaHasta">
+      </div>
+
+      <div>
+        <label>Parking</label>
+        <input type="text" formControlName="nombreParking" placeholder="Nombre...">
+      </div>
+
+      <div>
+        <label>Estado</label>
+        <select formControlName="estado">
+          <option value="">Todos</option>
+          <option value="CONFIRMADA">Confirmada</option>
+          <option value="CANCELADA">Cancelada</option>
+          <option value="FINALIZADA">Finalizada</option>
+        </select>
+      </div>
+
+      <div>
+        <button type="submit">Filtrar</button>
+        <button type="button" (click)="clearFilters()">Limpiar</button>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <div *ngIf="isLoading">Cargando reservas...</div>
+    
+    <div *ngIf="!isLoading && filteredBookings.length === 0">
+      No hay reservas que coincidan con los filtros.
+    </div>
+
+    <table *ngIf="!isLoading && filteredBookings.length > 0">
+      <thead>
+        <tr>
+          <th>Parking</th>
+          <th>Entrada</th>
+          <th>Salida</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of filteredBookings">
+          <td>
+            <strong>{{ booking.nombreParking }}</strong>
+            <br>
+            <small>Realizada: {{ booking.fechaRealizacion | date:'shortDate' }}</small>
+          </td>
+          <td>{{ booking.fechaEntrada | date:'shortDate' }}</td>
+          <td>{{ booking.fechaSalida | date:'shortDate' }}</td>
+          <td>
+            <span [ngClass]="booking.estado.toLowerCase()">
+              {{ booking.estado }}
+            </span>
+          </td>
+          <td>
+
+            <a [routerLink]="['/client/booking', booking.id]">
+              Ver Detalle
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
