@@ -2,7 +2,7 @@ import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   
-  if (req.url.includes('/auth/login') || req.url.includes('/auth/register')) {
+  if (req.url.includes('/auth/') || req.url.includes('/api/public/')) {
     return next(req);
   }
 

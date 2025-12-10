@@ -33,29 +33,46 @@ export class SearchParking implements OnInit {
   });
 
   ngOnInit() {
+    const today = new Date().toISOString().split('T')[0];
+    const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split('T')[0];
+    
+    this.searchForm.patchValue({
+      fechaDesde: today,
+      fechaHasta: tomorrow
+    });
+
     this.onSearch();
   }
 
   onSearch() {
+    if (this.searchForm.invalid) {
+      this.searchForm.markAllAsTouched();
+      return; 
+    }
+
     this.isLoading = true;
     this.errorMessage = '';
 
     const formVal = this.searchForm.value;
 
-    const filters: SearchFilters = {
-      fechaDesde: formVal.fechaDesde || '',
-      fechaHasta: formVal.fechaHasta || '',
-      localidad: formVal.localidad || '',
-      provincia: formVal.provincia || '',
-      tomaElectricidad: formVal.tomaElectricidad,
-      limpiezaAguasResiduales: formVal.limpiezaAguasResiduales,
-      plazasVip: formVal.plazasVip
+    const filters: any = {
+      fechaDesde: formVal.fechaDesde,
+      fechaHasta: formVal.fechaHasta,
+      tomaElectricidad: formVal.tomaElectricidad || false,
+      limpiezaAguasResiduales: formVal.limpiezaAguasResiduales || false,
+      plazasVip: formVal.plazasVip || false
     };
 
+    if (formVal.localidad && formVal.localidad.trim() !== '') {
+      filters.localidad = formVal.localidad.trim();
+    }
+
+    if (formVal.provincia && formVal.provincia.trim() !== '') {
+      filters.provincia = formVal.provincia.trim();
+    }
+
     this.parkingService.searchParkings(filters)
-      .pipe(
-        finalize(() => this.isLoading = false)
-      )
+      .pipe(finalize(() => this.isLoading = false))
       .subscribe({
         next: (data) => {
           this.parkings = data;
@@ -65,15 +82,24 @@ export class SearchParking implements OnInit {
         },
         error: (err) => {
           console.error(err);
-          this.errorMessage = 'Ocurrió un error al buscar parkings.';
+          this.errorMessage = 'Error de conexión al buscar parkings.';
         }
       });
   }
 
+  getMinPrice(parking: Parking): number {
+    if (!parking.plazas || parking.plazas.length === 0) return 0;
+    return Math.min(...parking.plazas.map(p => p.precio));
+  }
+
   clearFilters() {
+    const currentDates = {
+      fechaDesde: this.searchForm.get('fechaDesde')?.value,
+      fechaHasta: this.searchForm.get('fechaHasta')?.value
+    };
+    
     this.searchForm.reset({
-      fechaDesde: '',
-      fechaHasta: '',
+      ...currentDates,
       localidad: '',
       provincia: '',
       tomaElectricidad: false,

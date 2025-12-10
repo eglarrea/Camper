@@ -1,20 +1,44 @@
+export interface Plaza {
+  id: number;
+  nombre: string;
+  esVip: boolean;
+  tieneElectricidad: boolean;
+  estado: string; // "0" = Libre, "1" = Ocupada
+  precio: number;
+  parkingNombre: string;
+}
+
 export interface Parking {
   id: number;
   nombre: string;
-  descripcion?: string; 
+
+  web?: string;           
+  telefono?: string;      
+  email?: string;         
+  personaContacto?: string;
+  descripcion?: string;    
+
   municipio?: string;
   localidad?: string; 
   provincia?: string;
-  web?: string;
-  telefono?: string;
-  email?: string;
+  
+  tieneElectricidad?: boolean;
   tomaElectricidad?: boolean;
+  
+  tieneResiduales?: boolean;
   limpiezaAguasResiduales?: boolean;
+  
+  tieneVips?: boolean;
   plazasVip?: boolean;
+
+  media?: number; 
   numeroPlazas?: number;
+  
+  plazas?: Plaza[];        
+  plazasResponse?: Plaza[]; 
+  
   activo?: boolean;
   imagen?: string; 
-  plazas?: any[];
 }
 
 export interface SearchFilters {

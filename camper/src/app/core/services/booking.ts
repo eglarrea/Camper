@@ -33,4 +33,12 @@ export class BookingService {
     const body = { idReserva: id };
     return this.http.put(`${this.apiUrl}/reserva/cancelar`, body);
   }
+
+  /**
+   * Realizar reserva
+   * POST /public/reserva/reservar
+   */
+  createBooking(bookingData: { idPlaza: number, fechaEntrada: string, fechaSalida: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/public/reserva`, bookingData, { responseType: 'text' });
+  }
 }

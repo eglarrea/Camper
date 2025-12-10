@@ -1,28 +1,28 @@
 <div>
   
   <div>
-    <h3>Filtrar Búsqueda</h3>
+    <h3>Filtrar</h3>
     
     <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
       
       <div>
-        <label>Fecha Entrada</label>
+        <label>Fecha Entrada *</label>
         <input type="date" formControlName="fechaDesde">
       </div>
       
       <div>
-        <label>Fecha Salida</label>
+        <label>Fecha Salida *</label>
         <input type="date" formControlName="fechaHasta">
       </div>
 
-      <div class="form-group">
-        <label>Provincia</label>
-        <input type="text" formControlName="provincia" placeholder="Ej: Bizkaia">
+      <div>
+        <label>Localidad</label>
+        <input type="text" formControlName="localidad" placeholder="Ej: Getxo">
       </div>
 
       <div>
-        <label>Localidad / Municipio</label>
-        <input type="text" formControlName="localidad" placeholder="Ej: Getxo">
+        <label>Provincia</label>
+        <input type="text" formControlName="provincia" placeholder="Ej: Bizkaia">
       </div>
 
       <div>
@@ -43,14 +43,14 @@
       </div>
 
       <button type="submit" [disabled]="isLoading">
-        {{ isLoading ? 'Buscando...' : 'Buscar Parkings' }}
+        {{ isLoading ? 'Buscando...' : 'Buscar' }}
       </button>
 
       <button type="button" (click)="clearFilters()">
         Limpiar Filtros
       </button>
     </form>
-</div>
+  </div>
 
   <main>
     
@@ -58,35 +58,45 @@
       {{ errorMessage }}
     </div>
 
+
     <div>
       <article *ngFor="let parking of parkings">
-        <div>
-          <span *ngIf="parking.plazasVip">VIP</span>
-        </div>
         
         <div>
           <h2>{{ parking.nombre }}</h2>
+          <div *ngIf="parking.media">
+          Nota {{ parking.media }}/10
+          </div>
+        </div>
 
+        <div>
+          
           <p>
-            {{ parking.municipio || parking.localidad || 'Ubicación desconocida' }}
+            {{ parking.municipio }}, {{ parking.provincia }}
           </p>
           
           <div>
-            <span *ngIf="parking.tomaElectricidad" title="Electricidad">Electricidad</span>
-            <span *ngIf="parking.limpiezaAguasResiduales" title="Aguas">Aguas</span>
+            <span *ngIf="parking.tieneElectricidad" title="Electricidad">Electricidad</span>
+            <span *ngIf="parking.tieneResiduales" title="Aguas Residuales">Aguas</span>
           </div>
 
           <div>
-            <a [routerLink]="['/public/parking', parking.id]" class="btn-detail">
-              Ver Parking &rarr;
+            <div>
+              <small>Desde</small>
+              <span>{{ getMinPrice(parking) }}€</span>
+              <small>/noche</small>
+            </div>
+
+            <a [routerLink]="['/parking', parking.id]">
+              Ver Disponibilidad
             </a>
           </div>
         </div>
       </article>
     </div>
 
-    <div *ngIf="isLoading && parkings.length === 0">
-      <p>Cargando disponibilidad...</p>
+    <div *ngIf="isLoading">
+      <p>Cargando resultados...</p>
     </div>
 
   </main>

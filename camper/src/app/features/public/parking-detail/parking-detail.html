@@ -1,1 +1,87 @@
-<p>parking-detail works!</p>
+<div *ngIf="parking; else loadingTpl">
+  
+  <header>
+    <div>
+      <h1>{{ parking.nombre }}</h1>
+      <p>{{ parking.municipio || parking.localidad }}</p>
+    </div>
+  </header>
+
+  <div>
+    <section>
+      <h3>Servicios e Instalaciones</h3>
+      <div>
+        <div [class.active]="parking.tomaElectricidad || parking.tieneElectricidad">
+        Toma de Electricidad
+          <span>{{ (parking.tomaElectricidad || parking.tieneElectricidad) ? 'Sí' : 'No' }}</span>
+        </div>
+        
+        <div [class.active]="parking.limpiezaAguasResiduales || parking.tieneResiduales">
+        Aguas Residuales
+          <span>{{ (parking.limpiezaAguasResiduales || parking.tieneResiduales) ? 'Sí' : 'No' }}</span>
+        </div>
+        
+        <div [class.active]="parking.plazasVip || parking.tieneVips">
+        Zona VIP
+          <span>{{ (parking.plazasVip || parking.tieneVips) ? 'Sí' : 'No' }}</span>
+        </div>
+      </div>
+
+      <div *ngIf="parking.email || parking.telefono">
+        <h3>Contacto</h3>
+        <p *ngIf="parking.email">{{ parking.email }}</p>
+        <p *ngIf="parking.telefono">{{ parking.telefono }}</p>
+        <p *ngIf="parking.web"><a [href]="parking.web" target="_blank">Web oficial</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h3>Selecciona tu plaza</h3>
+      <p>Fechas seleccionadas: {{ entryDate }} a {{ exitDate }}</p>
+
+      <div>
+        <div 
+          *ngFor="let spot of spots" 
+          [class.selected]="selectedSpot?.id === spot.id"
+          [class.occupied]="spot.estado !== '0'"
+          (click)="selectSpot(spot)"
+        >
+          <div>
+            <button>{{ spot.nombre }} </button>
+            <span>{{ spot.precio }}€</span>
+          </div>
+          
+          <div>
+            <span *ngIf="spot.esVip">VIP </span>
+            <span *ngIf="spot.tieneElectricidad">Electr </span>
+          </div>
+
+          <div>
+            {{ spot.estado === '0' ? 'Libre' : 'Ocupada' }}
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="selectedSpot">
+        <div>
+          <span>Total a pagar:</span>
+          <span>{{ selectedSpot.precio }}€</span>
+        </div>
+        <button (click)="onBook()">
+          Reservar Plaza {{ selectedSpot.nombre }}
+        </button>
+      </div>
+      
+      <div *ngIf="!selectedSpot">
+        <p>Selecciona una plaza libre para continuar</p>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <div>
+    <p>Cargando información del parking...</p>
+  </div>
+</ng-template>
