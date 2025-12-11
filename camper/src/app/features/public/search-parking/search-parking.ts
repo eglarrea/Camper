@@ -38,7 +38,7 @@ export class SearchParking implements OnInit {
     
     this.searchForm.patchValue({
       fechaDesde: today,
-      fechaHasta: tomorrow
+      fechaHasta: today
     });
 
     this.onSearch();

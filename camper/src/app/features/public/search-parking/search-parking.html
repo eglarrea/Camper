@@ -84,10 +84,11 @@
             <div>
               <small>Desde</small>
               <span>{{ getMinPrice(parking) }}€</span>
-              <small>/noche</small>
+              <small>/día</small>
             </div>
 
-            <a [routerLink]="['/parking', parking.id]">
+            <a [routerLink]="['/parking', parking.id]"
+               [queryParams]="{ fechaDesde: searchForm.value.fechaDesde, fechaHasta: searchForm.value.fechaHasta }">
               Ver Disponibilidad
             </a>
           </div>

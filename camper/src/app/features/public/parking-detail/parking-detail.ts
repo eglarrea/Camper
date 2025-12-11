@@ -6,6 +6,7 @@ import { ParkingService } from '../../../core/services/parking';
 import { Parking, Plaza } from '../../../core/models/parking';
 import { Auth } from '../../../core/services/auth';
 import { BookingService } from '../../../core/services/booking';
+import { BookingRequest } from '../../../core/models/booking';
 
 @Component({
   selector: 'app-parking-detail',
@@ -26,11 +27,19 @@ export class ParkingDetail implements OnInit {
   isLoading = true;
   errorMessage = '';
   
-  entryDate = '2025-12-09';
-  exitDate = '2025-12-10';
+  entryDate: string = '';
+  exitDate: string = '';
 
   ngOnInit() {
     const parkingId = this.route.snapshot.paramMap.get('id');
+    this.route.queryParams.subscribe(params => {
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+
+      this.entryDate = params['fechaDesde'] || today.toISOString().split('T')[0];
+      this.exitDate = params['fechaHasta'] || tomorrow.toISOString().split('T')[0];
+    });
     if (parkingId) {
       this.loadParkingDetails(parkingId);
     }
@@ -53,6 +62,17 @@ export class ParkingDetail implements OnInit {
 
   get spots(): Plaza[] {
     return this.parking?.plazasResponse || this.parking?.plazas || [];
+  }
+
+  get totalPrice(): number {
+    if (!this.selectedSpot || !this.entryDate || !this.exitDate) return 0;
+    
+    const start = new Date(this.entryDate);
+    const end = new Date(this.exitDate);
+    
+    const diffTime = Math.abs(end.getTime() - start.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    return (diffDays+1) * this.selectedSpot.precio;
   }
 
   selectSpot(spot: Plaza) {
@@ -80,15 +100,16 @@ export class ParkingDetail implements OnInit {
       return;
     }
 
-    if (!confirm(`Vas a reservar la plaza ${this.selectedSpot.nombre} por ${this.selectedSpot.precio}€. ¿Confirmar?`)) {
+    if (!confirm(`Vas a reservar la plaza ${this.selectedSpot.nombre}. Precio Total: ${this.totalPrice}€. Fechas: ${this.entryDate} a ${this.exitDate}. ¿Confirmar?`)) {
       return;
     }
 
     this.isLoading = true;
-    const bookingData = {
+    const bookingData: BookingRequest = {
       idPlaza: this.selectedSpot.id,
-      fechaEntrada: this.entryDate, 
-      fechaSalida: this.exitDate
+      idParking: this.parking!.id, 
+      fecInicio: this.entryDate, 
+      fecFin: this.exitDate     
     };
 
     this.bookingService.createBooking(bookingData).subscribe({

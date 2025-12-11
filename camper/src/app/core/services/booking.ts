@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Booking } from '../models/booking';
+import { Booking, BookingHistoryResponse, BookingRequest } from '../models/booking';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class BookingService {
    * Ver historial de reservas completo
    * GET /historico/listado
    */
-  getHistory(): Observable<Booking[]> {
-    return this.http.get<Booking[]>(`${this.apiUrl}/historico/listado`);
+  getHistory(): Observable<BookingHistoryResponse[]> {
+    return this.http.get<BookingHistoryResponse[]>(`${this.apiUrl}/historico/listado`);
   }
 
   /**
@@ -36,9 +36,9 @@ export class BookingService {
 
   /**
    * Realizar reserva
-   * POST /public/reserva/reservar
+   * POST /public/reserva
    */
-  createBooking(bookingData: { idPlaza: number, fechaEntrada: string, fechaSalida: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/public/reserva`, bookingData, { responseType: 'text' });
+  createBooking(bookingData: BookingRequest): Observable<any> {
+    return this.http.post(`${this.apiUrl}/reserva`, bookingData, { responseType: 'text' });
   }
 }
