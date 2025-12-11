@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { BookingService } from '../../../core/services/booking';
-import { Booking } from '../../../core/models/booking';
+import { BookingHistoryResponse } from '../../../core/models/booking';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -17,8 +17,8 @@ export class History implements OnInit {
   private bookingService = inject(BookingService);
   private fb = inject(FormBuilder);
 
-  allBookings: Booking[] = [];
-  filteredBookings: Booking[] = [];
+  allBookings: BookingHistoryResponse[] = [];
+  filteredBookings: BookingHistoryResponse[] = [];
   
   isLoading = true;
   errorMessage = '';
@@ -38,13 +38,16 @@ export class History implements OnInit {
     this.isLoading = true;
     this.bookingService.getHistory().subscribe({
       next: (data) => {
-        this.allBookings = data;
-        this.filteredBookings = data;
+        this.allBookings = data.sort((a, b) => {
+          return new Date(b.fecAlta).getTime() - new Date(a.fecAlta).getTime();
+        });
+        
+        this.filteredBookings = [...this.allBookings];
         this.isLoading = false;
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Error cargando historial.';
+        this.errorMessage = 'Error loading history.';
         this.isLoading = false;
       }
     });
@@ -56,20 +59,21 @@ export class History implements OnInit {
     this.filteredBookings = this.allBookings.filter(booking => {
       let matches = true;
 
-      if (filters.fechaDesde) {
-        matches = matches && new Date(booking.fechaEntrada) >= new Date(filters.fechaDesde);
+      if (filters.fechaDesde && booking.fecInicio) {
+        matches = matches && new Date(booking.fecInicio) >= new Date(filters.fechaDesde);
       }
 
-      if (filters.fechaHasta) {
-        matches = matches && new Date(booking.fechaSalida) <= new Date(filters.fechaHasta);
+      if (filters.fechaHasta && booking.fecFin) {
+        matches = matches && new Date(booking.fecFin) <= new Date(filters.fechaHasta);
       }
 
       if (filters.nombreParking) {
         const searchStr = filters.nombreParking.toLowerCase();
-        matches = matches && booking.nombreParking.toLowerCase().includes(searchStr);
+        const pName = booking.parkingNombre ? booking.parkingNombre.toLowerCase() : '';
+        matches = matches && pName.includes(searchStr);
       }
 
-      if (filters.estado) {
+      if (filters.estado && filters.estado !== '') {
         matches = matches && booking.estado === filters.estado;
       }
 
@@ -78,7 +82,35 @@ export class History implements OnInit {
   }
 
   clearFilters() {
-    this.filterForm.reset();
+    this.filterForm.reset({
+        fechaDesde: '',
+        fechaHasta: '',
+        nombreParking: '',
+        estado: ''
+    });
     this.filteredBookings = [...this.allBookings];
+  }
+
+  cancelBooking(id: number) {
+    if (!confirm('¿Estás seguro de que deseas cancelar esta reserva?')) {
+      return;
+    }
+
+    this.isLoading = true;
+    this.bookingService.cancelBooking(id).subscribe({
+      next: () => {
+        alert('Reserva cancelada correctamente.');
+        this.loadHistory(); 
+      },
+      error: (err) => {
+        console.error(err);
+        alert('Hubo un error al intentar cancelar la reserva.');
+        this.isLoading = false;
+      }
+    });
+  }
+
+  getStatusLabel(estado: string): string {
+    return estado === '1' ? 'Confirmada' : 'Cancelada';
   }
 }

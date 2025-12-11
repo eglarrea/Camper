@@ -65,7 +65,7 @@
       <div *ngIf="selectedSpot">
         <div>
           <span>Total a pagar:</span>
-          <span>{{ selectedSpot.precio }}€</span>
+          <span>{{ totalPrice }}€</span>
         </div>
         <button (click)="onBook()">
           Reservar Plaza {{ selectedSpot.nombre }}

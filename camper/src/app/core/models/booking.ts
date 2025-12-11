@@ -16,3 +16,26 @@ export interface BookingFilters {
   nombreParking?: string;
   estado?: string;
 }
+
+export interface BookingRequest {
+  idPlaza: number;
+  idParking: number;
+  fecInicio: string; 
+  fecFin: string;    
+}
+
+export interface BookingHistoryResponse {
+  id: number;
+  usuarioId: number;
+  usuarioEmail: string;
+  plazaId: number;
+  parkingId: number;
+  parkingNombre: string;
+  precio: number;
+  precioTotal: number;
+  fecInicio: string | null;
+  fecFin: string | null;
+  fecAlta: string;
+  estado: string;
+  puntuacion: number | null;
+}

@@ -1,80 +1,87 @@
-<div>
-  <h2>Histórico reservas</h2>
+<main>
+  <h1>Historial de Reservas</h1>
 
-  <div>
+  <section>
     <form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
-      
       <div>
-        <label>Fecha Desde</label>
-        <input type="date" formControlName="fechaDesde">
-      </div>
+        <div>
+          <label>Desde</label>
+          <input type="date" formControlName="fechaDesde" class="form-control">
+        </div>
+        
+        <div>
+          <label>Hasta</label>
+          <input type="date" formControlName="fechaHasta">
+        </div>
 
-      <div>
-        <label>Fecha Hasta</label>
-        <input type="date" formControlName="fechaHasta">
-      </div>
+        <div>
+          <label>Parking</label>
+          <input type="text" formControlName="nombreParking" placeholder="Nombre...">
+        </div>
 
-      <div>
-        <label>Parking</label>
-        <input type="text" formControlName="nombreParking" placeholder="Nombre...">
-      </div>
+        <div>
+          <label>Estado</label>
+          <select formControlName="estado">
+            <option value="">Todos</option>
+            <option value="1">Confirmada</option>
+            <option value="0">Cancelada</option>
+          </select>
+        </div>
 
-      <div>
-        <label>Estado</label>
-        <select formControlName="estado">
-          <option value="">Todos</option>
-          <option value="CONFIRMADA">Confirmada</option>
-          <option value="CANCELADA">Cancelada</option>
-          <option value="FINALIZADA">Finalizada</option>
-        </select>
-      </div>
-
-      <div>
-        <button type="submit">Filtrar</button>
-        <button type="button" (click)="clearFilters()">Limpiar</button>
+        <div>
+          <button type="submit">Filtrar</button>
+          <button type="button" (click)="clearFilters()">Limpiar</button>
+        </div>
       </div>
     </form>
+  </section>
+
+  <div *ngIf="isLoading">
+    <p>Cargando historial...</p>
   </div>
 
-  <div>
-    <div *ngIf="isLoading">Cargando reservas...</div>
+  <div *ngIf="!isLoading">
     
-    <div *ngIf="!isLoading && filteredBookings.length === 0">
-      No hay reservas que coincidan con los filtros.
+    <div *ngIf="filteredBookings.length === 0">
+      <p>No se encontraron reservas con estos criterios.</p>
     </div>
 
-    <table *ngIf="!isLoading && filteredBookings.length > 0">
-      <thead>
-        <tr>
-          <th>Parking</th>
-          <th>Entrada</th>
-          <th>Salida</th>
-          <th>Estado</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let booking of filteredBookings">
-          <td>
-            <strong>{{ booking.nombreParking }}</strong>
-            <br>
-            <small>Realizada: {{ booking.fechaRealizacion | date:'shortDate' }}</small>
-          </td>
-          <td>{{ booking.fechaEntrada | date:'shortDate' }}</td>
-          <td>{{ booking.fechaSalida | date:'shortDate' }}</td>
-          <td>
-            <span [ngClass]="booking.estado.toLowerCase()">
-              {{ booking.estado }}
-            </span>
-          </td>
-          <td>
+    <article *ngFor="let booking of filteredBookings" [class.cancelled]="booking.estado === '0'">
+      <div>
+        <div>
+          <h2>{{ booking.parkingNombre || 'Parking #' + booking.parkingId }}</h2>
+          <span>Solicitada el: {{ booking.fecAlta | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <span [ngClass]="{'confirmed': booking.estado === '1', 'cancelled': booking.estado === '0'}">
+          {{ getStatusLabel(booking.estado) }}
+        </span>
+      </div>
 
-            <a [routerLink]="['/client/booking', booking.id]">
-              Ver Detalle
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+      <div>
+        <div>
+          <strong>Fechas:</strong>
+          <span *ngIf="booking.fecInicio && booking.fecFin; else noDates">
+            {{ booking.fecInicio | date:'dd/MM/yyyy' }} - {{ booking.fecFin | date:'dd/MM/yyyy' }}
+          </span>
+          <ng-template #noDates><span>--/--/----</span></ng-template>
+        </div>
+
+        <div>
+          <strong>Plaza:</strong>
+          <span>ID {{ booking.plazaId }}</span>
+        </div>
+
+        <div>
+          <strong>Total:</strong>
+          <span>{{ (booking.precioTotal > 0 ? booking.precioTotal : booking.precio) | currency:'EUR' }}</span>
+        </div>
+      </div>
+
+      <div>
+        <button *ngIf="booking.estado === '1'" (click)="cancelBooking(booking.id)">
+          Cancelar Reserva
+        </button>
+      </div>
+    </article>
   </div>
-</div>
+</main>
