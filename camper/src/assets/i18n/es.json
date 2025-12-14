@@ -78,32 +78,47 @@
   "PERSONAL_DATA": "Datos Personales",
   "NOT_EDITABLE": "No editable",
 
-  "FIELDS": {
-    "NAME": "Nombre",
-    "LASTNAME": "Apellidos",
-    "DNI": "DNI",
-    "EMAIL": "Email",
-    "BIRTHDATE": "Fecha de nacimiento",
-    "IBAN": "IBAN",
-    "NEW_PASSWORD": "Nueva contraseña",
-    "CONFIRM_PASSWORD": "Confirmar contraseña"
+    "FIELDS": {
+      "NAME": "Nombre",
+      "LASTNAME": "Apellidos",
+      "DNI": "DNI",
+      "EMAIL": "Email",
+      "BIRTHDATE": "Fecha de nacimiento",
+      "IBAN": "IBAN",
+      "NEW_PASSWORD": "Nueva contraseña",
+      "CONFIRM_PASSWORD": "Confirmar contraseña"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Campo obligatorio.",
+      "UNDER_AGE": "Debes ser mayor de edad.",
+      "INVALID_IBAN": "IBAN inválido.",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden."
+    },
+
+    "CHANGE_PASSWORD": "Cambiar contraseña",
+    "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave.",
+
+    "BUTTONS": {
+      "EDIT": "Editar datos",
+      "CANCEL": "Cancelar",
+      "SAVE": "Guardar cambios",
+      "SAVING": "Guardando..."
+    }
   },
 
-  "ERROR": {
-    "REQUIRED": "Campo obligatorio.",
-    "UNDER_AGE": "Debes ser mayor de edad.",
-    "INVALID_IBAN": "IBAN inválido.",
-    "PASSWORDS_MISMATCH": "Las contraseñas no coinciden."
-  },
-
-  "CHANGE_PASSWORD": "Cambiar contraseña",
-  "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave.",
-
-  "BUTTONS": {
-    "EDIT": "Editar datos",
-    "CANCEL": "Cancelar",
-    "SAVE": "Guardar cambios",
-    "SAVING": "Guardando..."
+  "SEARCH": {
+    "DESTINATION": "Destino",
+    "PROVINCE": "Provincia",
+    "BUTTON": "Buscar",
+    "LOADING": "Buscando parkings...",
+    "ELECTRICITY": "Toma de electricidad",
+    "RESIDUALS": "Limpieza de aguas residuales",
+    "VIP": "Plazas VIP",
+    "RESULTS": "parking encontrados",
+    "ALL": "Todos",
+    "DETAILS": "Detalles",
+    "NIGHT": "noche",
+    "NO_RESULTS": "No se encontraron resultados."
   }
-}
 }

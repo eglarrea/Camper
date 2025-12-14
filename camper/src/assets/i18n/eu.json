@@ -77,32 +77,47 @@
   "PERSONAL_DATA": "Datos Personales_EU",
   "NOT_EDITABLE": "No editable_EU",
 
-  "FIELDS": {
-    "NAME": "Nombre_EU",
-    "LASTNAME": "Apellidos_EU",
-    "DNI": "DNI_EU",
-    "EMAIL": "Email_EU",
-    "BIRTHDATE": "Fecha de nacimiento_EU",
-    "IBAN": "IBAN_EU",
-    "NEW_PASSWORD": "Nueva contraseña_EU",
-    "CONFIRM_PASSWORD": "Confirmar contraseña_EU"
+    "FIELDS": {
+      "NAME": "Nombre_EU",
+      "LASTNAME": "Apellidos_EU",
+      "DNI": "DNI_EU",
+      "EMAIL": "Email_EU",
+      "BIRTHDATE": "Fecha de nacimiento_EU",
+      "IBAN": "IBAN_EU",
+      "NEW_PASSWORD": "Nueva contraseña_EU",
+      "CONFIRM_PASSWORD": "Confirmar contraseña_EU"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Campo obligatorio._EU",
+      "UNDER_AGE": "Debes ser mayor de edad._EU",
+      "INVALID_IBAN": "IBAN inválido._EU",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
+    },
+
+    "CHANGE_PASSWORD": "Cambiar contraseña_EU",
+    "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave._EU",
+
+    "BUTTONS": {
+      "EDIT": "Editar datos_EU",
+      "CANCEL": "Cancelar_EU",
+      "SAVE": "Guardar cambios_EU",
+      "SAVING": "Guardando..._EU"
+    }
   },
 
-  "ERROR": {
-    "REQUIRED": "Campo obligatorio._EU",
-    "UNDER_AGE": "Debes ser mayor de edad._EU",
-    "INVALID_IBAN": "IBAN inválido._EU",
-    "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
-  },
-
-  "CHANGE_PASSWORD": "Cambiar contraseña_EU",
-  "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave._EU",
-
-  "BUTTONS": {
-    "EDIT": "Editar datos_EU",
-    "CANCEL": "Cancelar_EU",
-    "SAVE": "Guardar cambios_EU",
-    "SAVING": "Guardando..._EU"
+  "SEARCH": {
+    "DESTINATION": "Destino_EU",
+    "PROVINCE": "Provincia_EU",
+    "BUTTON": "Buscar_EU",
+    "LOADING": "Buscando parkings..._EU",
+    "ELECTRICITY": "Toma de electricidad_EU",
+    "RESIDUALS": "Limpieza de aguas residuales_EU",
+    "VIP": "Plazas VIP_EU",
+    "RESULTS": "parking encontrados_EU",
+    "ALL": "Todos_EU",
+    "DETAILS": "Detalles_EU",
+    "NIGHT": "noche_EU",
+    "NO_RESULTS": "No se encontraron resultados._EU"
   }
-}
 }
