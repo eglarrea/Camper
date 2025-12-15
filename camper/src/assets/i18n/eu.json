@@ -1,5 +1,6 @@
 {
   "HEADER": {
+    "SEARCH": "Buscar parking_EU",
     "LOGIN": "Saioa Hasi",
     "REGISTER": "Erregistratu",
     "PROFILE": "Nire datuak",
@@ -7,101 +8,116 @@
     "LOGOUT": "Irten"
   },
   "FOOTER": {
-    "CONTACT": "",
-    "PROJECT": ""
+    "CONTACT": "Contáctanos_EU",
+    "PROJECT": "Proyecto para TFG de DAW_EU"
   },
 
   "LOGIN": {
-    "TITLE": "",
-    "EMAIL": "",
-    "PASSWORD": "",
-    "PLACEHOLDER_EMAIL": "",
+    "TITLE": "Inicia Sesión_EU",
+    "EMAIL": "Correo electrónico_EU",
+    "PASSWORD": "Contraseña_EU",
+    "PLACEHOLDER_EMAIL": "ejemplo@correo.com_EU",
     "PLACEHOLDER_PASSWORD": "******",
-    "BUTTON": "",
-    "LOADING": "",
+    "BUTTON": "Entrar_EU",
+    "LOADING": "Cargando..._EU",
     "ERROR": {
-      "REQUIRED_EMAIL": "",
-      "INVALID_EMAIL": "",
-      "REQUIRED_PASSWORD": "",
-      "INVALID_CREDENTIALS": "",
-      "TIMEOUT": "",
-      "UNKNOWN": ""
+      "REQUIRED_EMAIL": "El email es obligatorio._EU",
+      "INVALID_EMAIL": "Formato de email incorrecto._EU",
+      "REQUIRED_PASSWORD": "La contraseña es obligatoria._EU",
+      "INVALID_CREDENTIALS": "Credenciales inválidas. Comprueba tu email y contraseña._EU",
+      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde._EU",
+      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo más tarde._EU"
     }
   },
-
   "REGISTER": {
-    "TITLE": "",
-    "BUTTON": "",
-    "LOADING": "",
-    "SUCCESS": "",
+    "TITLE": "Registro de Usuario_EU",
+    "BUTTON": "Crear cuenta_EU",
+    "LOADING": "Procesando..._EU",
+    "SUCCESS": "Registro completado correctamente._EU",
 
     "FIELDS": {
-      "NAME": "",
-      "LASTNAME": "",
-      "DNI": "",
-      "BIRTHDATE": "",
-      "IBAN": "",
-      "EMAIL": "",
-      "PASSWORD": "",
-      "CONFIRM": ""
+      "NAME": "Nombre *_EU",
+      "LASTNAME": "Apellidos *_EU",
+      "DNI": "DNI *_EU",
+      "BIRTHDATE": "Fecha de nacimiento *_EU",
+      "IBAN": "IBAN (Cuenta bancaria)_EU",
+      "EMAIL": "Correo electrónico *_EU",
+      "PASSWORD": "Contraseña *_EU",
+      "CONFIRM": "Confirmar *_EU"
     },
 
     "PLACEHOLDERS": {
-      "DNI": "12345678Z",
-      "IBAN": "ES...",
-      "EMAIL": "",
-      "PASSWORD": ""
+      "DNI": "12345678Z_EU",
+      "IBAN": "ES..._EU",
+      "EMAIL": "ejemplo@correo.com_EU",
+      "PASSWORD": "Contraseña_EU"
     },
 
     "ERROR": {
-      "REQUIRED": "",
-      "INVALID_EMAIL": "",
-      "INVALID_DNI_FORMAT": "",
-      "INVALID_DNI_LETTER": "",
-      "UNDER_AGE": "",
-      "INVALID_IBAN": "",
-      "PASSWORDS_MISMATCH": ""
+      "REQUIRED": "Obligatorio._EU",
+      "INVALID_EMAIL": "Email inválido._EU",
+      "INVALID_DNI_FORMAT": "Formato incorrecto._EU",
+      "INVALID_DNI_LETTER": "Letra incorrecta._EU",
+      "UNDER_AGE": "Debes ser mayor de 18._EU",
+      "INVALID_IBAN": "Formato IBAN inválido (ES + 22 dígitos)._EU",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
     },
 
     "BACKEND": {
-      "USER_EXISTS": "",
-      "UNKNOWN": ""
+      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde._EU",
+      "USER_EXISTS": "El usuario ya existe._EU",
+      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo de nuevo._EU"
     }
   },
 
   "PROFILE": {
-  "TITLE": "",
-  "SUBTITLE": "",
-  "LOADING": "",
-  "PERSONAL_DATA": "",
-  "NOT_EDITABLE": "",
+  "TITLE": "Mis Datos_EU",
+  "SUBTITLE": "Consulta y actualiza tu información personal._EU",
+  "LOADING": "Cargando datos..._EU",
+  "PERSONAL_DATA": "Datos Personales_EU",
+  "NOT_EDITABLE": "No editable_EU",
 
-  "FIELDS": {
-    "NAME": "",
-    "LASTNAME": "",
-    "DNI": "",
-    "EMAIL": "",
-    "BIRTHDATE": "",
-    "IBAN": "",
-    "NEW_PASSWORD": "",
-    "CONFIRM_PASSWORD": ""
+    "FIELDS": {
+      "NAME": "Nombre_EU",
+      "LASTNAME": "Apellidos_EU",
+      "DNI": "DNI_EU",
+      "EMAIL": "Email_EU",
+      "BIRTHDATE": "Fecha de nacimiento_EU",
+      "IBAN": "IBAN_EU",
+      "NEW_PASSWORD": "Nueva contraseña_EU",
+      "CONFIRM_PASSWORD": "Confirmar contraseña_EU"
+    },
+
+    "ERROR": {
+      "REQUIRED": "Campo obligatorio._EU",
+      "UNDER_AGE": "Debes ser mayor de edad._EU",
+      "INVALID_IBAN": "IBAN inválido._EU",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
+    },
+
+    "CHANGE_PASSWORD": "Cambiar contraseña_EU",
+    "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave._EU",
+
+    "BUTTONS": {
+      "EDIT": "Editar datos_EU",
+      "CANCEL": "Cancelar_EU",
+      "SAVE": "Guardar cambios_EU",
+      "SAVING": "Guardando..._EU"
+    }
   },
 
-  "ERROR": {
-    "REQUIRED": "",
-    "UNDER_AGE": "",
-    "INVALID_IBAN": "",
-    "PASSWORDS_MISMATCH": ""
-  },
-
-  "CHANGE_PASSWORD": "",
-  "PASSWORD_NOTE": "",
-
-  "BUTTONS": {
-    "EDIT": "",
-    "CANCEL": "",
-    "SAVE": "",
-    "SAVING": ""
+  "SEARCH": {
+    "DESTINATION": "Destino_EU",
+    "PROVINCE": "Provincia_EU",
+    "BUTTON": "Buscar_EU",
+    "LOADING": "Buscando parkings..._EU",
+    "ELECTRICITY": "Toma de electricidad_EU",
+    "RESIDUALS": "Limpieza de aguas residuales_EU",
+    "VIP": "Plazas VIP_EU",
+    "RESULTS": "parking encontrados_EU",
+    "ALL": "Todos_EU",
+    "DETAILS": "Detalles_EU",
+    "NIGHT": "noche_EU",
+    "NO_RESULTS": "No se encontraron resultados._EU"
   }
-}
 }

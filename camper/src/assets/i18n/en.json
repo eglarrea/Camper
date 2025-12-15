@@ -1,5 +1,6 @@
 {
   "HEADER": {
+    "SEARCH": "Search parking",
     "LOGIN": "Log in",
     "REGISTER": "Sign Up",
     "PROFILE": "My profile",
@@ -105,5 +106,20 @@
       "SAVE": "Save changes",
       "SAVING": "Saving..."
     }
+  },
+
+  "SEARCH": {
+    "DESTINATION": "Destination",
+    "PROVINCE": "Province",
+    "BUTTON": "Search",
+    "LOADING": "Searching parkings...",
+    "ELECTRICITY": "Electricity",
+    "RESIDUALS": "Waste water",
+    "VIP": "VIP spots",
+    "RESULTS": "parkings found",
+    "ALL": "All",
+    "DETAILS": "Details",
+    "NIGHT": "night",
+    "NO_RESULTS": "No results found."
   }
 }

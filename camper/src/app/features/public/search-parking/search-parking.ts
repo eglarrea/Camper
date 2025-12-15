@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { ParkingService } from '../../../core/services/parking';
 import { Parking, SearchFilters } from '../../../core/models/parking';
-import { TranslateModule } from '@ngx-translate/core'; 
+import { TranslateModule } from '@ngx-translate/core';
 import { finalize } from 'rxjs/operators';
 
 @Component({
@@ -26,7 +26,7 @@ export class SearchParking implements OnInit {
     fechaDesde: [''],
     fechaHasta: [''],
     localidad: [''],
-    provincia: [''], 
+    provincia: [''],
     tomaElectricidad: [false],
     limpiezaAguasResiduales: [false],
     plazasVip: [false]
@@ -35,7 +35,7 @@ export class SearchParking implements OnInit {
   ngOnInit() {
     const today = new Date().toISOString().split('T')[0];
     const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1)).toISOString().split('T')[0];
-    
+
     this.searchForm.patchValue({
       fechaDesde: today,
       fechaHasta: today
@@ -47,7 +47,7 @@ export class SearchParking implements OnInit {
   onSearch() {
     if (this.searchForm.invalid) {
       this.searchForm.markAllAsTouched();
-      return; 
+      return;
     }
 
     this.isLoading = true;
@@ -60,7 +60,7 @@ export class SearchParking implements OnInit {
       fechaHasta: formVal.fechaHasta,
       tomaElectricidad: formVal.tomaElectricidad || false,
       limpiezaAguasResiduales: formVal.limpiezaAguasResiduales || false,
-      plazasVip: formVal.plazasVip || false
+      tieneVips: formVal.tieneVips || false
     };
 
     if (formVal.localidad && formVal.localidad.trim() !== '') {
@@ -97,15 +97,40 @@ export class SearchParking implements OnInit {
       fechaDesde: this.searchForm.get('fechaDesde')?.value,
       fechaHasta: this.searchForm.get('fechaHasta')?.value
     };
-    
+
     this.searchForm.reset({
       ...currentDates,
       localidad: '',
       provincia: '',
       tomaElectricidad: false,
       limpiezaAguasResiduales: false,
-      plazasVip: false
+      tieneVips: false
     });
     this.onSearch();
+  }
+
+  // Para las fechas del buscador
+  openDatePicker(event: Event) {
+    const input = event.target as HTMLInputElement;
+    input.showPicker?.();
+  }
+
+  // Para los servicios en las tarjetas de los parking
+  getServices(parking: Parking): string[] {
+    const services: string[] = [];
+
+    if (parking.tieneElectricidad) {
+      services.push('SEARCH.ELECTRICITY');
+    }
+
+    if (parking.tieneResiduales) {
+      services.push('SEARCH.RESIDUALS');
+    }
+
+    if (parking.tieneVips) {
+      services.push('SEARCH.VIP');
+    }
+
+    return services;
   }
 }
