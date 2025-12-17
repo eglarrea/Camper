@@ -23,6 +23,9 @@ export class History implements OnInit {
   isLoading = true;
   errorMessage = '';
 
+  showQrModal = false;
+  currentQrCode: string | null = null;
+
   filterForm: FormGroup = this.fb.group({
     fechaDesde: [''],
     fechaHasta: [''],
@@ -98,14 +101,100 @@ export class History implements OnInit {
 
     this.isLoading = true;
     this.bookingService.cancelBooking(id).subscribe({
-      next: () => {
-        alert('Reserva cancelada correctamente.');
+      next: (response: any) => { 
+        const msg = response && (response.message || response) ? (response.message || response) : 'Reserva cancelada correctamente.';
+        alert(msg);
         this.loadHistory(); 
       },
       error: (err) => {
         console.error(err);
-        alert('Hubo un error al intentar cancelar la reserva.');
         this.isLoading = false;
+        
+        let errorMsg = 'Hubo un error al intentar cancelar la reserva.';
+        if (err.error) {
+           if (typeof err.error === 'string') {
+             errorMsg = err.error;
+           } 
+           else if (err.error.error) {
+             errorMsg = err.error.error;
+           }
+           else if (err.error.message) {
+             errorMsg = err.error.message;
+           }
+        }
+        alert(errorMsg);
+      }
+    });
+  }
+
+  viewQr(id: number) {
+    this.isLoading = true;
+    this.bookingService.getQrCode(id).subscribe({
+      next: (qrData) => {
+        this.currentQrCode = qrData; 
+        this.showQrModal = true;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error(err);
+        
+        let errorMsg = 'No se pudo obtener el código QR. Inténtalo de nuevo.';
+        
+        if (err.status === 400) {
+            errorMsg = 'Error: No se encontró la reserva o no tienes permiso para ver este QR.';
+        }
+        
+        if (err.error) {
+             if (typeof err.error === 'string') {
+               errorMsg = err.error;
+             } else if (err.error.error || err.error.message) {
+               errorMsg = err.error.error || err.error.message;
+             }
+        }
+        
+        alert(errorMsg);
+        this.isLoading = false;
+      }
+    });
+  }
+
+  closeQrModal() {
+    this.showQrModal = false;
+    this.currentQrCode = null;
+  }
+  
+  rateBooking(id: number) {
+    const scoreStr = prompt('Por favor, introduce una puntuación del 0 al 10:');
+    
+    if (scoreStr === null) return;
+
+    const score = Number(scoreStr);
+    
+    if (isNaN(score) || score < 0 || score > 10) {
+      alert('Por favor introduce un número válido entre 0 y 10.');
+      return;
+    }
+
+    this.isLoading = true;
+    this.bookingService.rateBooking(id, score).subscribe({
+      next: () => {
+        alert('¡Gracias por tu valoración!');
+        this.loadHistory();
+      },
+      error: (err) => {
+        console.error(err);
+        this.isLoading = false;
+        let errorMsg = 'Error al enviar la valoración.';
+        if (err.error) {
+           if (typeof err.error === 'string') {
+             errorMsg = err.error;
+           } else if (err.error.error) {
+             errorMsg = err.error.error;
+           } else if (err.error.message) {
+             errorMsg = err.error.message;
+           }
+        }
+        alert(errorMsg);
       }
     });
   }

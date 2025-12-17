@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ParkingService } from '../../../core/services/parking';
-import { Parking, Plaza } from '../../../core/models/parking';
+import { Parking, Plaza, SearchFilters } from '../../../core/models/parking';
 import { Auth } from '../../../core/services/auth';
 import { BookingService } from '../../../core/services/booking';
 import { BookingRequest } from '../../../core/models/booking';
@@ -54,9 +54,18 @@ export class ParkingDetail implements OnInit {
 
   loadParkingDetails(id: string) {
     this.isLoading = true;
-    this.parkingService.getParkingById(id).subscribe({
+    const filters: SearchFilters = {
+      id: Number(id),
+      fechaDesde: this.entryDate,
+      fechaHasta: this.exitDate
+    };
+    this.parkingService.searchParkings(filters).subscribe({
       next: (data) => {
-        this.parking = data;
+        if (data && data.length > 0) {
+          this.parking = data[0];
+        } else {
+          this.errorMessage = 'Parking no encontrado o no disponible para estas fechas.';
+        }
         this.isLoading = false;
       },
       error: (err) => {
