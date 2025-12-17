@@ -23,14 +23,21 @@ export class ParkingDetail implements OnInit {
   private bookingService = inject(BookingService);
 
   parking: Parking | null = null;
-  selectedSpot: Plaza | null = null; 
+  selectedSpot: Plaza | null = null;
   isLoading = true;
   errorMessage = '';
-  
+  isMobile = false;
+
   entryDate: string = '';
   exitDate: string = '';
 
   ngOnInit() {
+    this.checkViewport();
+
+    window.addEventListener('resize', () => {
+      this.checkViewport();
+    });
+
     const parkingId = this.route.snapshot.paramMap.get('id');
     this.route.queryParams.subscribe(params => {
       const today = new Date();
@@ -66,12 +73,12 @@ export class ParkingDetail implements OnInit {
 
   get totalPrice(): number {
     if (!this.selectedSpot || !this.entryDate || !this.exitDate) return 0;
-    
+
     const start = new Date(this.entryDate);
     const end = new Date(this.exitDate);
-    
+
     const diffTime = Math.abs(end.getTime() - start.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return (diffDays+1) * this.selectedSpot.precio;
   }
 
@@ -107,9 +114,9 @@ export class ParkingDetail implements OnInit {
     this.isLoading = true;
     const bookingData: BookingRequest = {
       idPlaza: this.selectedSpot.id,
-      idParking: this.parking!.id, 
-      fecInicio: this.entryDate, 
-      fecFin: this.exitDate     
+      idParking: this.parking!.id,
+      fecInicio: this.entryDate,
+      fecFin: this.exitDate
     };
 
     this.bookingService.createBooking(bookingData).subscribe({
@@ -123,5 +130,44 @@ export class ParkingDetail implements OnInit {
         this.isLoading = false;
       }
     });
+  }
+
+  // Para la galería
+  galleryImages: string[] = [
+    '/images/fotos/camper1.jpg',
+    '/images/fotos/camper2.jpg',
+    '/images/fotos/camper3.jpg',
+    '/images/fotos/camper4.jpg',
+    '/images/fotos/camper5.jpg'
+  ];
+
+  isGalleryOpen = false;
+  currentImage = 0;
+
+  openGallery(index: number) {
+    this.currentImage = index;
+    this.isGalleryOpen = true;
+  }
+
+  closeGallery() {
+    this.isGalleryOpen = false;
+  }
+
+  nextImage(event: Event) {
+    event.stopPropagation();
+    this.currentImage =
+      (this.currentImage + 1) % this.galleryImages.length;
+  }
+
+  prevImage(event: Event) {
+    event.stopPropagation();
+    this.currentImage =
+      (this.currentImage - 1 + this.galleryImages.length) %
+      this.galleryImages.length;
+  }
+
+  // Para detectar el movil
+  checkViewport() {
+    this.isMobile = window.innerWidth <= 768;
   }
 }
