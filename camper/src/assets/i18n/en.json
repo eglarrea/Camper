@@ -121,5 +121,18 @@
     "DETAILS": "Details",
     "NIGHT": "night",
     "NO_RESULTS": "No results found."
+  },
+
+  "PARKING": {
+    "SERVICES": "Services",
+    "SELECT_SPOT": "Select your spot",
+    "DATES": "Selected dates",
+    "FREE": "Free",
+    "OCCUPIED": "Occupied",
+    "TOTAL": "Total price",
+    "RESERVE_SPOT": "Reserve spot",
+    "SELECT_FREE": "Select a free spot to continue",
+    "CONTACT": "Contact",
+    "LOADING": "Loading parking information..."
   }
 }

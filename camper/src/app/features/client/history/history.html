@@ -59,29 +59,21 @@
 
       <div>
         <div>
-          <strong>Fechas:</strong>
-          <span *ngIf="booking.fecInicio && booking.fecFin; else noDates">
+          <p><strong>Ref:</strong> #{{ booking.id }}</p>
+          <p><strong>Fechas:</strong></p>
+          <span *ngIf="booking.fecInicio && booking.fecFin">
             {{ booking.fecInicio | date:'dd/MM/yyyy' }} - {{ booking.fecFin | date:'dd/MM/yyyy' }}
           </span>
-          <ng-template #noDates><span>--/--/----</span></ng-template>
+          <p><strong>Total:</strong> {{ (booking.precioTotal > 0 ? booking.precioTotal : booking.precio) | currency:'EUR' }}</p>
+          <p *ngIf="booking.puntuacion"><strong>Tu valoración:</strong> {{ booking.puntuacion }}/10</p>
         </div>
-
         <div>
-          <strong>Plaza:</strong>
-          <span>ID {{ booking.plazaId }}</span>
-        </div>
-
-        <div>
-          <strong>Total:</strong>
-          <span>{{ (booking.precioTotal > 0 ? booking.precioTotal : booking.precio) | currency:'EUR' }}</span>
+          <a [routerLink]="['/client/booking', booking.id]">
+          Ver Detalles y Gestionar
+          </a>
         </div>
       </div>
 
-      <div>
-        <button *ngIf="booking.estado === '1'" (click)="cancelBooking(booking.id)">
-          Cancelar Reserva
-        </button>
-      </div>
     </article>
   </div>
 </main>

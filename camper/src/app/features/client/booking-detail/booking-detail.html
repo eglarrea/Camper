@@ -1,1 +1,77 @@
-<p>booking-detail works!</p>
+<main>
+  <div>
+    <button (click)="goBack()">Volver al Historial</button>
+  </div>
+
+  <div *ngIf="isLoading">
+    <p>Cargando detalles...</p>
+  </div>
+
+  <div *ngIf="errorMessage">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="!isLoading && booking">
+    
+    <header>
+      <h1>{{ booking.parkingNombre || booking.nombreParking || 'Reserva #' + booking.id }}</h1>
+      <span [ngClass]="{'active': booking.estado === '1', 'inactive': booking.estado === '0'}">
+        {{ getStatusLabel(booking.estado) }}
+      </span>
+    </header>
+
+    <div>
+      <section>
+        <h3>Información General</h3>
+        <p><strong>Referencia:</strong> #{{ booking.id }}</p>
+        <p><strong>Fecha Solicitud:</strong> {{ (booking.fecAlta || booking.fechaRealizacion) | date:'dd/MM/yyyy HH:mm' }}</p>
+        <p><strong>Plaza:</strong> {{ booking.plazaId || booking.plazaNombre }}</p>
+      </section>
+
+      <section>
+        <h3>Estancia</h3>
+        <p><strong>Entrada:</strong> {{ (booking.fecInicio || booking.fechaEntrada) | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Salida:</strong> {{ (booking.fecFin || booking.fechaSalida) | date:'dd/MM/yyyy' }}</p>
+        <p><strong>Precio Total:</strong> {{ (booking.precioTotal || booking.precio) | currency:'EUR' }}</p>
+      </section>
+
+      <section *ngIf="booking.puntuacion">
+        <h3>Valoración</h3>
+        <p>{{ booking.puntuacion }} / 10 ★</p>
+      </section>
+    </div>
+
+    <div *ngIf="booking.estado === '1'">
+      
+      <button (click)="viewQr()">
+        Ver Código QR
+      </button>
+
+      <button (click)="rateBooking()">
+        Valorar Estancia
+      </button>
+      
+      <button (click)="cancelBooking()">
+        Cancelar Reserva
+      </button>
+    </div>
+
+    <div *ngIf="booking.estado === '0'">
+      <p>Esta reserva ha sido cancelada.</p>
+    </div>
+
+  </div>
+</main>
+
+<div *ngIf="showQrModal" (click)="closeQrModal()">
+  <div (click)="$event.stopPropagation()">
+    <div>
+      <h2>Código QR de Acceso</h2>
+      <button (click)="closeQrModal()">&times;</button>
+    </div>
+    <div>
+      <img [src]="'data:image/png;base64,' + currentQrCode" alt="Código QR" *ngIf="currentQrCode">
+      <p *ngIf="!currentQrCode">Cargando QR...</p>
+    </div>
+  </div>
+</div>

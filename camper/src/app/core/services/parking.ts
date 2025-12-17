@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Parking, SearchFilters } from '../models/parking';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,18 @@ export class ParkingService {
 
   /**
    * Ver detalles de un parking
-   * GET /:id
+   * Usa POST /find pasando el ID
    */
   getParkingById(id: string | number): Observable<Parking> {
-    return this.http.get<Parking>(`${this.apiUrl}/${id}`);
+    const filter = { id: id };
+
+    return this.http.post<Parking[]>(`${this.apiUrl}/find`, filter).pipe(
+      map(parkings => {
+        if (parkings && parkings.length > 0) {
+          return parkings[0];
+        }
+        throw new Error('Parking not found');
+      })
+    );
   }
 }
