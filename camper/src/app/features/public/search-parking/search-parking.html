@@ -58,19 +58,19 @@
     </div>
 
     <!-- FILTROS -->
-    <div class="filters-row">
-      <label>
-        <input type="checkbox" formControlName="tomaElectricidad">
+    <div class="form-check form-switch filters-row">
+      <label class="form-check-label">
+        <input type="checkbox" formControlName="tomaElectricidad" class="form-check-input">
         {{ 'SEARCH.ELECTRICITY' | translate }}
       </label>
 
-      <label>
-        <input type="checkbox" formControlName="limpiezaAguasResiduales">
+      <label class="form-check-label">
+        <input type="checkbox" formControlName="limpiezaAguasResiduales" class="form-check-input">
         {{ 'SEARCH.RESIDUALS' | translate }}
       </label>
 
-      <label>
-        <input type="checkbox" formControlName="plazasVip">
+      <label class="form-check-label">
+        <input type="checkbox" formControlName="plazasVip" class="form-check-input">
         {{ 'SEARCH.VIP' | translate }}
       </label>
     </div>
