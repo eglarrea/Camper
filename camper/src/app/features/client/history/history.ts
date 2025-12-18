@@ -19,7 +19,7 @@ export class History implements OnInit {
 
   allBookings: BookingHistoryResponse[] = [];
   filteredBookings: BookingHistoryResponse[] = [];
-  
+
   isLoading = true;
   errorMessage = '';
 
@@ -30,7 +30,7 @@ export class History implements OnInit {
     fechaDesde: [''],
     fechaHasta: [''],
     nombreParking: [''],
-    estado: [''] 
+    estado: ['']
   });
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class History implements OnInit {
         this.allBookings = data.sort((a, b) => {
           return new Date(b.fecAlta).getTime() - new Date(a.fecAlta).getTime();
         });
-        
+
         this.filteredBookings = [...this.allBookings];
         this.isLoading = false;
       },
@@ -58,7 +58,7 @@ export class History implements OnInit {
 
   applyFilters() {
     const filters = this.filterForm.value;
-    
+
     this.filteredBookings = this.allBookings.filter(booking => {
       let matches = true;
 
@@ -101,20 +101,20 @@ export class History implements OnInit {
 
     this.isLoading = true;
     this.bookingService.cancelBooking(id).subscribe({
-      next: (response: any) => { 
+      next: (response: any) => {
         const msg = response && (response.message || response) ? (response.message || response) : 'Reserva cancelada correctamente.';
         alert(msg);
-        this.loadHistory(); 
+        this.loadHistory();
       },
       error: (err) => {
         console.error(err);
         this.isLoading = false;
-        
+
         let errorMsg = 'Hubo un error al intentar cancelar la reserva.';
         if (err.error) {
            if (typeof err.error === 'string') {
              errorMsg = err.error;
-           } 
+           }
            else if (err.error.error) {
              errorMsg = err.error.error;
            }
@@ -131,19 +131,19 @@ export class History implements OnInit {
     this.isLoading = true;
     this.bookingService.getQrCode(id).subscribe({
       next: (qrData) => {
-        this.currentQrCode = qrData; 
+        this.currentQrCode = qrData;
         this.showQrModal = true;
         this.isLoading = false;
       },
       error: (err) => {
         console.error(err);
-        
+
         let errorMsg = 'No se pudo obtener el código QR. Inténtalo de nuevo.';
-        
+
         if (err.status === 400) {
             errorMsg = 'Error: No se encontró la reserva o no tienes permiso para ver este QR.';
         }
-        
+
         if (err.error) {
              if (typeof err.error === 'string') {
                errorMsg = err.error;
@@ -151,7 +151,7 @@ export class History implements OnInit {
                errorMsg = err.error.error || err.error.message;
              }
         }
-        
+
         alert(errorMsg);
         this.isLoading = false;
       }
@@ -162,14 +162,14 @@ export class History implements OnInit {
     this.showQrModal = false;
     this.currentQrCode = null;
   }
-  
+
   rateBooking(id: number) {
     const scoreStr = prompt('Por favor, introduce una puntuación del 0 al 10:');
-    
+
     if (scoreStr === null) return;
 
     const score = Number(scoreStr);
-    
+
     if (isNaN(score) || score < 0 || score > 10) {
       alert('Por favor introduce un número válido entre 0 y 10.');
       return;
@@ -201,5 +201,11 @@ export class History implements OnInit {
 
   getStatusLabel(estado: string): string {
     return estado === '1' ? 'Confirmada' : 'Cancelada';
+  }
+
+  // Para las fechas del buscador
+  openDatePicker(event: Event) {
+    const input = event.target as HTMLInputElement;
+    input.showPicker?.();
   }
 }

@@ -21,7 +21,7 @@
   gap: 1rem;
   background: white;
   padding: 0.75rem 1rem;
-  border-radius: 10px;
+  border-radius: $radius-lg;
   border: 1px solid $color-border;
   box-shadow: $shadow-strong;
   width: 100%;
@@ -186,7 +186,6 @@ i {
   }
 
   .filters-row {
-
     width: 100%;
     overflow-x: auto;
     margin-top: 0.6rem;
