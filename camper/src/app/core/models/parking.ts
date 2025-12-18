@@ -42,6 +42,8 @@ export interface Parking {
 }
 
 export interface SearchFilters {
+  id?: number;
+
   fechaDesde?: string; 
   fechaHasta?: string; 
   localidad?: string;
