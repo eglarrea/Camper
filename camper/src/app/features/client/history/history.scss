@@ -14,7 +14,6 @@ i {
   margin-bottom: 2rem;
 }
 
-// REUTILIZAMOS EL PATRÓN DEL BUSCADOR
 .search-bar-wrapper {
   display: flex;
   flex-direction: column;
@@ -65,8 +64,8 @@ i {
   }
 
   .select-arrow {
-    pointer-events: none; // 🔑 no interfiere con el click
-    font-size: 1rem;    // 👈 aquí controlas el tamaño
+    pointer-events: none;
+    font-size: 1rem;
   }
 }
 

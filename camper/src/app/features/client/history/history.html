@@ -2,17 +2,13 @@
 
   <h1 class="page-title">{{ 'HISTORY.TITLE' | translate }}</h1>
 
-  <!-- FILTROS -->
   <section class="history-search">
-
     <form
       class="search-bar-wrapper"
       [formGroup]="filterForm"
       (ngSubmit)="applyFilters()"
     >
       <div class="search-bar">
-
-        <!-- FECHA DESDE -->
         <div class="search-field date">
           <i class="fa-regular fa-calendar"></i>
           <input
@@ -24,7 +20,7 @@
 
         <div class="divider"></div>
 
-        <!-- FECHA HASTA -->
+
         <div class="search-field date">
           <i class="fa-regular fa-calendar"></i>
           <input
@@ -36,7 +32,7 @@
 
         <div class="divider"></div>
 
-        <!-- PARKING -->
+
         <div class="search-field">
           <i class="fa-solid fa-location-dot"></i>
           <input
@@ -48,7 +44,6 @@
 
         <div class="divider"></div>
 
-        <!-- ESTADO -->
         <div class="search-field select-field">
           <i class="fa-solid fa-flag"></i>
 
@@ -61,7 +56,6 @@
           <i class="fa-solid fa-chevron-down select-arrow"></i>
         </div>
 
-        <!-- BOTÓN FILTRAR -->
         <div class="botones">
           <button
             type="submit"
@@ -79,21 +73,16 @@
             {{ 'HISTORY.CLEAR' | translate }}
           </button>
         </div>
-
       </div>
-
     </form>
   </section>
 
-  <!-- LOADING -->
   <div *ngIf="isLoading" class="loading-msg">
     <i class="fa-solid fa-spinner loading-icon"></i>
     {{ 'HISTORY.LOADING' | translate }}
   </div>
 
-  <!-- LISTADO -->
   <div *ngIf="!isLoading">
-
     <p *ngIf="filteredBookings.length === 0" class="empty-msg">
       {{ 'HISTORY.EMPTY' | translate }}
     </p>
@@ -103,7 +92,6 @@
       class="history-card"
       [class.cancelled]="booking.estado === '0'"
     >
-
       <div class="card-header">
         <div>
           <h3>{{ booking.parkingNombre || ('HISTORY.PARKING_GENERIC' | translate) }}</h3>
