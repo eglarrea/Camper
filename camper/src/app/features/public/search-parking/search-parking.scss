@@ -21,7 +21,7 @@
   gap: 1rem;
   background: white;
   padding: 0.75rem 1rem;
-  border-radius: 10px;
+  border-radius: $radius-lg;
   border: 1px solid $color-border;
   box-shadow: $shadow-strong;
   width: 100%;
@@ -66,12 +66,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .filters-row {
   margin-top: 0.75rem;
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   font-size: 0.9rem;
 }
 
-.filters-row input[type="checkbox"] {
-  accent-color: $color-green-main;
+.form-check-input {
+  background-color: $color-white;
+  border-color: $color-grey-border;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3E%3Ccircle r='3' fill='%239CAEBD'/%3E%3C/svg%3E");
+}
+
+/* SWITCH ENCENDIDO */
+.form-check-input:checked {
+  background-color: $color-primary-dark;
+  border-color: $color-primary-dark;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='white'/%3e%3c/svg%3e");
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(27, 164, 249, 0.3);
 }
 
 // RESULTADOS
@@ -172,11 +186,11 @@ i {
   }
 
   .filters-row {
-    display: block;
     width: 100%;
     overflow-x: auto;
     margin-top: 0.6rem;
     padding-bottom: 0.3rem;
+    padding-left: 2.5rem;
   }
 
   .filters-row > label {
@@ -185,7 +199,6 @@ i {
     gap: 0.4rem;
     font-size: 0.85rem;
     white-space: nowrap;
-    margin-right: 1.2rem;
   }
 
   .results-title {

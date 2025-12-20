@@ -133,5 +133,24 @@
     "SELECT_FREE": "Selecciona una plaza libre para continuar",
     "CONTACT": "Contacto",
     "LOADING": "Cargando información del parking..."
+  },
+
+  "HISTORY": {
+    "TITLE": "Historial de reservas",
+    "PARKING": "Parking",
+    "ALL": "Todos",
+    "CONFIRMED": "Confirmada",
+    "CANCELLED": "Cancelada",
+    "FILTER": "Filtrar",
+    "CLEAR": "Limpiar",
+    "LOADING": "Cargando historial...",
+    "EMPTY": "No se encontraron reservas con estos criterios.",
+    "PARKING_GENERIC": "Parking",
+    "REQUEST_DATE": "Solicitada el",
+    "REFERENCE": "Referencia",
+    "DATES": "Fechas",
+    "TOTAL": "Total",
+    "RATING": "Tu valoración",
+    "DETAILS": "Ver detalles y gestionar"
   }
 }
