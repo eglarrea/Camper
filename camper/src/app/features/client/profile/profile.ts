@@ -63,9 +63,21 @@ export class Profile implements OnInit {
   cancelEdit() {
     this.isEditing = false;
     this.errorMessage = '';
-    this.profileForm.reset();
+    this.successMessage = '';
+
+  
+    this.profileForm.get('passPersona')?.reset();
+    this.profileForm.get('confirmPassPersona')?.reset();
+
     if (this.currentUser) {
-      this.profileForm.patchValue(this.currentUser);
+      this.profileForm.reset({
+        dniPersona: this.currentUser.dniPersona,
+        emailPersona: this.currentUser.emailPersona,
+        nombrePersona: this.currentUser.nombrePersona,
+        apellidosPersona: this.currentUser.apellidosPersona,
+        fecNacimientoPersona: this.currentUser.fecNacimientoPersona,
+        ibanPersona: this.currentUser.ibanPersona
+      });
     }
   }
 

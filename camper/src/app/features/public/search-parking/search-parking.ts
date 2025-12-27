@@ -58,9 +58,6 @@ export class SearchParking implements OnInit {
     const filters: any = {
       fechaDesde: formVal.fechaDesde,
       fechaHasta: formVal.fechaHasta,
-      tomaElectricidad: formVal.tomaElectricidad || false,
-      limpiezaAguasResiduales: formVal.limpiezaAguasResiduales || false,
-      tieneVips: formVal.tieneVips || false
     };
 
     if (formVal.localidad && formVal.localidad.trim() !== '') {
@@ -69,6 +66,18 @@ export class SearchParking implements OnInit {
 
     if (formVal.provincia && formVal.provincia.trim() !== '') {
       filters.provincia = formVal.provincia.trim();
+    }
+
+    if (formVal.tomaElectricidad) {
+      filters.tomaElectricidad = true;
+    }
+
+    if (formVal.limpiezaAguasResiduales) {
+      filters.limpiezaAguasResiduales = true;
+    }
+
+    if (formVal.plazasVip) {
+      filters.plazasVip = true;
     }
 
     this.parkingService.searchParkings(filters)
@@ -104,7 +113,7 @@ export class SearchParking implements OnInit {
       provincia: '',
       tomaElectricidad: false,
       limpiezaAguasResiduales: false,
-      tieneVips: false
+      plazasVip: false
     });
     this.onSearch();
   }
