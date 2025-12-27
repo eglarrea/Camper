@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
+import { Router, RouterLink, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Auth } from '../../../core/services/auth';
 import { finalize, timeout, TimeoutError } from 'rxjs';
@@ -16,6 +16,7 @@ export class Login {
   private fb = inject(FormBuilder);
   private authService = inject(Auth);
   private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   errorMessage: string = '';
   isLoading: boolean = false;
@@ -24,6 +25,12 @@ export class Login {
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
   });
+
+  returnUrl: string = '/'; 
+
+  ngOnInit(): void {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/public';
+  }
 
   isFieldInvalid(fieldName: string): boolean {
     const field = this.loginForm.get(fieldName);
@@ -52,7 +59,7 @@ export class Login {
       ).subscribe({
       next: (response) => {
         console.log('Login exitoso:', response);
-        this.router.navigate(['/public']);
+        this.router.navigateByUrl(this.returnUrl);
       },
       error: (err) => {
         console.error('Error en login:', err);

@@ -100,19 +100,15 @@ export class ParkingDetail implements OnInit {
     if (!this.selectedSpot) return;
 
     if (!this.authService.isLoggedIn()) {
-      const confirmLogin = confirm('Para reservar necesitas iniciar sesión. ¿Ir al login?');
-      if (confirmLogin) {
-        this.router.navigate(['/auth/login-client']);
-      }
+      this.router.navigate(['/auth/login-client'], {
+        queryParams: { returnUrl: this.router.url }
+      });
       return;
     }
 
     const user = this.authService.getUser();
     if (!user?.ibanPersona) {
-      const confirmProfile = confirm('Necesitas tener un IBAN registrado para reservar. ¿Ir a "Mis Datos" para añadirlo?');
-      if (confirmProfile) {
-        this.router.navigate(['/client/profile']);
-      }
+      this.router.navigate(['/client/profile']);
       return;
     }
 
