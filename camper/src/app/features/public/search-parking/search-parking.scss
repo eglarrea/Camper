@@ -66,8 +66,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .filters-row {
   margin-top: 0.75rem;
   display: flex;
-  gap: 3rem;
-  font-size: 0.9rem;
+  gap: 3.2rem;
+  font-size: 1rem;
 }
 
 .form-check-input {
@@ -187,17 +187,19 @@ i {
 
   .filters-row {
     width: 100%;
-    overflow-x: auto;
-    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow: visible;
     padding-bottom: 0.3rem;
     padding-left: 2.5rem;
   }
 
   .filters-row > label {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 0.4rem;
-    font-size: 0.85rem;
+    font-size: 1rem;
     white-space: nowrap;
   }
 

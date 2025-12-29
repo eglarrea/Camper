@@ -147,7 +147,11 @@ export class ParkingDetail implements OnInit {
   ];
 
   isGalleryOpen = false;
-  currentImage = 0;
+  currentImage = 1;
+
+  get sideGalleryImages(): string[] {
+    return this.galleryImages.slice(1);
+  }
 
   openGallery(index: number) {
     this.currentImage = index;

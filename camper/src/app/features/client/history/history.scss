@@ -69,7 +69,7 @@ i {
   }
 }
 
-.search-field.date input {
+.search-field input[type="date"] {
   cursor: pointer;
 }
 
@@ -160,4 +160,109 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   text-align: center;
   font-style: italic;
   color: $color-grey-soft;
+}
+
+/* ===============================
+   TABLET (pantallas medianas)
+================================ */
+@media (max-width: 992px) {
+
+  .search-bar {
+    flex-wrap: wrap; // 🔑 Permite que los campos bajen de línea
+    gap: 0.75rem;
+  }
+
+  .search-field {
+    flex: 1 1 calc(50% - 0.75rem); // 2 columnas
+    min-width: 180px;
+  }
+
+  .select-field {
+    flex: 1 1 100%;
+  }
+
+  .botones {
+    flex: 1 1 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+/* ===============================
+   MÓVIL
+================================ */
+@media (max-width: 576px) {
+
+  .history-page {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Barra buscador vertical */
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding: 0.75rem;
+  }
+
+  .search-field {
+    width: 100%;
+    flex: none;
+  }
+
+  .search-field input,
+  .search-select {
+    font-size: 1rem;
+    padding: 0.4rem 0;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+  }
+
+  /* Botones grandes abajo */
+  .botones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .botones .btn {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+
+  /* Cards */
+  .history-card {
+    padding: 1rem;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .status {
+    align-self: flex-start;
+  }
+
+  .card-actions {
+    text-align: stretch;
+  }
+
+  .card-actions .btn {
+    width: 100%;
+  }
 }

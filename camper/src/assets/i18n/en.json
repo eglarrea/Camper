@@ -134,5 +134,23 @@
     "SELECT_FREE": "Select a free spot to continue",
     "CONTACT": "Contact",
     "LOADING": "Loading parking information..."
+  },
+
+  "HISTORY_DETAIL": {
+    "BACK": "Volver al historial",
+    "BOOKING": "Reserva",
+    "GENERAL": "Información general",
+    "STAY": "Estancia",
+    "SPOT": "Plaza",
+    "ENTRY": "Entrada",
+    "EXIT": "Salida",
+    "RATING": "Valoración",
+    "QR": "Ver código QR",
+    "RATE": "Valorar estancia",
+    "CANCEL": "Cancelar reserva",
+    "CANCELLED_MSG": "Esta reserva ha sido cancelada.",
+    "QR_TITLE": "Código QR de acceso",
+    "LOADING_QR": "Cargando QR…",
+    "LOADING_DETAIL": "Cargando detalles…"
   }
 }

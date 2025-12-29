@@ -116,7 +116,7 @@
     <aside class="parking-side">
       <div class="gallery" *ngIf="!isMobile">
         <img
-          *ngFor="let img of galleryImages; let i = index"
+          *ngFor="let img of sideGalleryImages; let i = index"
           [src]="img"
           (click)="openGallery(i + 1)"
           alt="Parking"
