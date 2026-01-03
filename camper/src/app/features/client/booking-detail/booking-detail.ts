@@ -2,13 +2,14 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from '../../../core/services/booking';
-import { Booking } from '../../../core/models/booking'; 
+import { Booking } from '../../../core/models/booking';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-booking-detail',
   standalone: true,
-  imports: [CommonModule, TranslateModule],
+  imports: [CommonModule, TranslateModule, FormsModule],
   templateUrl: './booking-detail.html',
   styleUrls: ['./booking-detail.scss']
 })
@@ -17,12 +18,15 @@ export class BookingDetail implements OnInit {
   private router = inject(Router);
   private bookingService = inject(BookingService);
 
-  booking: any | null = null; 
+  booking: any | null = null;
   isLoading = true;
   errorMessage = '';
 
   showQrModal = false;
   currentQrCode: string | null = null;
+
+  showRateModal = false;
+  rateValue = 5;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -35,7 +39,7 @@ export class BookingDetail implements OnInit {
 
   loadBooking(id: string) {
     this.isLoading = true;
-    
+
     this.bookingService.getBookingById(id).subscribe({
       next: (data) => {
         this.booking = data;
@@ -73,7 +77,7 @@ export class BookingDetail implements OnInit {
   viewQr() {
     if (!this.booking) return;
     this.isLoading = true;
-    
+
     this.bookingService.getQrCode(this.booking.id).subscribe({
       next: (qrBase64) => {
         this.currentQrCode = qrBase64;
@@ -88,19 +92,17 @@ export class BookingDetail implements OnInit {
   }
 
   rateBooking() {
+    this.rateValue = 5; // valor por defecto
+    this.showRateModal = true;
+  }
+
+  confirmRating() {
     if (!this.booking) return;
 
-    const scoreStr = prompt('Por favor, introduce una puntuación del 0 al 10:');
-    if (scoreStr === null) return;
-
-    const score = Number(scoreStr);
-    if (isNaN(score) || score < 0 || score > 10) {
-      alert('Por favor introduce un número válido entre 0 y 10.');
-      return;
-    }
-
     this.isLoading = true;
-    this.bookingService.rateBooking(this.booking.id, score).subscribe({
+    this.showRateModal = false;
+
+    this.bookingService.rateBooking(this.booking.id, this.rateValue).subscribe({
       next: (response: any) => {
         const msg = response && (response.message || response) ? (response.message || response) : '¡Gracias por tu valoración!';
         alert(msg);

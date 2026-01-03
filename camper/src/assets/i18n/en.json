@@ -136,21 +136,43 @@
     "LOADING": "Loading parking information..."
   },
 
+  "HISTORY": {
+    "TITLE": "Booking history",
+    "PARKING": "Parking",
+    "ALL": "All",
+    "CONFIRMED": "Confirmed",
+    "CANCELLED": "Cancelled",
+    "FILTER": "Filter",
+    "CLEAR": "Clear",
+    "LOADING": "Loading booking history...",
+    "EMPTY": "No bookings found with these criteria.",
+    "PARKING_GENERIC": "Parking",
+    "REQUEST_DATE": "Requested on",
+    "REFERENCE": "Reference",
+    "DATES": "Dates",
+    "TOTAL": "Total",
+    "RATING": "Your rating",
+    "DETAILS": "View details and manage"
+  },
+
   "HISTORY_DETAIL": {
-    "BACK": "Volver al historial",
-    "BOOKING": "Reserva",
-    "GENERAL": "Información general",
-    "STAY": "Estancia",
-    "SPOT": "Plaza",
-    "ENTRY": "Entrada",
-    "EXIT": "Salida",
-    "RATING": "Valoración",
-    "QR": "Ver código QR",
-    "RATE": "Valorar estancia",
-    "CANCEL": "Cancelar reserva",
-    "CANCELLED_MSG": "Esta reserva ha sido cancelada.",
-    "QR_TITLE": "Código QR de acceso",
-    "LOADING_QR": "Cargando QR…",
-    "LOADING_DETAIL": "Cargando detalles…"
+    "BACK": "Back to history",
+    "BOOKING": "Booking",
+    "REQUEST_DATE": "Request date",
+    "GENERAL": "General information",
+    "STAY": "Stay",
+    "REFERENCE": "Reference",
+    "SPOT": "Parking spot",
+    "ENTRY": "Entry",
+    "EXIT": "Exit",
+    "RATING": "Rating",
+    "TOTAL": "Total price",
+    "QR": "View QR code",
+    "RATE": "Rate stay",
+    "CANCEL": "Cancel booking",
+    "CANCELLED_MSG": "This booking has been cancelled.",
+    "QR_TITLE": "Access QR code",
+    "LOADING_QR": "Loading QR…",
+    "LOADING_DETAIL": "Loading details…"
   }
 }

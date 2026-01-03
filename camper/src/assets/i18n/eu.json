@@ -119,5 +119,58 @@
     "DETAILS": "Detalles_EU",
     "NIGHT": "noche_EU",
     "NO_RESULTS": "No se encontraron resultados._EU"
+  },
+
+  "PARKING": {
+    "SERVICES": "Servicios_EU",
+    "SELECT_SPOT": "Selecciona tu plaza_EU",
+    "DATES": "Fechas seleccionadas_EU",
+    "FREE": "Libre_EU",
+    "OCCUPIED": "Ocupada_EU",
+    "TOTAL": "Total a pagar_EU",
+    "RESERVE_SPOT": "Reservar plaza_EU",
+    "SELECT_FREE": "Selecciona una plaza libre para continuar_EU",
+    "CONTACT": "Contacto_EU",
+    "LOADING": "Cargando información del parking..._EU"
+  },
+
+  "HISTORY": {
+    "TITLE": "Historial de reservas_EU",
+    "PARKING": "Parking_EU",
+    "ALL": "Todos_EU",
+    "CONFIRMED": "Confirmada_EU",
+    "CANCELLED": "Cancelada_EU",
+    "FILTER": "Filtrar_EU",
+    "CLEAR": "Limpiar_EU",
+    "LOADING": "Cargando historial..._EU",
+    "EMPTY": "No se encontraron reservas con estos criterios._EU",
+    "PARKING_GENERIC": "Parking_EU",
+    "REQUEST_DATE": "Solicitada el_EU",
+    "REFERENCE": "Referencia_EU",
+    "DATES": "Fechas_EU",
+    "TOTAL": "Total_EU",
+    "RATING": "Tu valoración_EU",
+    "DETAILS": "Ver detalles y gestionar_EU"
+  },
+
+  "HISTORY_DETAIL": {
+    "BACK": "Volver al historial_EU",
+    "BOOKING": "Reserva_EU",
+    "REQUEST_DATE": "Entrada_EU",
+    "GENERAL": "Información general_EU",
+    "STAY": "Estancia_EU",
+    "REFERENCE": "Referencia_EU",
+    "SPOT": "Plaza_EU",
+    "ENTRY": "Entrada_EU",
+    "EXIT": "Salida_EU",
+    "RATING": "Valoración_EU",
+    "TOTAL": "Precio total_EU",
+    "QR": "Ver código QR_EU",
+    "RATE": "Valorar estancia_EU",
+    "CANCEL": "Cancelar reserva_EU",
+    "CANCELLED_MSG": "Esta reserva ha sido cancelada._EU",
+    "QR_TITLE": "Código QR de acceso_EU",
+    "LOADING_QR": "Cargando QR…_EU",
+    "LOADING_DETAIL": "Cargando detalles…_EU"
   }
 }

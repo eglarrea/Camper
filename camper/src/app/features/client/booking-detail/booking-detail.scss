@@ -53,7 +53,7 @@
 
 .booking-info {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1.5rem;
   margin-bottom: 1.5rem;
 
@@ -69,7 +69,6 @@
 
 .rating {
   font-size: 1.2rem;
-  font-weight: bold;
 }
 
 .booking-actions {
@@ -84,7 +83,7 @@
   font-style: italic;
 }
 
-/* MODAL QR */
+// MODAL QR
 
 .qr-modal {
   position: fixed;
@@ -119,11 +118,9 @@
 
 .qr-body img {
   max-width: 100%;
-  margin-top: 1rem;
 }
 
-/* LOADING */
-
+// LOADING
 .loading-wrapper {
   text-align: center;
   padding: 3rem 0;
@@ -137,4 +134,64 @@
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+
+// MOVIL
+@media (max-width: 768px) {
+
+  .booking-detail-page {
+    padding: 1rem;
+  }
+
+  .booking-header {
+    flex-direction: column;
+    gap: 0.8rem;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .status {
+      align-self: flex-start;
+    }
+  }
+
+  .booking-info {
+    grid-template-columns: 1fr;
+    margin-bottom: 1rem;
+  }
+
+  .booking-actions {
+    flex-direction: column;
+    align-items: stretch;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .qr-box {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .btn {
+    margin-top: 0.5rem;
+  }
+}
+
+// TABLET
+@media (max-width: 480px) {
+
+  .booking-card {
+    padding: 1rem;
+  }
+
+  .booking-header h1 {
+    font-size: 1.1rem;
+  }
+
+  .rating {
+    font-size: 1rem;
+  }
 }
