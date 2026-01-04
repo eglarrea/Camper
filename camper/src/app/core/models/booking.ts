@@ -1,9 +1,9 @@
 export interface Booking {
   id: number;
-  fechaRealizacion: string; 
-  fechaEntrada: string;
-  fechaSalida: string;
-  nombreParking: string;
+  fecAlta: string; 
+  fecInicio: string;
+  fecFin: string;
+  parkingNombre: string;
   estado: string;
   plazaNombre?: string; 
   precioTotal?: number;
