@@ -4,6 +4,7 @@
     "LOGIN": "Identifícate",
     "REGISTER": "Registrarse",
     "PROFILE": "Mis datos",
+    "DASHBOARD": "Panel de Admin",
     "HISTORY": "Historial de reservas",
     "LOGOUT": "Cerrar sesión"
   },
@@ -111,7 +112,7 @@
   },
 
   "SEARCH": {
-    "TITLE": "Busca tú parking",
+    "TITLE": "Busca tu parking",
     "DESTINATION": "Destino",
     "PROVINCE": "Provincia",
     "BUTTON": "Buscar",

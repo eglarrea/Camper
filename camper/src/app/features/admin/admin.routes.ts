@@ -1,15 +1,26 @@
 import { Routes } from '@angular/router';
-import { ParkingList } from './parking-list/parking-list';
+import { Dashboard } from './dashboard/dashboard';
+import { ManageParking } from './manage-parking/manage-parking';
 
 export const ADMIN_ROUTES: Routes = [
   {
-    path: '', 
-    redirectTo: 'parkings', 
+    path: '',
+    redirectTo: 'dashboard',
     pathMatch: 'full'
   },
   {
-    path: 'parkings', 
-    component: ParkingList,
-    title: 'Gestión de Parkings'
+    path: 'dashboard',
+    component: Dashboard,
+    title: 'Admin Dashboard'
+  },
+  {
+    path: 'parking/new',
+    component: ManageParking, 
+    title: 'Nuevo Parking'
+  },
+  {
+    path: 'parking/:id',
+    component: ManageParking,
+    title: 'Gestionar Parking'
   }
 ];

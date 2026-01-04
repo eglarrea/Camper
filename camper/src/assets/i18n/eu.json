@@ -4,6 +4,7 @@
     "LOGIN": "Saioa Hasi",
     "REGISTER": "Erregistratu",
     "PROFILE": "Nire datuak",
+    "DASHBOARD": "Administrazio panela",
     "HISTORY": "Erreserben historia",
     "LOGOUT": "Irten"
   },
@@ -109,7 +110,7 @@
   },
 
   "SEARCH": {
-    "TITLE": "Busca tú parking_EU",
+    "TITLE": "Busca tu parking_EU",
     "DESTINATION": "Destino_EU",
     "PROVINCE": "Provincia_EU",
     "BUTTON": "Buscar_EU",

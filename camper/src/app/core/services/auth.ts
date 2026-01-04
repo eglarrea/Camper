@@ -52,6 +52,15 @@ export class Auth {
       responseType: 'text' 
     });
   }
+  
+  /*
+   LOGIN ADMIN
+   */
+  loginAdmin(credentials: LoginRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(`${this.apiUrl}/admin-login`, credentials).pipe(
+      tap((response) => this.saveSession(response))
+    );
+  }
 
   /* 
   Guarda token y usuario en el navegador
@@ -83,5 +92,13 @@ export class Auth {
   getUser(): User | null {
     const userStr = localStorage.getItem('user');
     return userStr ? JSON.parse(userStr) : null;
+  }
+
+  /*
+   Verifica si el usuario actual es admin
+   */
+  isAdmin(): boolean {
+    const user = this.getUser();
+    return user?.admin === true;
   }
 }

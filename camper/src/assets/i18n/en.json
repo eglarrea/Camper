@@ -4,6 +4,7 @@
     "LOGIN": "Log in",
     "REGISTER": "Sign Up",
     "PROFILE": "My profile",
+    "DASHBOARD": "Admin Dashboard",
     "HISTORY": "Booking history",
     "LOGOUT": "Logout"
   },

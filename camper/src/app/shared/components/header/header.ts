@@ -30,6 +30,10 @@ export class Header {
     return !!this.authService.getUser();
   }
 
+  get isAdmin(): boolean {
+    return this.authService.isAdmin();
+  }
+
   toggleMenu(event: Event) {
     event.stopPropagation();
     this.menuOpen = !this.menuOpen;
