@@ -37,14 +37,14 @@
       <section>
         <h3>{{ 'HISTORY_DETAIL.GENERAL' | translate }}</h3>
         <p><strong>{{ 'HISTORY_DETAIL.REFERENCE' | translate }}:</strong> #{{ booking.id }}</p>
-        <p><strong>{{ 'HISTORY_DETAIL.SPOT' | translate }}:</strong> {{ booking.plaza.nombre }}</p>
+        <p><strong>{{ 'HISTORY_DETAIL.SPOT' | translate }}:</strong> {{ booking.plazaNombre }}</p>
       </section>
 
       <section>
         <h3>{{ 'HISTORY_DETAIL.STAY' | translate }}</h3>
         <p><strong>{{ 'HISTORY_DETAIL.ENTRY' | translate }}:</strong> {{ booking.fecInicio | date:'dd/MM/yyyy' }}</p>
         <p><strong>{{ 'HISTORY_DETAIL.EXIT' | translate }}:</strong> {{ booking.fecFin | date:'dd/MM/yyyy' }}</p>
-        <p><strong>{{ 'HISTORY_DETAIL.TOTAL' | translate }}:</strong> {{ booking.plaza.precio | currency:'EUR' }}</p>
+        <p><strong>{{ 'HISTORY_DETAIL.TOTAL' | translate }}:</strong> {{ booking.precioTotal | currency:'EUR' }}</p>
       </section>
 
       <section *ngIf="booking.puntuacion">
