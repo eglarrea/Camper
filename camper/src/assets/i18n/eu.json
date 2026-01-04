@@ -92,7 +92,9 @@
       "REQUIRED": "Campo obligatorio._EU",
       "UNDER_AGE": "Debes ser mayor de edad._EU",
       "INVALID_IBAN": "IBAN inválido._EU",
-      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU",
+      "DATA": "No se pudieron cargar los datos del usuario._EU",
+      "CHANGES": "No se pudieron guardar los cambios. Revisa los datos._EU"
     },
 
     "CHANGE_PASSWORD": "Cambiar contraseña_EU",
@@ -107,6 +109,7 @@
   },
 
   "SEARCH": {
+    "TITLE": "Busca tú parking_EU",
     "DESTINATION": "Destino_EU",
     "PROVINCE": "Provincia_EU",
     "BUTTON": "Buscar_EU",
@@ -118,7 +121,10 @@
     "ALL": "Todos_EU",
     "DETAILS": "Detalles_EU",
     "NIGHT": "noche_EU",
-    "NO_RESULTS": "No se encontraron resultados._EU"
+    "ERRORS": {
+      "NO_RESULTS": "No se encontraron resultados._EU",
+      "CONNECTION": "Error de conexión al buscar parkings._EU"
+    }
   },
 
   "PARKING": {
@@ -150,12 +156,15 @@
     "DATES": "Fechas_EU",
     "TOTAL": "Total_EU",
     "RATING": "Tu valoración_EU",
-    "DETAILS": "Ver detalles y gestionar_EU"
+    "DETAILS": "Ver detalles y gestionar_EU",
+    "ERROR_LOADING": "Error al cargar el historial._EU"
   },
 
   "HISTORY_DETAIL": {
     "BACK": "Volver al historial_EU",
     "BOOKING": "Reserva_EU",
+    "CONFIRMED": "Confirmada_EU",
+    "CANCELLED": "Cancelada_EU",
     "REQUEST_DATE": "Entrada_EU",
     "GENERAL": "Información general_EU",
     "STAY": "Estancia_EU",
@@ -171,6 +180,12 @@
     "CANCELLED_MSG": "Esta reserva ha sido cancelada._EU",
     "QR_TITLE": "Código QR de acceso_EU",
     "LOADING_QR": "Cargando QR…_EU",
-    "LOADING_DETAIL": "Cargando detalles…_EU"
+    "LOADING_DETAIL": "Cargando detalles…_EU",
+    "ERRORS": {
+      "LOADING": "Error al cargar la reserva._EU",
+      "CANCEL": "Hubo un error al intentar cancelar la reserva._EU",
+      "RATE": "Error al enviar la valoración._EU",
+      "QR": "No se pudo obtener el código QR._EU"
+    }
   }
 }

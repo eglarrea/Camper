@@ -18,11 +18,6 @@ export class Header {
   menuOpen = false;
   mobileMenuOpen = false;
 
-  get userName(): string {
-    const user = this.authService.getUser();
-    return user ? user.nombrePersona : 'Usuario';
-  }
-
   logout() {
     this.authService.logout();
   }

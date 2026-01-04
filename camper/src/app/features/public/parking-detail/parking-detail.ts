@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterLink, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ParkingService } from '../../../core/services/parking';
 import { Parking, Plaza, SearchFilters } from '../../../core/models/parking';
@@ -11,7 +11,7 @@ import { BookingRequest } from '../../../core/models/booking';
 @Component({
   selector: 'app-parking-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink, TranslateModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './parking-detail.html',
   styleUrls: ['./parking-detail.scss']
 })
@@ -64,13 +64,13 @@ export class ParkingDetail implements OnInit {
         if (data && data.length > 0) {
           this.parking = data[0];
         } else {
-          this.errorMessage = 'Parking no encontrado o no disponible para estas fechas.';
+          this.errorMessage = 'PARKING.ERRORS.NOT_FOUND';
         }
         this.isLoading = false;
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Error loading parking details.';
+        this.errorMessage = 'PARKING.ERRORS.LOADING';
         this.isLoading = false;
       }
     });

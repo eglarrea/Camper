@@ -86,12 +86,12 @@ export class SearchParking implements OnInit {
         next: (data) => {
           this.parkings = data;
           if (this.parkings.length === 0) {
-            this.errorMessage = 'No se encontraron resultados.';
+            this.errorMessage = 'SEARCH.ERRORS.NO_RESULTS';
           }
         },
         error: (err) => {
           console.error(err);
-          this.errorMessage = 'Error de conexión al buscar parkings.';
+          this.errorMessage = 'SEARCH.ERRORS.CONNECTION';
         }
       });
   }

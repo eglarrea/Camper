@@ -94,7 +94,9 @@
       "REQUIRED": "Required field.",
       "UNDER_AGE": "You must be at least 18.",
       "INVALID_IBAN": "Invalid IBAN.",
-      "PASSWORDS_MISMATCH": "Passwords do not match."
+      "PASSWORDS_MISMATCH": "Passwords do not match.",
+      "DATA": "User data could not be loaded.",
+      "CHANGES": "Changes could not be saved. Check your data."
     },
 
     "CHANGE_PASSWORD": "Change Password",
@@ -109,6 +111,7 @@
   },
 
   "SEARCH": {
+    "TITLE": "Find your parking",
     "DESTINATION": "Destination",
     "PROVINCE": "Province",
     "BUTTON": "Search",
@@ -120,7 +123,10 @@
     "ALL": "All",
     "DETAILS": "Details",
     "NIGHT": "night",
-    "NO_RESULTS": "No results found."
+    "ERRORS": {
+      "NO_RESULTS": "No results found.",
+      "CONNECTION": "Connection error while looking for parkings."
+    }
   },
 
   "PARKING": {
@@ -133,7 +139,13 @@
     "RESERVE_SPOT": "Reserve spot",
     "SELECT_FREE": "Select a free spot to continue",
     "CONTACT": "Contact",
-    "LOADING": "Loading parking information..."
+    "LOADING": "Loading parking information...",
+    "SUCCESS": "Booking successful",
+    "ERRORS": {
+      "NO_RESULTS": "Parking not found or not available for these dates.",
+      "LOADING": "Error loading parking details.",
+      "BOOKING": "There was an error when making the reservation."
+    }
   },
 
   "HISTORY": {
@@ -152,12 +164,15 @@
     "DATES": "Dates",
     "TOTAL": "Total",
     "RATING": "Your rating",
-    "DETAILS": "View details and manage"
+    "DETAILS": "View details and manage",
+    "ERROR_LOADING": "Error loading history."
   },
 
   "HISTORY_DETAIL": {
     "BACK": "Back to history",
     "BOOKING": "Booking",
+    "CONFIRMED": "Confirmed",
+    "CANCELLED": "Cancelled",
     "REQUEST_DATE": "Request date",
     "GENERAL": "General information",
     "STAY": "Stay",
@@ -173,6 +188,12 @@
     "CANCELLED_MSG": "This booking has been cancelled.",
     "QR_TITLE": "Access QR code",
     "LOADING_QR": "Loading QR…",
-    "LOADING_DETAIL": "Loading details…"
+    "LOADING_DETAIL": "Loading details…",
+    "ERRORS": {
+      "LOADING": "Error loading the booking.",
+      "CANCEL": "There was an error while trying to cancel the booking.",
+      "RATE": "Error submitting the rating.",
+      "QR": "The QR code could not be retrieved."
+    }
   }
 }

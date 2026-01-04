@@ -47,7 +47,7 @@ export class BookingDetail implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Error al cargar la reserva.';
+        this.errorMessage = 'HISTORY_DETAIL.ERRORS.LOADING';
         this.isLoading = false;
       }
     });
@@ -68,7 +68,7 @@ export class BookingDetail implements OnInit {
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
-        this.handleError(err, 'Hubo un error al intentar cancelar la reserva.');
+        this.handleError(err, 'HISTORY_DETAIL.ERRORS.CANCEL');
         this.isLoading = false;
       }
     });
@@ -85,14 +85,14 @@ export class BookingDetail implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.handleError(err, 'No se pudo obtener el código QR.', true);
+        this.handleError(err, 'HISTORY_DETAIL.ERRORS.QR', true);
         this.isLoading = false;
       }
     });
   }
 
   rateBooking() {
-    this.rateValue = 5; // valor por defecto
+    this.rateValue = 5;
     this.showRateModal = true;
   }
 
@@ -109,7 +109,7 @@ export class BookingDetail implements OnInit {
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
-        this.handleError(err, 'Error al enviar la valoración.');
+        this.handleError(err, 'HISTORY_DETAIL.ERRORS.RATE');
         this.isLoading = false;
       }
     });
@@ -145,6 +145,6 @@ export class BookingDetail implements OnInit {
   }
 
   getStatusLabel(estado: string): string {
-    return estado === '1' ? 'Confirmada' : 'Cancelada';
+    return estado === '1' ? 'HISTORY_DETAIL.CONFIRMED' : 'HISTORY_DETAIL.CANCELLED';
   }
 }

@@ -30,6 +30,7 @@
       "UNKNOWN": "Ocurrió un error inesperado. Inténtalo más tarde."
     }
   },
+
   "REGISTER": {
     "TITLE": "Registro de Usuario",
     "BUTTON": "Crear cuenta",
@@ -72,11 +73,11 @@
   },
 
   "PROFILE": {
-  "TITLE": "Mis Datos",
-  "SUBTITLE": "Consulta y actualiza tu información personal.",
-  "LOADING": "Cargando datos...",
-  "PERSONAL_DATA": "Datos Personales",
-  "NOT_EDITABLE": "No editable",
+    "TITLE": "Mis Datos",
+    "SUBTITLE": "Consulta y actualiza tu información personal.",
+    "LOADING": "Cargando datos...",
+    "PERSONAL_DATA": "Datos Personales",
+    "NOT_EDITABLE": "No editable",
 
     "FIELDS": {
       "NAME": "Nombre",
@@ -93,7 +94,9 @@
       "REQUIRED": "Campo obligatorio.",
       "UNDER_AGE": "Debes ser mayor de edad.",
       "INVALID_IBAN": "IBAN inválido.",
-      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden."
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden.",
+      "DATA": "No se pudieron cargar los datos del usuario.",
+      "CHANGES": "No se pudieron guardar los cambios. Revisa los datos."
     },
 
     "CHANGE_PASSWORD": "Cambiar contraseña",
@@ -108,6 +111,7 @@
   },
 
   "SEARCH": {
+    "TITLE": "Busca tú parking",
     "DESTINATION": "Destino",
     "PROVINCE": "Provincia",
     "BUTTON": "Buscar",
@@ -119,7 +123,10 @@
     "ALL": "Todos",
     "DETAILS": "Detalles",
     "NIGHT": "noche",
-    "NO_RESULTS": "No se encontraron resultados."
+    "ERRORS": {
+      "NO_RESULTS": "No se encontraron resultados.",
+      "CONNECTION": "Error de conexión al buscar parkings."
+    }
   },
 
   "PARKING": {
@@ -132,7 +139,20 @@
     "RESERVE_SPOT": "Reservar plaza",
     "SELECT_FREE": "Selecciona una plaza libre para continuar",
     "CONTACT": "Contacto",
-    "LOADING": "Cargando información del parking..."
+    "LOADING": "Cargando información del parking...",
+    "SUCCESS": "¡Reserva realizada con éxito!",
+    "ERRORS": {
+      "NO_RESULTS": "Parking no encontrado o no disponible para estas fechas.",
+      "LOADING": "Error al cargar los detalles del parking.",
+      "BOOKING": "Hubo un error al realizar la reserva."
+    },
+    "AUX": {
+      "FIRST": "Vas a reservar la plaza",
+      "SECOND": "Precio Total",
+      "THIRD": "Fechas",
+      "FOURTH": "a",
+      "FIFTH": "¿Confirmar?"
+    }
   },
 
   "HISTORY": {
@@ -151,12 +171,15 @@
     "DATES": "Fechas",
     "TOTAL": "Total",
     "RATING": "Tu valoración",
-    "DETAILS": "Ver detalles y gestionar"
+    "DETAILS": "Ver detalles y gestionar",
+    "ERROR_LOADING": "Error al cargar el historial."
   },
 
   "HISTORY_DETAIL": {
     "BACK": "Volver al historial",
     "BOOKING": "Reserva",
+    "CONFIRMED": "Confirmada",
+    "CANCELLED": "Cancelada",
     "REQUEST_DATE": "Entrada",
     "GENERAL": "Información general",
     "STAY": "Estancia",
@@ -172,6 +195,12 @@
     "CANCELLED_MSG": "Esta reserva ha sido cancelada.",
     "QR_TITLE": "Código QR de acceso",
     "LOADING_QR": "Cargando QR…",
-    "LOADING_DETAIL": "Cargando detalles…"
+    "LOADING_DETAIL": "Cargando detalles…",
+    "ERRORS": {
+      "LOADING": "Error al cargar la reserva.",
+      "CANCEL": "Hubo un error al intentar cancelar la reserva.",
+      "RATE": "Error al enviar la valoración.",
+      "QR": "No se pudo obtener el código QR."
+    }
   }
 }

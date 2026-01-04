@@ -17,7 +17,7 @@
   <div *ngIf="!isLoading && booking" class="booking-card">
     <header class="booking-header">
       <div>
-        <h1>{{ ('HISTORY_DETAIL.BOOKING' | translate) + ' #' + booking.id }}</h1>
+        <h2>{{ booking.parkingNombre }}</h2>
         <small>
           {{ 'HISTORY_DETAIL.REQUEST_DATE' | translate }}:
           {{ booking.fecAlta | date:'dd/MM/yyyy HH:mm' }}
@@ -79,7 +79,7 @@
   <div class="qr-box" (click)="$event.stopPropagation()">
     <div class="qr-header">
       <h2>{{ 'HISTORY_DETAIL.QR_TITLE' | translate }}</h2>
-      <button (click)="closeQrModal()">×</button>
+      <button (click)="closeQrModal()"></button>
     </div>
 
     <div class="qr-body">
@@ -94,7 +94,7 @@
 
     <div class="qr-header">
       <h2>{{ 'HISTORY_DETAIL.RATING' | translate }}</h2>
-      <button (click)="showRateModal = false">×</button>
+      <button (click)="showRateModal = false"></button>
     </div>
 
     <div class="qr-body">

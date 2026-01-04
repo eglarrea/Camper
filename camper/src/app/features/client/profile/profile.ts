@@ -48,7 +48,7 @@ export class Profile implements OnInit {
       },
       error: (err) => {
         console.error('Error cargando perfil:', err);
-        this.errorMessage = 'No se pudieron cargar los datos del usuario.';
+        this.errorMessage = 'PROFILE.ERROR.DATA';
         this.isLoading = false;
       }
     });
@@ -65,7 +65,7 @@ export class Profile implements OnInit {
     this.errorMessage = '';
     this.successMessage = '';
 
-  
+
     this.profileForm.get('passPersona')?.reset();
     this.profileForm.get('confirmPassPersona')?.reset();
 
@@ -104,7 +104,7 @@ export class Profile implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'No se pudieron guardar los cambios. Revisa los datos.';
+        this.errorMessage = 'PROFILE.ERROR.CHANGES';
         this.isLoading = false;
       }
     });
