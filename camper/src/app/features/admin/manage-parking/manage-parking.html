@@ -1,1 +1,143 @@
-<p>manage-parking works!</p>
+<main>
+  <header>
+    <h1>{{ isEditMode ? 'Gestionar Parking' : 'Nuevo Parking' }}</h1>
+    <a routerLink="/admin/dashboard">← Volver al listado</a>
+  </header>
+
+  <form [formGroup]="parkingForm" (ngSubmit)="saveParking()" class="parking-form">
+    
+    <section>
+      <h2>Datos Generales</h2>
+      
+      <div>
+        <div>
+          <label>Nombre *</label>
+          <input type="text" formControlName="nombreParking">
+        </div>
+        <div>
+          <label>Email Contacto *</label>
+          <input type="email" formControlName="emailParking">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label>Provincia</label>
+          <input type="text" formControlName="provinciaParking">
+        </div>
+        <div>
+          <label>Municipio</label>
+          <input type="text" formControlName="municipioParking">
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <label>Web</label>
+          <input type="text" formControlName="webParking">
+        </div>
+        <div>
+          <label>Teléfono</label>
+          <input type="text" formControlName="telefonoParking">
+        </div>
+      </div>
+
+      <div>
+        <label><input type="checkbox" formControlName="isActivoParking"> Activo</label>
+        <label><input type="checkbox" formControlName="tieneElectricidadParking"> Electricidad General</label>
+        <label><input type="checkbox" formControlName="tieneResidualesParking"> Aguas Residuales</label>
+        <label><input type="checkbox" formControlName="tienePlazasVipParking"> Zona VIP</label>
+      </div>
+
+      <div>
+        <button type="submit" [disabled]="isLoading">
+          {{ isLoading ? 'Guardando...' : 'Guardar Datos del Parking' }}
+        </button>
+      </div>
+    </section>
+
+    <section *ngIf="isEditMode">
+      <div>
+        <h2>Plazas ({{ plazas.length }})</h2>
+        <button type="button" (click)="openSpotModal()">+ Añadir Plaza</button>
+      </div>
+
+      <div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Características</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let plaza of plazas">
+              <td><strong>{{ plaza.nombre }}</strong></td>
+              <td>{{ plaza.precio }}€</td>
+              <td>
+                <span *ngIf="plaza.esVip">VIP</span>
+                <span *ngIf="plaza.tieneElectricidad">Electricidad</span>
+                <span *ngIf="!plaza.esVip && !plaza.tieneElectricidad">-</span>
+              </td>
+              <td>
+                <span [class.free]="plaza.estado === '0'" [class.occupied]="plaza.estado !== '0'">
+                  {{ plaza.estado === '0' ? 'Libre' : 'Ocupada' }}
+                </span>
+              </td>
+              <td>
+                <button type="button" (click)="openSpotModal(plaza)">Editar</button>
+              </td>
+            </tr>
+            <tr *ngIf="plazas.length === 0">
+              <td colspan="5" class="empty-row">Este parking no tiene plazas creadas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </form>
+
+  <div *ngIf="showSpotModal">
+    <div>
+      <div>
+        <h3>{{ currentSpotId ? 'Editar Plaza' : 'Nueva Plaza' }}</h3>
+        <button type="button" (click)="closeSpotModal()">×</button>
+      </div>
+      
+      <form [formGroup]="spotForm" (ngSubmit)="saveSpot()">
+        <div>
+          <label>Nombre/Número (ej: A-101)</label>
+          <input type="text" formControlName="nombre">
+        </div>
+        
+        <div>
+          <label>Precio por día (€)</label>
+          <input type="number" formControlName="precio">
+        </div>
+
+        <div>
+          <label>Estado Inicial</label>
+          <select formControlName="estado">
+            <option value="0">Libre</option>
+            <option value="1">Ocupada/Reservada</option>
+          </select>
+        </div>
+
+        <div>
+          <label><input type="checkbox" formControlName="esVip"> Es VIP</label>
+          <label><input type="checkbox" formControlName="tieneElectricidad"> Tiene Electricidad</label>
+        </div>
+
+        <div>
+          <button type="button" (click)="closeSpotModal()">Cancelar</button>
+          <button type="submit">Guardar Plaza</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</main>
