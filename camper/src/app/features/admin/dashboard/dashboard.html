@@ -1,1 +1,35 @@
-<p>dashboard works!</p>
+<main>
+    <header>
+    <h1>Mis Parkings</h1>
+    <a routerLink="/admin/parking/new">+ Añadir Parking</a>
+    </header>
+
+    <div *ngIf="isLoading">
+    Cargando datos...
+    </div>
+    
+    <div *ngIf="!isLoading && parkings.length === 0">
+    <p>No tienes parkings registrados.</p>
+    </div>
+
+    <div *ngFor="let parking of parkings">
+        <div>
+            <h3>{{ parking.nombre }}</h3>
+            <span *ngIf="parking.media !== null">{{ parking.media}}</span>
+            <span *ngIf="parking.media === null">Sin valoraciones</span>
+        </div>
+        <div>
+            <p>{{ parking.localidad }}</p>
+            <span>Plazas:</span>
+            <span>{{ parking.numeroPlazas }}</span>
+        </div>
+        <div>
+            <span *ngIf="parking.tomaElectricidad" title="Electricidad">Electricidad</span>
+            <span *ngIf="parking.limpiezaAguasResiduales" title="Aguas Residuales">Aguas</span>
+            <span *ngIf="parking.plazasVip" title="VIP">VIP</span>
+        </div>
+        <div>
+            <a [routerLink]="['/admin/parking', parking.id]">Gestionar</a>
+        </div>
+    </div>
+</main>

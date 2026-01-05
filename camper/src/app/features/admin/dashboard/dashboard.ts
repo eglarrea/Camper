@@ -1,11 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Admin } from '../../../core/services/admin';
+import { RouterLink } from '@angular/router';
+import { Parking } from '../../../core/models/parking';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
-export class Dashboard {
+export class Dashboard implements OnInit {
+  private adminService = inject(Admin);
+  parkings: Parking[] = [];
+  isLoading = true;
 
+  ngOnInit() {
+    this.loadParkings();
+  }
+
+  loadParkings() {
+    this.adminService.getParkings().subscribe({
+      next: (data) => {
+        this.parkings = data;
+        this.isLoading = false;
+      },
+      error: (err) => {
+        console.error(err);
+        this.isLoading = false;
+      }
+    });
+  }
 }
