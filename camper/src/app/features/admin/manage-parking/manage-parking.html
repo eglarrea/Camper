@@ -5,10 +5,10 @@
   </header>
 
   <form [formGroup]="parkingForm" (ngSubmit)="saveParking()" class="parking-form">
-    
+
     <section>
       <h2>Datos Generales</h2>
-      
+
       <div>
         <div>
           <label>Nombre *</label>
@@ -107,13 +107,13 @@
         <h3>{{ currentSpotId ? 'Editar Plaza' : 'Nueva Plaza' }}</h3>
         <button type="button" (click)="closeSpotModal()">×</button>
       </div>
-      
+
       <form [formGroup]="spotForm" (ngSubmit)="saveSpot()">
         <div>
           <label>Nombre/Número (ej: A-101)</label>
           <input type="text" formControlName="nombre">
         </div>
-        
+
         <div>
           <label>Precio por día (€)</label>
           <input type="number" formControlName="precio">

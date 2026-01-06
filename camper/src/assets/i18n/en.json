@@ -196,5 +196,15 @@
       "RATE": "Error submitting the rating.",
       "QR": "The QR code could not be retrieved."
     }
+  },
+
+  "ADMIN_PARKINGS": {
+    "TITLE": "My parkings",
+    "ADD": "Add parking",
+    "LOADING": "Loading data…",
+    "EMPTY": "You don't have any registered parkings.",
+    "SPOTS": "Spots",
+    "MANAGE": "Manage"
   }
+
 }

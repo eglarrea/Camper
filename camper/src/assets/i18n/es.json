@@ -203,5 +203,16 @@
       "RATE": "Error al enviar la valoración.",
       "QR": "No se pudo obtener el código QR."
     }
+  },
+
+  "ADMIN_PARKINGS": {
+    "TITLE": "Mis parkings",
+    "ADD": "Añadir parking",
+    "LOADING": "Cargando datos…",
+    "EMPTY": "No tienes parkings registrados.",
+    "SPOTS": "Plazas",
+    "MANAGE": "Gestionar"
   }
+
+
 }

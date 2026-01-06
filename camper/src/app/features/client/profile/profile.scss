@@ -10,7 +10,7 @@
     flex: 1;
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: $bp-sm) {
     flex-direction: column;
   }
 }

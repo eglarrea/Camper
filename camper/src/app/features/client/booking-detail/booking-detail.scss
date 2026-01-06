@@ -85,7 +85,6 @@
 }
 
 // MODAL QR
-
 .qr-modal {
   position: fixed;
   inset: 0;
@@ -138,7 +137,7 @@
 }
 
 // MOVIL
-@media (max-width: 768px) {
+@media (max-width: $bp-sm) {
 
   .booking-detail-page {
     padding: 1rem;
@@ -182,7 +181,7 @@
 }
 
 // TABLET
-@media (max-width: 480px) {
+@media (max-width: $bp-md) {
 
   .booking-card {
     padding: 1rem;
