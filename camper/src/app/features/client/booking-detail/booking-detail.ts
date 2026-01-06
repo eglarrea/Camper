@@ -63,13 +63,18 @@ export class BookingDetail implements OnInit {
     this.isLoading = true;
     this.bookingService.cancelBooking(this.booking.id).subscribe({
       next: (response: any) => {
-        const msg = response && (response.message || response) ? (response.message || response) : 'Reserva cancelada correctamente.';
+        const msg = 'Reserva cancelada correctamente.';
         alert(msg);
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
-        this.handleError(err, 'HISTORY_DETAIL.ERRORS.CANCEL');
-        this.isLoading = false;
+        if (err.status === 200) {
+           alert('Reserva cancelada correctamente.');
+           this.loadBooking(this.booking.id);
+        } else {
+           this.handleError(err, 'Hubo un error al intentar cancelar la reserva.');
+           this.isLoading = false;
+        }
       }
     });
   }
@@ -85,7 +90,7 @@ export class BookingDetail implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.handleError(err, 'HISTORY_DETAIL.ERRORS.QR', true);
+        this.handleError(err, 'No se pudo obtener el código QR.', true);
         this.isLoading = false;
       }
     });
@@ -104,13 +109,18 @@ export class BookingDetail implements OnInit {
 
     this.bookingService.rateBooking(this.booking.id, this.rateValue).subscribe({
       next: (response: any) => {
-        const msg = response && (response.message || response) ? (response.message || response) : '¡Gracias por tu valoración!';
+        const msg = '¡Gracias por tu valoración!';
         alert(msg);
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
-        this.handleError(err, 'HISTORY_DETAIL.ERRORS.RATE');
-        this.isLoading = false;
+        if (err.status === 200) {
+           alert('¡Gracias por tu valoración!');
+           this.loadBooking(this.booking.id);
+        } else {
+           this.handleError(err, 'Hubo un error al intentar valorar el parking.');
+           this.isLoading = false;
+        }
       }
     });
   }
