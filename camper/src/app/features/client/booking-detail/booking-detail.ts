@@ -20,13 +20,17 @@ export class BookingDetail implements OnInit {
 
   booking: any | null = null;
   isLoading = true;
+
   errorMessage = '';
+  successMessage = '';
 
   showQrModal = false;
   currentQrCode: string | null = null;
 
   showRateModal = false;
   rateValue = 5;
+
+  showCancelModal = false; 
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -55,22 +59,19 @@ export class BookingDetail implements OnInit {
 
   cancelBooking() {
     if (!this.booking) return;
-
-    if (!confirm('¿Estás seguro de que deseas cancelar esta reserva?')) {
-      return;
+      this.showCancelModal = true;
     }
-
+    
+  confirmCancellation() {
+    this.showCancelModal = false;
     this.isLoading = true;
     this.bookingService.cancelBooking(this.booking.id).subscribe({
       next: (response: any) => {
-        const msg = 'Reserva cancelada correctamente.';
-        alert(msg);
-        this.loadBooking(this.booking.id);
+        this.handleCancelSuccess();
       },
       error: (err) => {
         if (err.status === 200) {
-           alert('Reserva cancelada correctamente.');
-           this.loadBooking(this.booking.id);
+           this.handleCancelSuccess();
         } else {
            this.handleError(err, 'Hubo un error al intentar cancelar la reserva.');
            this.isLoading = false;
@@ -78,6 +79,15 @@ export class BookingDetail implements OnInit {
       }
     });
   }
+
+  private handleCancelSuccess() {
+    this.showSuccess('Reserva cancelada correctamente.');
+    if (this.booking) {
+      this.booking.estado = '0';
+    }
+    this.loadBooking(this.booking.id); 
+  }
+
 
   viewQr() {
     if (!this.booking) return;
@@ -109,8 +119,7 @@ export class BookingDetail implements OnInit {
 
     this.bookingService.rateBooking(this.booking.id, this.rateValue).subscribe({
       next: (response: any) => {
-        const msg = '¡Gracias por tu valoración!';
-        alert(msg);
+        this.showSuccess('¡Gracias por tu valoración!');
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
@@ -134,6 +143,13 @@ export class BookingDetail implements OnInit {
     this.router.navigate(['/client/history']);
   }
 
+  private showSuccess(msg: string) {
+    this.successMessage = msg;
+    setTimeout(() => {
+        this.successMessage = '';
+    }, 3000); 
+  }
+
   private handleError(err: any, defaultMsg: string, isQr = false) {
     console.error(err);
     let errorMsg = defaultMsg;
@@ -151,7 +167,7 @@ export class BookingDetail implements OnInit {
          errorMsg = err.error.message;
        }
     }
-    alert(errorMsg);
+    this.errorMessage = errorMsg;
   }
 
   getStatusLabel(estado: string): string {

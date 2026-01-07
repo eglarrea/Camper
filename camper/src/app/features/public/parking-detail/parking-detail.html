@@ -13,6 +13,16 @@
     </div>
   </header>
 
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    <i class="fa-solid fa-check-circle me-2"></i> {{ successMessage }}
+    <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    <i class="fa-solid fa-exclamation-circle me-2"></i> {{ errorMessage | translate }}
+    <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+  </div>
+
   <!-- CARRUSEL MÓVIL -->
   <div
     id="parkingCarousel"
@@ -171,6 +181,34 @@
     <button class="nav next" (click)="nextImage($event)">›</button>
   </div>
 </div>
+
+<div class="lightbox" *ngIf="showConfirmModal" (click)="showConfirmModal = false">
+    <div class="modal-content-wrapper" (click)="$event.stopPropagation()" style="background: white; padding: 2rem; border-radius: 8px; max-width: 500px; width: 90%; color: #333; position: relative;">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 style="margin: 0; font-size: 1.5rem;">Confirmar Reserva</h3>
+        <button (click)="showConfirmModal = false" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+      </div>
+
+      <div style="margin-bottom: 2rem;">
+        <p class="mb-2">Estás a punto de reservar la plaza <strong>{{ selectedSpot?.nombre }}</strong>.</p>
+        
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 6px; font-size: 0.95rem;">
+          <p class="mb-1"><strong>Fechas:</strong> {{ entryDate }} al {{ exitDate }}</p>
+          <p class="mb-0"><strong>Precio Total:</strong> <span style="color: #2c3e50; font-size: 1.2rem; font-weight: bold;">{{ totalPrice }}€</span></p>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="btn btn-outline-secondary" (click)="showConfirmModal = false">
+          Cancelar
+        </button>
+        <button class="btn btn-primary" (click)="confirmBooking()">
+          Confirmar y Pagar
+        </button>
+      </div>
+    </div>
+  </div>
 
 <ng-template #loadingTpl>
   <div class="loading-wrapper">

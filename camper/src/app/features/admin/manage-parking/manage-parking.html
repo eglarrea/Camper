@@ -9,6 +9,16 @@
     </a>
   </header>
 
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-check-circle me-2"></i> {{ successMessage }}
+    <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+    <i class="fa-solid fa-exclamation-circle me-2"></i> {{ errorMessage }}
+    <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+  </div>
+
   <form [formGroup]="parkingForm" (ngSubmit)="saveParking()" class="parking-form">
     <section class="mb-5">
       <h2 class="section-title">{{ 'MANAGE_PARKING.GENERAL' | translate }}</h2>
@@ -136,6 +146,11 @@
           </div>
 
           <form [formGroup]="spotForm" (ngSubmit)="saveSpot()">
+
+            <div *ngIf="spotErrorMessage" class="alert alert-danger p-2 mb-3">
+              {{ spotErrorMessage }}
+            </div>
+            
             <div class="form-group-standard">
               <label class="form-label-custom">{{ 'MANAGE_PARKING.SPOT_NAME' | translate }}</label>
               <input type="text" formControlName="nombre">
