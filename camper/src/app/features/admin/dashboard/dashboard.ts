@@ -3,10 +3,11 @@ import { Admin } from '../../../core/services/admin';
 import { RouterLink } from '@angular/router';
 import { Parking } from '../../../core/models/parking';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, TranslateModule],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

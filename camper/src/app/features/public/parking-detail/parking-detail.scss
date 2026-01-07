@@ -182,7 +182,12 @@
   }
 
   a {
-    color: $color-blackish;
+    color: $color-primary-gray;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-primary-soft;
+    }
   }
 }
 
@@ -261,8 +266,8 @@
   }
 }
 
-// MOVIL
-@media (max-width: 768px) {
+// MOVIL y TABLET
+@media (max-width: $bp-md) {
 
   .main-image,
   .gallery {

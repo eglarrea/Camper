@@ -165,37 +165,37 @@
   }
 }
 
-// RESET DEL GRID PARA HEADER EN MOVIL
+// MOVIL
 @media (max-width: $bp-lg) {
 
   .header .container,
   .header .container-fluid {
-    padding: 0 !important;
+    padding: 0;
   }
 
   .header .row {
-    margin: 0 !important;
-    width: 100% !important;
+    margin: 0;
+    width: 100%;
 
-    display: flex !important;
-    flex-direction: row !important;
+    display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-between !important;
+    justify-content: space-between;
   }
 
   .header .row > div {
-    padding: 0 !important;
-    flex: none !important;
+    padding: 0;
+    flex: none;
   }
 
   .menu-icon {
-    order: 1 !important;
+    order: 1;
   }
 
   .logo-wrapper {
-    order: 2 !important;
-    margin-left: auto !important;
-    display: flex !important;
+    order: 2 ;
+    margin-left: auto;
+    display: flex ;
     align-items: center;
   }
 
@@ -204,6 +204,6 @@
   }
 
   .nav-links {
-    display: none !important;
+    display: none;
   }
 }

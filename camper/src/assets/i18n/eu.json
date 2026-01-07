@@ -188,5 +188,15 @@
       "RATE": "Error al enviar la valoración._EU",
       "QR": "No se pudo obtener el código QR._EU"
     }
+  },
+
+  "ADMIN_PARKINGS": {
+    "TITLE": "Mis parkings_EU",
+    "ADD": "Añadir parking_EU",
+    "LOADING": "Cargando datos…_EU",
+    "EMPTY": "No tienes parkings registrados._EU",
+    "SPOTS": "Plazas_EU",
+    "MANAGE": "Gestionar_EU"
   }
+
 }

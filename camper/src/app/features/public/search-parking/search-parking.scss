@@ -155,7 +155,7 @@ i {
 }
 
 // MOVIL
-@media (max-width: 576px) {
+@media (max-width: $bp-sm) {
 
   .search-page {
     padding: 1.2rem 1rem;
@@ -255,7 +255,7 @@ i {
 }
 
 // TABLET
-@media (min-width: 577px) and (max-width: 991px) {
+@media (max-width: $bp-md) {
 
   .search-bar {
     flex-wrap: wrap;

@@ -4,10 +4,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { Admin } from '../../../core/services/admin';
 import { Parking, Plaza } from '../../../core/models/parking';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-manage-parking',
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, TranslateModule],
   templateUrl: './manage-parking.html',
   styleUrl: './manage-parking.scss',
 })
@@ -20,10 +21,10 @@ export class ManageParking implements OnInit {
   parkingId: number | null = null;
   isEditMode = false;
   isLoading = false;
-  
+
   parkingForm: FormGroup = this.fb.group({
     nombreParking: ['', Validators.required],
-    provinciaParking: [''], 
+    provinciaParking: [''],
     municipioParking: ['', Validators.required],
     webParking: [''],
     telefonoParking: [''],
@@ -38,11 +39,11 @@ export class ManageParking implements OnInit {
   plazas: Plaza[] = [];
   showSpotModal = false;
   currentSpotId: number | null = null;
-  
+
   spotForm: FormGroup = this.fb.group({
     nombre: ['', Validators.required],
     precio: [0, [Validators.required, Validators.min(0)]],
-    estado: ['0'], 
+    estado: ['0'],
     esVip: [false],
     tieneElectricidad: [false]
   });
@@ -64,20 +65,20 @@ export class ManageParking implements OnInit {
       next: (data) => {
         this.parkingForm.patchValue({
           nombreParking: data.nombre,
-          municipioParking: data.localidad || data.municipio, 
-          provinciaParking: data.provincia, 
-          
+          municipioParking: data.localidad || data.municipio,
+          provinciaParking: data.provincia,
+
           webParking: data.web,
           telefonoParking: data.telefono,
           emailParking: data.email,
           personaContactoParking: data.personaContacto,
-          
+
           tieneElectricidadParking: data.tomaElectricidad || data.tieneElectricidad,
-          
+
           tieneResidualesParking: data.limpiezaAguasResiduales || data.tieneResiduales,
-          
+
           tienePlazasVipParking: data.plazasVip || data.tieneVips,
-          
+
           isActivoParking: data.activo !== undefined ? data.activo : true
         });
 

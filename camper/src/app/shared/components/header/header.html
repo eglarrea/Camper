@@ -47,8 +47,7 @@
             <div class="user-menu" *ngIf="menuOpen">
               <a *ngIf="isAdmin" routerLink="/admin/dashboard" (click)="closeMenu()">{{ 'HEADER.DASHBOARD' | translate }}</a>
               <a routerLink="/client/profile" (click)="closeMenu()">{{ 'HEADER.PROFILE' | translate }}</a>
-              <a routerLink="/client/history" (click)="closeMenu()">{{ 'HEADER.HISTORY' | translate }}</a>
-              <button (click)="logout(); closeMenu()">{{ 'HEADER.LOGOUT' | translate }}</button>
+              <a (click)="logout(); closeMenu()">{{ 'HEADER.LOGOUT' | translate }}</a>
             </div>
           </ng-container>
 
@@ -80,8 +79,7 @@
     <ng-container *ngIf="isLogged">
       <a *ngIf="isAdmin" routerLink="/admin/dashboard" (click)="closeMobileMenu()">{{ 'HEADER.DASHBOARD' | translate }}</a>
       <a routerLink="/client/profile" (click)="closeMobileMenu()">{{ 'HEADER.PROFILE' | translate }}</a>
-      <a routerLink="/client/history" (click)="closeMobileMenu()">{{ 'HEADER.HISTORY' | translate }}</a>
-      <button (click)="logout(); closeMobileMenu()">{{ 'HEADER.LOGOUT' | translate }}</button>
+      <a (click)="logout(); closeMobileMenu()">{{ 'HEADER.LOGOUT' | translate }}</a>
     </ng-container>
 
   </div>
