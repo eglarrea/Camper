@@ -205,6 +205,36 @@
     "EMPTY": "You don't have any registered parkings.",
     "SPOTS": "Spots",
     "MANAGE": "Manage"
-  }
+  },
 
+  "MANAGE_PARKING": {
+    "NEW": "New Parking",
+    "EDIT": "Manage Parking",
+    "BACK": "Back to list",
+    "GENERAL": "General data",
+    "NAME": "Name",
+    "EMAIL": "Contact email",
+    "PROVINCE": "Province",
+    "CITY": "City",
+    "WEB": "Website",
+    "PHONE": "Phone",
+    "ACTIVE": "Active",
+    "ELECTRICITY": "Electricity",
+    "RESIDUALS": "Waste water",
+    "VIP": "VIP zone",
+    "SAVE": "Save parking",
+    "SAVING": "Saving...",
+    "SPOTS": "Spots",
+    "ADD_SPOT": "Add spot",
+    "SPOT_NAME": "Name",
+    "PRICE": "Price",
+    "FEATURES": "Features",
+    "STATUS": "Status",
+    "FREE": "Free",
+    "OCCUPIED": "Maintenance",
+    "EDIT_SPOT": "Edit",
+    "NO_SPOTS": "This parking has no spots.",
+    "CANCEL": "Delete",
+    "SAVE_SPOT": "Save spot"
+  }
 }

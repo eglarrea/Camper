@@ -35,10 +35,7 @@ $color-error:   #BF3A3A;
 
 
 // TIPOGRAFÍAS
-// Montserrat solo para títulos de página
 $font-heading: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-
-// Poppins para el resto de textos
 $font-body:    'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 // Pesos tipográficos usados
@@ -68,5 +65,3 @@ $shadow-strong: 1px 2px 7px rgba(20, 74, 110, 0.5);
 $bp-sm: 576px;  // Móviles grandes
 $bp-md: 768px;  // Tablets
 $bp-lg: 992px;  // Escritorio estándar
-$bp-xl: 1200px; // Escritorio grande
-$bp-xxl: 1400px; // Escritorio muy ancho

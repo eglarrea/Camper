@@ -212,7 +212,36 @@
     "EMPTY": "No tienes parkings registrados.",
     "SPOTS": "Plazas",
     "MANAGE": "Gestionar"
+  },
+
+  "MANAGE_PARKING": {
+    "NEW": "Nuevo Parking",
+    "EDIT": "Gestionar Parking",
+    "BACK": "Volver al listado",
+    "GENERAL": "Datos generales",
+    "NAME": "Nombre",
+    "EMAIL": "Email de contacto",
+    "PROVINCE": "Provincia",
+    "CITY": "Municipio",
+    "WEB": "Web",
+    "PHONE": "Teléfono",
+    "ACTIVE": "Activo",
+    "ELECTRICITY": "Electricidad general",
+    "RESIDUALS": "Aguas residuales",
+    "VIP": "Zona VIP",
+    "SAVE": "Guardar datos del parking",
+    "SAVING": "Guardando...",
+    "SPOTS": "Plazas",
+    "ADD_SPOT": "Añadir plaza",
+    "SPOT_NAME": "Nombre",
+    "PRICE": "Precio",
+    "FEATURES": "Características",
+    "STATUS": "Estado",
+    "FREE": "Libre",
+    "OCCUPIED": "Mantenimiento",
+    "EDIT_SPOT": "Editar",
+    "NO_SPOTS": "Este parking no tiene plazas creadas.",
+    "CANCEL": "Cancelar",
+    "SAVE_SPOT": "Guardar plaza"
   }
-
-
 }
