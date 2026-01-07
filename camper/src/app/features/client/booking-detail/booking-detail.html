@@ -5,14 +5,21 @@
     </button>
   </div>
 
+  <div *ngIf="successMessage" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+    <i class="fa-solid fa-check-circle me-2"></i> {{ successMessage }}
+    <button type="button" class="btn-close" (click)="successMessage = ''" aria-label="Close"></button>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+    <i class="fa-solid fa-exclamation-circle me-2"></i> {{ errorMessage | translate }}
+    <button type="button" class="btn-close" (click)="errorMessage = ''" aria-label="Close"></button>
+  </div>
+
+
   <div *ngIf="isLoading" class="loading-wrapper">
     <i class="fa-solid fa-spinner spinner"></i>
     <p>{{ 'HISTORY_DETAIL.LOADING_DETAIL' | translate }}</p>
   </div>
-
-  <p *ngIf="errorMessage" class="error-msg-standard">
-    {{ errorMessage }}
-  </p>
 
   <div *ngIf="!isLoading && booking" class="booking-card">
     <header class="booking-header">
@@ -114,5 +121,25 @@
       </button>
     </div>
 
+  </div>
+</div>
+
+<div *ngIf="showCancelModal" class="qr-modal" (click)="showCancelModal = false">
+  <div class="qr-box confirmation-box" (click)="$event.stopPropagation()">
+    <div class="qr-header">
+      <h2>Confirmar Cancelación</h2>
+      <button (click)="showCancelModal = false"></button>
+    </div>
+    <div class="qr-body">
+      <p class="mb-4">¿Estás seguro de que deseas cancelar esta reserva? Esta acción no se puede deshacer.</p>
+      <div class="d-flex gap-2 justify-content-end">
+        <button class="btn btn-secondary" (click)="showCancelModal = false">
+          No, volver
+        </button>
+        <button class="btn btn-danger" (click)="confirmCancellation()">
+          Sí, cancelar
+        </button>
+      </div>
+    </div>
   </div>
 </div>

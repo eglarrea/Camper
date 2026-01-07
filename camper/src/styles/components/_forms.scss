@@ -1,6 +1,5 @@
 @use "../abstracts/variables" as *;
 
-// WRAPPERS GENERALES DE FORMULARIOS
 .form-page-wrapper {
   display: flex;
   flex-direction: column;
@@ -8,13 +7,11 @@
   padding: 4rem 0;
 }
 
-// CONTENEDOR
 .form-standard {
   width: 100%;
   max-width: 600px;
 }
 
-// INPUT GROUP
 .form-group-standard {
   margin-bottom: 1.5rem;
 
@@ -46,7 +43,7 @@
   }
 
   .form-2-group .form-group-standard {
-    margin-bottom: -1rem !important; // antes era 1.5rem
+    margin-bottom: -1rem !important;
   }
 
   .btn {
@@ -54,21 +51,18 @@
   }
 }
 
-// ERRORES
 .error-msg-standard {
   margin-top: $space-xxs;
   color: $color-error;
   font-size: .85rem;
 }
 
-// EXITO
 .success-msg {
   margin-top: $space-xxs;
   color: $color-success;
   font-size: .85rem;
 }
 
-// BOTÓN
 .button-wide {
   width: 100%;
   padding: 0.6rem;
@@ -80,7 +74,6 @@
   gap: .6rem;
 }
 
-// LOADING
 .loading-msg {
   margin-top: $space-sm;
   color: $color-primary;
@@ -91,7 +84,6 @@
   justify-content: center;
 }
 
-// ANIMACiÓN ICONO
 .loading-icon {
   animation: spin 0.9s linear infinite;
   font-size: 1.1rem;

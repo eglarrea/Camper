@@ -197,6 +197,36 @@
     "EMPTY": "No tienes parkings registrados._EU",
     "SPOTS": "Plazas_EU",
     "MANAGE": "Gestionar_EU"
-  }
+  },
 
+  "MANAGE_PARKING": {
+    "NEW": "Nuevo Parking_EU",
+    "EDIT": "Gestionar Parking_EU",
+    "BACK": "Volver al listado_EU",
+    "GENERAL": "Datos generales_EU",
+    "NAME": "Nombre_EU",
+    "EMAIL": "Email de contacto_EU",
+    "PROVINCE": "Provincia_EU",
+    "CITY": "Municipio_EU",
+    "WEB": "Web_EU",
+    "PHONE": "Teléfono_EU",
+    "ACTIVE": "Activo_EU",
+    "ELECTRICITY": "Electricidad general_EU",
+    "RESIDUALS": "Aguas residuales_EU",
+    "VIP": "Zona VIP_EU",
+    "SAVE": "Guardar datos del parking_EU",
+    "SAVING": "Guardando..._EU",
+    "SPOTS": "Plazas_EU",
+    "ADD_SPOT": "Añadir plaza_EU",
+    "SPOT_NAME": "Nombre_EU",
+    "PRICE": "Precio_EU",
+    "FEATURES": "Características_EU",
+    "STATUS": "Estado_EU",
+    "FREE": "Libre_EU",
+    "OCCUPIED": "Mantenimiento_EU",
+    "EDIT_SPOT": "Editar_EU",
+    "NO_SPOTS": "Este parking no tiene plazas creadas._EU",
+    "CANCEL": "Cancelar_EU",
+    "SAVE_SPOT": "Guardar plaza_EU"
+  }
 }

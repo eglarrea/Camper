@@ -22,6 +22,10 @@ export class ManageParking implements OnInit {
   isEditMode = false;
   isLoading = false;
 
+  successMessage = '';
+  errorMessage = '';
+  spotErrorMessage = '';
+
   parkingForm: FormGroup = this.fb.group({
     nombreParking: ['', Validators.required],
     provinciaParking: [''],
@@ -93,6 +97,8 @@ export class ManageParking implements OnInit {
   }
 
   saveParking() {
+    this.clearMessages();
+
     if (this.parkingForm.invalid) {
       this.parkingForm.markAllAsTouched();
       return;
@@ -105,24 +111,29 @@ export class ManageParking implements OnInit {
       const updateData = { ...formData, idParking: this.parkingId };
       this.adminService.updateParking(updateData).subscribe({
         next: () => {
-          alert('Parking actualizado correctamente');
+          this.showSuccess('Parking actualizado correctamente');
           this.isLoading = false;
         },
         error: (err) => {
-          console.error(err);
-          alert('Error al actualizar el parking');
-          this.isLoading = false;
+            if (err.status === 200) {
+             this.showSuccess('Parking actualizado correctamente');
+             this.isLoading = false;
+          } else {
+             console.error(err);
+             this.errorMessage = 'Error al actualizar el parking. Inténtalo de nuevo.';
+             this.isLoading = false;
+          }
         }
       });
     } else {
       this.adminService.createParking(formData).subscribe({
         next: () => {
-          alert('Parking creado correctamente');
+          this.showSuccess('Parking creado correctamente');
           this.router.navigate(['/admin/dashboard']);
         },
         error: (err) => {
           console.error(err);
-          alert('Error al crear el parking');
+          this.errorMessage ='Error al crear el parking';
           this.isLoading = false;
           this.router.navigate(['/admin/dashboard']);
         }
@@ -133,6 +144,7 @@ export class ManageParking implements OnInit {
   // --- GESTIÓN DE PLAZAS ---
 
   openSpotModal(spot?: Plaza) {
+    this.spotErrorMessage = '';
     this.showSpotModal = true;
     if (spot) {
       this.currentSpotId = spot.id;
@@ -146,6 +158,7 @@ export class ManageParking implements OnInit {
   closeSpotModal() {
     this.showSpotModal = false;
     this.currentSpotId = null;
+    this.spotErrorMessage = '';
   }
 
   saveSpot() {
@@ -161,17 +174,32 @@ export class ManageParking implements OnInit {
              this.plazas[index] = { ...this.plazas[index], ...updatedSpot };
           }
           this.closeSpotModal();
+          this.showSuccess('Plaza actualizada correctamente');
         },
-        error: () => alert('Error al actualizar plaza')
+        error: () => this.spotErrorMessage = 'Error al actualizar la plaza en el servidor.'
       });
     } else {
       this.adminService.createSpot(this.parkingId, spotData).subscribe({
         next: (newSpot) => {
           this.plazas.push(newSpot);
           this.closeSpotModal();
+          this.showSuccess('Plaza creada correctamente');
         },
-        error: () => alert('Error al crear plaza')
+        error: () => this.spotErrorMessage = 'Error al crear la plaza en el servidor.'
       });
     }
+  }
+
+  private clearMessages() {
+    this.successMessage = '';
+    this.errorMessage = '';
+    this.spotErrorMessage = '';
+  }
+
+  private showSuccess(msg: string) {
+    this.successMessage = msg;
+    setTimeout(() => {
+        this.successMessage = '';
+    }, 3000);
   }
 }

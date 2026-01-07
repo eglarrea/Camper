@@ -25,7 +25,11 @@ export class ParkingDetail implements OnInit {
   parking: Parking | null = null;
   selectedSpot: Plaza | null = null;
   isLoading = true;
+
   errorMessage = '';
+  successMessage = '';
+  showConfirmModal = false;
+
   isMobile = false;
 
   entryDate: string = '';
@@ -54,6 +58,7 @@ export class ParkingDetail implements OnInit {
 
   loadParkingDetails(id: string) {
     this.isLoading = true;
+    this.errorMessage = '';
     const filters: SearchFilters = {
       id: Number(id),
       fechaDesde: this.entryDate,
@@ -111,11 +116,13 @@ export class ParkingDetail implements OnInit {
       this.router.navigate(['/client/profile']);
       return;
     }
+    this.showConfirmModal = true;
 
-    if (!confirm(`Vas a reservar la plaza ${this.selectedSpot.nombre}. Precio Total: ${this.totalPrice}€. Fechas: ${this.entryDate} a ${this.exitDate}. ¿Confirmar?`)) {
-      return;
-    }
+  }
+  confirmBooking() {
+    if (!this.selectedSpot || !this.parking) return;
 
+    this.showConfirmModal = false;
     this.isLoading = true;
     const bookingData: BookingRequest = {
       idPlaza: this.selectedSpot.id,
@@ -126,12 +133,12 @@ export class ParkingDetail implements OnInit {
 
     this.bookingService.createBooking(bookingData).subscribe({
       next: (res) => {
-        alert('¡Reserva realizada con éxito!');
+        this.successMessage = '¡Reserva realizada con éxito!';
         this.router.navigate(['/client/history']);
       },
       error: (err) => {
         console.error(err);
-        alert('Hubo un error al realizar la reserva.');
+        this.errorMessage = 'Hubo un error al realizar la reserva.';
         this.isLoading = false;
       }
     });
