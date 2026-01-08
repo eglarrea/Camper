@@ -124,7 +124,7 @@ export class BookingDetail implements OnInit {
       },
       error: (err) => {
         if (err.status === 200) {
-           alert('¡Gracias por tu valoración!');
+           this.showSuccess('¡Gracias por tu valoración!');
            this.loadBooking(this.booking.id);
         } else {
            this.handleError(err, 'Hubo un error al intentar valorar el parking.');
