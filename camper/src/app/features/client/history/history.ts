@@ -50,7 +50,7 @@ export class History implements OnInit {
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Error loading history.';
+        this.errorMessage = 'HISTORY.ERROR_LOADING';
         this.isLoading = false;
       }
     });

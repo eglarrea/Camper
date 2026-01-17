@@ -133,12 +133,12 @@ export class ParkingDetail implements OnInit {
 
     this.bookingService.createBooking(bookingData).subscribe({
       next: (res) => {
-        this.successMessage = '¡Reserva realizada con éxito!';
+        this.successMessage = 'PARKING.SUCCESS';
         this.router.navigate(['/client/history']);
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Hubo un error al realizar la reserva.';
+        this.errorMessage = 'PARKING.ERRORS.BOOKING';
         this.isLoading = false;
       }
     });
