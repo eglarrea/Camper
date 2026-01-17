@@ -1,6 +1,6 @@
 {
   "HEADER": {
-    "SEARCH": "Buscar parking_EU",
+    "SEARCH": "Aparkalekua bilatu",
     "LOGIN": "Saioa Hasi",
     "REGISTER": "Erregistratu",
     "PROFILE": "Nire datuak",
@@ -8,225 +8,255 @@
     "HISTORY": "Erreserben historia",
     "LOGOUT": "Irten"
   },
+
   "FOOTER": {
-    "CONTACT": "Contáctanos_EU",
-    "PROJECT": "Proyecto para TFG de DAW_EU"
+    "CONTACT": "Jarri gurekin harremanetan",
+    "PROJECT": "DAW-ko GHE proiektua"
   },
 
   "LOGIN": {
-    "TITLE": "Inicia Sesión_EU",
-    "EMAIL": "Correo electrónico_EU",
-    "PASSWORD": "Contraseña_EU",
-    "PLACEHOLDER_EMAIL": "ejemplo@correo.com_EU",
+    "TITLE": "Saioa hasi",
+    "EMAIL": "Posta elektronikoa",
+    "PASSWORD": "Pasahitza",
+    "PLACEHOLDER_EMAIL": "adibidea@posta.com",
     "PLACEHOLDER_PASSWORD": "******",
-    "BUTTON": "Entrar_EU",
-    "LOADING": "Cargando..._EU",
+    "BUTTON": "Sartu",
+    "LOADING": "Kargatzen...",
     "ERROR": {
-      "REQUIRED_EMAIL": "El email es obligatorio._EU",
-      "INVALID_EMAIL": "Formato de email incorrecto._EU",
-      "REQUIRED_PASSWORD": "La contraseña es obligatoria._EU",
-      "INVALID_CREDENTIALS": "Credenciales inválidas. Comprueba tu email y contraseña._EU",
-      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde._EU",
-      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo más tarde._EU"
+      "REQUIRED_EMAIL": "Posta elektronikoa derrigorrezkoa da.",
+      "INVALID_EMAIL": "Posta elektronikoaren formatua okerra da.",
+      "REQUIRED_PASSWORD": "Pasahitza derrigorrezkoa da.",
+      "INVALID_CREDENTIALS": "Kredentzial baliogabeak. Egiaztatu posta eta pasahitza.",
+      "TIMEOUT": "Zerbitzariak denbora gehiegi behar du erantzuteko. Saiatu geroago.",
+      "UNKNOWN": "Ustekabeko errorea gertatu da. Saiatu geroago."
     }
   },
+
   "REGISTER": {
-    "TITLE": "Registro de Usuario_EU",
-    "BUTTON": "Crear cuenta_EU",
-    "LOADING": "Procesando..._EU",
-    "SUCCESS": "Registro completado correctamente._EU",
+    "TITLE": "Erabiltzaile-erregistroa",
+    "BUTTON": "Kontua sortu",
+    "LOADING": "Prozesatzen...",
+    "SUCCESS": "Erregistroa recte burutu da.",
 
     "FIELDS": {
-      "NAME": "Nombre *_EU",
-      "LASTNAME": "Apellidos *_EU",
-      "DNI": "DNI *_EU",
-      "BIRTHDATE": "Fecha de nacimiento *_EU",
-      "IBAN": "IBAN (Cuenta bancaria)_EU",
-      "EMAIL": "Correo electrónico *_EU",
-      "PASSWORD": "Contraseña *_EU",
-      "CONFIRM": "Confirmar *_EU"
+      "NAME": "Izena *",
+      "LASTNAME": "Abizenak *",
+      "DNI": "NAN *",
+      "BIRTHDATE": "Jaiotze-data *",
+      "IBAN": "IBAN (Banku-kontua)",
+      "EMAIL": "Posta elektronikoa *",
+      "PASSWORD": "Pasahitza *",
+      "CONFIRM": "Berretsi *"
     },
 
     "PLACEHOLDERS": {
-      "DNI": "12345678Z_EU",
-      "IBAN": "ES..._EU",
-      "EMAIL": "ejemplo@correo.com_EU",
-      "PASSWORD": "Contraseña_EU"
+      "DNI": "12345678Z",
+      "IBAN": "ES...",
+      "EMAIL": "adibidea@posta.com",
+      "PASSWORD": "Pasahitza"
     },
 
     "ERROR": {
-      "REQUIRED": "Obligatorio._EU",
-      "INVALID_EMAIL": "Email inválido._EU",
-      "INVALID_DNI_FORMAT": "Formato incorrecto._EU",
-      "INVALID_DNI_LETTER": "Letra incorrecta._EU",
-      "UNDER_AGE": "Debes ser mayor de 18._EU",
-      "INVALID_IBAN": "Formato IBAN inválido (ES + 22 dígitos)._EU",
-      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU"
+      "REQUIRED": "Derrigorrezkoa.",
+      "INVALID_EMAIL": "Posta elektroniko baliogabea.",
+      "INVALID_DNI_FORMAT": "Formatua okerra.",
+      "INVALID_DNI_LETTER": "Letra okerra.",
+      "UNDER_AGE": "18 urtetik gorakoa izan behar zara.",
+      "INVALID_IBAN": "IBAN formatu baliogabea (ES + 22 digitu).",
+      "PASSWORDS_MISMATCH": "Pasahitzak ez datoz bat."
     },
 
     "BACKEND": {
-      "TIMEOUT": "El servidor tarda demasiado en responder. Inténtalo más tarde._EU",
-      "USER_EXISTS": "El usuario ya existe._EU",
-      "UNKNOWN": "Ocurrió un error inesperado. Inténtalo de nuevo._EU"
+      "TIMEOUT": "Zerbitzariak denbora gehiegi behar du erantzuteko. Saiatu geroago.",
+      "USER_EXISTS": "Erabiltzailea dagoeneko existitzen da.",
+      "UNKNOWN": "Ustekabeko errorea gertatu da. Saiatu berriro."
     }
   },
 
   "PROFILE": {
-  "TITLE": "Mis Datos_EU",
-  "SUBTITLE": "Consulta y actualiza tu información personal._EU",
-  "LOADING": "Cargando datos..._EU",
-  "PERSONAL_DATA": "Datos Personales_EU",
-  "NOT_EDITABLE": "No editable_EU",
+    "TITLE": "Nire Datuak",
+    "SUBTITLE": "Kontsultatu eta eguneratu zure informazio pertsonala.",
+    "LOADING": "Datuak kargatzen...",
+    "PERSONAL_DATA": "Datu Pertsonalak",
+    "NOT_EDITABLE": "Ezin da editatu",
 
     "FIELDS": {
-      "NAME": "Nombre_EU",
-      "LASTNAME": "Apellidos_EU",
-      "DNI": "DNI_EU",
-      "EMAIL": "Email_EU",
-      "BIRTHDATE": "Fecha de nacimiento_EU",
-      "IBAN": "IBAN_EU",
-      "NEW_PASSWORD": "Nueva contraseña_EU",
-      "CONFIRM_PASSWORD": "Confirmar contraseña_EU"
+      "NAME": "Izena",
+      "LASTNAME": "Abizenak",
+      "DNI": "NAN",
+      "EMAIL": "Posta elektronikoa",
+      "BIRTHDATE": "Jaiotze-data",
+      "IBAN": "IBAN",
+      "NEW_PASSWORD": "Pasahitz berria",
+      "CONFIRM_PASSWORD": "Berretsi pasahitza"
     },
 
     "ERROR": {
-      "REQUIRED": "Campo obligatorio._EU",
-      "UNDER_AGE": "Debes ser mayor de edad._EU",
-      "INVALID_IBAN": "IBAN inválido._EU",
-      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden._EU",
-      "DATA": "No se pudieron cargar los datos del usuario._EU",
-      "CHANGES": "No se pudieron guardar los cambios. Revisa los datos._EU"
+      "REQUIRED": "Derrigorrezko eremua.",
+      "UNDER_AGE": "Adinez nagusia izan behar zara.",
+      "INVALID_IBAN": "IBAN baliogabea.",
+      "PASSWORDS_MISMATCH": "Pasahitzak ez datoz bat.",
+      "DATA": "Ezin izan dira erabiltzailearen datuak kargatu.",
+      "CHANGES": "Ezin izan dira aldaketak gorde. Egiaztatu datuak."
     },
 
-    "CHANGE_PASSWORD": "Cambiar contraseña_EU",
-    "PASSWORD_NOTE": "Deja estos campos vacíos si no quieres modificar tu clave._EU",
+    "CHANGE_PASSWORD": "Aldatu pasahitza",
+    "PASSWORD_NOTE": "Utzi eremu hauek hutsik pasahitza aldatu nahi ez baduzu.",
 
     "BUTTONS": {
-      "EDIT": "Editar datos_EU",
-      "CANCEL": "Cancelar_EU",
-      "SAVE": "Guardar cambios_EU",
-      "SAVING": "Guardando..._EU"
+      "EDIT": "Datuak editatu",
+      "CANCEL": "Utzi",
+      "SAVE": "Aldaketak gorde",
+      "SAVING": "Gordetzen..."
     }
   },
 
   "SEARCH": {
-    "TITLE": "Busca tu parking_EU",
-    "DESTINATION": "Destino_EU",
-    "PROVINCE": "Provincia_EU",
-    "BUTTON": "Buscar_EU",
-    "LOADING": "Buscando parkings..._EU",
-    "ELECTRICITY": "Toma de electricidad_EU",
-    "RESIDUALS": "Limpieza de aguas residuales_EU",
-    "VIP": "Plazas VIP_EU",
-    "RESULTS": "parking encontrados_EU",
-    "ALL": "Todos_EU",
-    "DETAILS": "Detalles_EU",
-    "NIGHT": "noche_EU",
+    "TITLE": "Bilatu zure aparkalekua",
+    "DESTINATION": "Helmuga",
+    "PROVINCE": "Probintzia",
+    "BUTTON": "Bilatu",
+    "LOADING": "Aparkalekuak bilatzen...",
+    "ELECTRICITY": "Argindar hartunea",
+    "RESIDUALS": "Hondakin-uren garbiketa",
+    "VIP": "VIP plazak",
+    "RESULTS": "aurkitutako aparkalekuak",
+    "ALL": "Guztiak",
+    "DETAILS": "Xehetasunak",
+    "NIGHT": "gaua",
     "ERRORS": {
-      "NO_RESULTS": "No se encontraron resultados._EU",
-      "CONNECTION": "Error de conexión al buscar parkings._EU"
+      "NO_RESULTS": "Ez da emaitzarik aurkitu.",
+      "CONNECTION": "Konexio errorea aparkalekuak bilatzean."
     }
   },
 
   "PARKING": {
-    "SERVICES": "Servicios_EU",
-    "SELECT_SPOT": "Selecciona tu plaza_EU",
-    "DATES": "Fechas seleccionadas_EU",
-    "FREE": "Libre_EU",
-    "OCCUPIED": "Ocupada_EU",
-    "TOTAL": "Total a pagar_EU",
-    "RESERVE_SPOT": "Reservar plaza_EU",
-    "SELECT_FREE": "Selecciona una plaza libre para continuar_EU",
-    "CONTACT": "Contacto_EU",
-    "LOADING": "Cargando información del parking..._EU"
+    "SERVICES": "Zerbitzuak",
+    "SELECT_SPOT": "Hautatu zure plaza",
+    "DATES": "Hautatutako datak",
+    "FREE": "Libre",
+    "OCCUPIED": "Hartuta",
+    "TOTAL": "Guztira ordaintzeko",
+    "RESERVE_SPOT": "Plaza erreserbatu",
+    "SELECT_FREE": "Hautatu plaza libre bat jarraitzeko",
+    "CONTACT": "Kontaktua",
+    "LOADING": "Aparkalekuaren informazioa kargatzen...",
+    "SUCCESS": "Erreserba arrakastaz egin da!",
+    "ERRORS": {
+      "NO_RESULTS": "Ez da aparkalekurik aurkitu edo ez dago erabilgarri data hauetarako.",
+      "LOADING": "Errorea aparkalekuaren xehetasunak kargatzean.",
+      "BOOKING": "Errorea gertatu da erreserba egitean."
+    },
+    "AUX": {
+      "FIRST": "Plaza hau erreserbatuko duzu:",
+      "SECOND": "Prezio osoa",
+      "THIRD": "Datak",
+      "FOURTH": "-tik",
+      "FIFTH": "Berretsi?",
+      "SIXTH": "Berretsi erreserba",
+      "SEVENTH": "Utzi",
+      "EIGHTH": "Berretsi eta ordaindu"
+    }
   },
 
   "HISTORY": {
-    "TITLE": "Historial de reservas_EU",
-    "PARKING": "Parking_EU",
-    "ALL": "Todos_EU",
-    "CONFIRMED": "Confirmada_EU",
-    "CANCELLED": "Cancelada_EU",
-    "FILTER": "Filtrar_EU",
-    "CLEAR": "Limpiar_EU",
-    "LOADING": "Cargando historial..._EU",
-    "EMPTY": "No se encontraron reservas con estos criterios._EU",
-    "PARKING_GENERIC": "Parking_EU",
-    "REQUEST_DATE": "Solicitada el_EU",
-    "REFERENCE": "Referencia_EU",
-    "DATES": "Fechas_EU",
-    "TOTAL": "Total_EU",
-    "RATING": "Tu valoración_EU",
-    "DETAILS": "Ver detalles y gestionar_EU",
-    "ERROR_LOADING": "Error al cargar el historial._EU"
+    "TITLE": "Erreserben historia",
+    "PARKING": "Aparkalekua",
+    "ALL": "Guztiak",
+    "CONFIRMED": "Berretsita",
+    "CANCELLED": "Ezeztatuta",
+    "FILTER": "Filtratu",
+    "CLEAR": "Garbitu",
+    "LOADING": "Historia kargatzen...",
+    "EMPTY": "Ez da irizpide hauekin erreserbarik aurkitu.",
+    "PARKING_GENERIC": "Aparkalekua",
+    "REQUEST_DATE": "Eskaera-data:",
+    "REFERENCE": "Erreferentzia",
+    "DATES": "Datak",
+    "TOTAL": "Guztira",
+    "RATING": "Zure balorazioa",
+    "DETAILS": "Ikusi xehetasunak eta kudeatu",
+    "ERROR_LOADING": "Errorea historia kargatzean."
   },
 
   "HISTORY_DETAIL": {
-    "BACK": "Volver al historial_EU",
-    "BOOKING": "Reserva_EU",
-    "CONFIRMED": "Confirmada_EU",
-    "CANCELLED": "Cancelada_EU",
-    "REQUEST_DATE": "Entrada_EU",
-    "GENERAL": "Información general_EU",
-    "STAY": "Estancia_EU",
-    "REFERENCE": "Referencia_EU",
-    "SPOT": "Plaza_EU",
-    "ENTRY": "Entrada_EU",
-    "EXIT": "Salida_EU",
-    "RATING": "Valoración_EU",
-    "TOTAL": "Precio total_EU",
-    "QR": "Ver código QR_EU",
-    "RATE": "Valorar estancia_EU",
-    "CANCEL": "Cancelar reserva_EU",
-    "CANCELLED_MSG": "Esta reserva ha sido cancelada._EU",
-    "QR_TITLE": "Código QR de acceso_EU",
-    "LOADING_QR": "Cargando QR…_EU",
-    "LOADING_DETAIL": "Cargando detalles…_EU",
+    "BACK": "Itzuli historiara",
+    "BOOKING": "Erreserba",
+    "CONFIRMED": "Berretsita",
+    "CANCELLED": "Ezeztatuta",
+    "REQUEST_DATE": "Sarrera",
+    "GENERAL": "Informazio orokorra",
+    "STAY": "Egonaldia",
+    "REFERENCE": "Erreferentzia",
+    "SPOT": "Plaza",
+    "ENTRY": "Sarrera",
+    "EXIT": "Irteera",
+    "RATING": "Balorazioa",
+    "TOTAL": "Prezio osoa",
+    "QR": "Ikusi QR kodea",
+    "RATE": "Baloratu egonaldia",
+    "CANCEL": "Erreserba bertan behera utzi",
+    "CANCELLED_MSG": "Erreserba hau bertan behera utzi da.",
+    "QR_TITLE": "Sartzeko QR kodea",
+    "LOADING_QR": "QR-a kargatzen...",
+    "LOADING_DETAIL": "Xehetasunak kargatzen...",
+    "SUCCESS_CANCEL": "Erreserba bertan behera utzi da.",
+    "SUCCESS_RATE": "Eskerrik asko zure balorazioagatik!",
     "ERRORS": {
-      "LOADING": "Error al cargar la reserva._EU",
-      "CANCEL": "Hubo un error al intentar cancelar la reserva._EU",
-      "RATE": "Error al enviar la valoración._EU",
-      "QR": "No se pudo obtener el código QR._EU"
+      "LOADING": "Errorea erreserba kargatzean.",
+      "CANCEL": "Errorea gertatu da erreserba bertan behera uzten saiatzean.",
+      "RATE": "Errorea balorazioa bidaltzean.",
+      "QR": "Ezin izan da QR kodea lortu."
     }
   },
 
   "ADMIN_PARKINGS": {
-    "TITLE": "Mis parkings_EU",
-    "ADD": "Añadir parking_EU",
-    "LOADING": "Cargando datos…_EU",
-    "EMPTY": "No tienes parkings registrados._EU",
-    "SPOTS": "Plazas_EU",
-    "MANAGE": "Gestionar_EU"
+    "TITLE": "Nire aparkalekuak",
+    "ADD": "Aparkalekua gehitu",
+    "LOADING": "Datuak kargatzen...",
+    "EMPTY": "Ez duzu aparkalekurik erregistratuta.",
+    "SPOTS": "Plazak",
+    "MANAGE": "Kudeatu"
   },
 
   "MANAGE_PARKING": {
-    "NEW": "Nuevo Parking_EU",
-    "EDIT": "Gestionar Parking_EU",
-    "BACK": "Volver al listado_EU",
-    "GENERAL": "Datos generales_EU",
-    "NAME": "Nombre_EU",
-    "EMAIL": "Email de contacto_EU",
-    "PROVINCE": "Provincia_EU",
-    "CITY": "Municipio_EU",
-    "WEB": "Web_EU",
-    "PHONE": "Teléfono_EU",
-    "ACTIVE": "Activo_EU",
-    "ELECTRICITY": "Electricidad general_EU",
-    "RESIDUALS": "Aguas residuales_EU",
-    "VIP": "Zona VIP_EU",
-    "SAVE": "Guardar datos del parking_EU",
-    "SAVING": "Guardando..._EU",
-    "SPOTS": "Plazas_EU",
-    "ADD_SPOT": "Añadir plaza_EU",
-    "SPOT_NAME": "Nombre_EU",
-    "PRICE": "Precio_EU",
-    "FEATURES": "Características_EU",
-    "STATUS": "Estado_EU",
-    "FREE": "Libre_EU",
-    "OCCUPIED": "Mantenimiento_EU",
-    "EDIT_SPOT": "Editar_EU",
-    "NO_SPOTS": "Este parking no tiene plazas creadas._EU",
-    "CANCEL": "Cancelar_EU",
-    "SAVE_SPOT": "Guardar plaza_EU"
+    "NEW": "Aparkaleku Berria",
+    "EDIT": "Aparkalekua Kudeatu",
+    "BACK": "Itzuli zerrendara",
+    "GENERAL": "Datu orokorrak",
+    "NAME": "Izena",
+    "EMAIL": "Harremanetarako posta",
+    "PROVINCE": "Probintzia",
+    "CITY": "Udalerria",
+    "WEB": "Webgunea",
+    "PHONE": "Telefonoa",
+    "ACTIVE": "Aktibo",
+    "ELECTRICITY": "Argindar orokorra",
+    "RESIDUALS": "Hondakin-urak",
+    "VIP": "VIP eremua",
+    "SAVE": "Gorde aparkalekuaren datuak",
+    "SAVING": "Gordetzen...",
+    "SPOTS": "Plazak",
+    "ADD_SPOT": "Plaza gehitu",
+    "SPOT_NAME": "Izena",
+    "PRICE": "Prezioa",
+    "FEATURES": "Ezaugarriak",
+    "STATUS": "Egoera",
+    "FREE": "Libre",
+    "OCCUPIED": "Okupatuta",
+    "EDIT_SPOT": "Editatu",
+    "NO_SPOTS": "Aparkaleku honek ez du plazarik sortuta.",
+    "CANCEL": "Utzi",
+    "SAVE_SPOT": "Gorde plaza",
+    "SUCCESS_UPDATE": "Aparkalekua eguneratu da",
+    "SUCCESS_CREATE": "Aparkalekua sortu da",
+    "SUCCESS_CREATE_SPOT": "Plaza sortu da",
+    "SUCCESS_UPDATE_SPOT": "Plaza eguneratu da",
+    "ERRORS": {
+      "CREATE": "Errorea aparkalekua sortzean",
+      "UPDATE": "Errorea aparkalekua eguneratzean. Saiatu berriro.",
+      "CREATE_SPOT": "Errorea plaza sortzean.",
+      "UPDATE_SPOT": "Errorea plaza eguneratzean."
+    }
   }
 }

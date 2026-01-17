@@ -146,6 +146,16 @@
       "NO_RESULTS": "Parking not found or not available for these dates.",
       "LOADING": "Error loading parking details.",
       "BOOKING": "There was an error when making the reservation."
+    },
+    "AUX": {
+      "FIRST": "You will book a spot",
+      "SECOND": "Total price:",
+      "THIRD": "Dates",
+      "FOURTH": "to",
+      "FIFTH": "¿Confirm?",
+      "SIXTH": "Confirmar Booking",
+      "SEVENTH": "Cancel",
+      "EIGHTH": "Confirm and pay"
     }
   },
 
@@ -190,6 +200,8 @@
     "QR_TITLE": "Access QR code",
     "LOADING_QR": "Loading QR…",
     "LOADING_DETAIL": "Loading details…",
+    "SUCCESS_CANCEL": "Booking cancelled",
+    "SUCCESS_RATE": "¡Thank you for rating!",
     "ERRORS": {
       "LOADING": "Error loading the booking.",
       "CANCEL": "There was an error while trying to cancel the booking.",
@@ -235,6 +247,16 @@
     "EDIT_SPOT": "Edit",
     "NO_SPOTS": "This parking has no spots.",
     "CANCEL": "Delete",
-    "SAVE_SPOT": "Save spot"
+    "SAVE_SPOT": "Save spot",
+    "SUCCESS_UPDATE": "Parking correctly updated",
+    "SUCCESS_CREATE": "Parking correctly created",
+    "SUCCESS_CREATE_SPOT": "Spot correctly created",
+    "SUCCESS_UPDATE_SPOT": "Spot correctly updated",
+    "ERRORS": {
+      "CREATE": "Error creating the parking",
+      "UPDATE": "Error updating the parking. Try again.",
+      "CREATE_SPOT": "Error creating the spot.",
+      "UPDATE_SPOT": "Error updating the spot."
+    }
   }
 }

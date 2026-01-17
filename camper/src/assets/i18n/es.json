@@ -149,10 +149,13 @@
     },
     "AUX": {
       "FIRST": "Vas a reservar la plaza",
-      "SECOND": "Precio Total",
+      "SECOND": "Precio Total:",
       "THIRD": "Fechas",
       "FOURTH": "a",
-      "FIFTH": "¿Confirmar?"
+      "FIFTH": "¿Confirmar?",
+      "SIXTH": "Confirmar Reserva",
+      "SEVENTH": "Cancelar",
+      "EIGHTH": "Confirmar y Pagar"
     }
   },
 
@@ -197,6 +200,8 @@
     "QR_TITLE": "Código QR de acceso",
     "LOADING_QR": "Cargando QR…",
     "LOADING_DETAIL": "Cargando detalles…",
+    "SUCCESS_CANCEL": "Reserva cancelada correctamente.",
+    "SUCCESS_RATE": "¡Gracias por tu valoración!",
     "ERRORS": {
       "LOADING": "Error al cargar la reserva.",
       "CANCEL": "Hubo un error al intentar cancelar la reserva.",
@@ -242,6 +247,16 @@
     "EDIT_SPOT": "Editar",
     "NO_SPOTS": "Este parking no tiene plazas creadas.",
     "CANCEL": "Cancelar",
-    "SAVE_SPOT": "Guardar plaza"
+    "SAVE_SPOT": "Guardar plaza",
+    "SUCCESS_UPDATE": "Parking actualizado correctamente",
+    "SUCCESS_CREATE": "Parking creado correctamente",
+    "SUCCESS_CREATE_SPOT": "Plaza creada correctamente",
+    "SUCCESS_UPDATE_SPOT": "Plaza actualizada correctamente",
+    "ERRORS": {
+      "CREATE": "Error al crear el parking",
+      "UPDATE": "Error al actualizar el parking. Inténtalo de nuevo.",
+      "CREATE_SPOT": "Error al crear la plaza en el servidor.",
+      "UPDATE_SPOT": "Error al actualizar la plaza en el servidor."
+    }
   }
 }

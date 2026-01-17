@@ -73,7 +73,7 @@ export class BookingDetail implements OnInit {
         if (err.status === 200) {
            this.handleCancelSuccess();
         } else {
-           this.handleError(err, 'Hubo un error al intentar cancelar la reserva.');
+           this.handleError(err, 'HISTORY_DETAIL.ERRORS.CANCEL');
            this.isLoading = false;
         }
       }
@@ -81,7 +81,7 @@ export class BookingDetail implements OnInit {
   }
 
   private handleCancelSuccess() {
-    this.showSuccess('Reserva cancelada correctamente.');
+    this.showSuccess('HISTORY_DETAIL.SUCCESS_CANCEL');
     if (this.booking) {
       this.booking.estado = '0';
     }
@@ -100,7 +100,7 @@ export class BookingDetail implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.handleError(err, 'No se pudo obtener el código QR.', true);
+        this.handleError(err, 'HISTORY_DETAIL.ERRORS.QR', true);
         this.isLoading = false;
       }
     });
@@ -119,15 +119,15 @@ export class BookingDetail implements OnInit {
 
     this.bookingService.rateBooking(this.booking.id, this.rateValue).subscribe({
       next: (response: any) => {
-        this.showSuccess('¡Gracias por tu valoración!');
+        this.showSuccess('HISTORY_DETAIL.SUCCESS_RATE');
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
         if (err.status === 200) {
-           this.showSuccess('¡Gracias por tu valoración!');
+           this.showSuccess('HISTORY_DETAIL.SUCCESS_RATE');
            this.loadBooking(this.booking.id);
         } else {
-           this.handleError(err, 'Hubo un error al intentar valorar el parking.');
+           this.handleError(err, 'HISTORY_DETAIL.ERRORS.RATE');
            this.isLoading = false;
         }
       }
@@ -155,7 +155,7 @@ export class BookingDetail implements OnInit {
     let errorMsg = defaultMsg;
 
     if (isQr && err.status === 400) {
-       errorMsg = 'Error: No se encontró la reserva o no tienes permiso para ver este QR.';
+       errorMsg = 'HISTORY_DETAIL.ERRORS.QR';
     }
 
     if (err.error) {
