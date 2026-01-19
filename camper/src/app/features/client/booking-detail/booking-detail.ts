@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BookingService } from '../../../core/services/booking';
 import { Booking } from '../../../core/models/booking';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -17,6 +17,7 @@ export class BookingDetail implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private bookingService = inject(BookingService);
+  private translate = inject(TranslateService);
 
   booking: any | null = null;
   isLoading = true;
@@ -30,7 +31,7 @@ export class BookingDetail implements OnInit {
   showRateModal = false;
   rateValue = 5;
 
-  showCancelModal = false; 
+  showCancelModal = false;
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -61,7 +62,7 @@ export class BookingDetail implements OnInit {
     if (!this.booking) return;
       this.showCancelModal = true;
     }
-    
+
   confirmCancellation() {
     this.showCancelModal = false;
     this.isLoading = true;
@@ -85,7 +86,7 @@ export class BookingDetail implements OnInit {
     if (this.booking) {
       this.booking.estado = '0';
     }
-    this.loadBooking(this.booking.id); 
+    this.loadBooking(this.booking.id);
   }
 
 
@@ -144,15 +145,15 @@ export class BookingDetail implements OnInit {
   }
 
   private showSuccess(msg: string) {
-    this.successMessage = msg;
+    this.successMessage = this.translate.instant(msg);
     setTimeout(() => {
         this.successMessage = '';
-    }, 3000); 
+    }, 3000);
   }
 
   private handleError(err: any, defaultMsg: string, isQr = false) {
     console.error(err);
-    let errorMsg = defaultMsg;
+    let errorMsg = this.translate.instant(defaultMsg);
 
     if (isQr && err.status === 400) {
        errorMsg = 'HISTORY_DETAIL.ERRORS.QR';

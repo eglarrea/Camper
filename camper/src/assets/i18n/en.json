@@ -202,6 +202,10 @@
     "LOADING_DETAIL": "Loading details…",
     "SUCCESS_CANCEL": "Booking cancelled",
     "SUCCESS_RATE": "¡Thank you for rating!",
+    "CONFIRM_CANCEL_TITLE": "Confirm cancellation",
+    "CONFIRM_CANCEL_TEXT": "Are you sure you want to cancel this booking? This action cannot be undone.",
+    "CONFIRM_CANCEL_NO": "No, go back",
+    "CONFIRM_CANCEL_YES": "Yes, cancel",
     "ERRORS": {
       "LOADING": "Error loading the booking.",
       "CANCEL": "There was an error while trying to cancel the booking.",
