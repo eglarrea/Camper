@@ -202,6 +202,10 @@
     "LOADING_DETAIL": "Cargando detalles…",
     "SUCCESS_CANCEL": "Reserva cancelada correctamente.",
     "SUCCESS_RATE": "¡Gracias por tu valoración!",
+    "CONFIRM_CANCEL_TITLE": "Confirmar cancelación",
+    "CONFIRM_CANCEL_TEXT": "¿Estás seguro de que deseas cancelar esta reserva? Esta acción no se puede deshacer.",
+    "CONFIRM_CANCEL_NO": "No, volver",
+    "CONFIRM_CANCEL_YES": "Sí, cancelar",
     "ERRORS": {
       "LOADING": "Error al cargar la reserva.",
       "CANCEL": "Hubo un error al intentar cancelar la reserva.",
