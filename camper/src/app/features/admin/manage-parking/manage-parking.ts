@@ -111,16 +111,16 @@ export class ManageParking implements OnInit {
       const updateData = { ...formData, idParking: this.parkingId };
       this.adminService.updateParking(updateData).subscribe({
         next: () => {
-          this.showSuccess('MANAGE_PARKING.SUCCESS_UPDATE');
+          this.showSuccess('Parking actualizado correctamente');
           this.isLoading = false;
         },
         error: (err) => {
             if (err.status === 200) {
-             this.showSuccess('MANAGE_PARKING.SUCCESS_UPDATE');
+             this.showSuccess('Parking actualizado correctamente');
              this.isLoading = false;
           } else {
              console.error(err);
-             this.errorMessage = 'MANAGE_PARKING.ERRORS.UPDATE';
+             this.errorMessage = 'Error al actualizar el parking. Inténtalo de nuevo.';
              this.isLoading = false;
           }
         }
@@ -128,12 +128,12 @@ export class ManageParking implements OnInit {
     } else {
       this.adminService.createParking(formData).subscribe({
         next: () => {
-          this.showSuccess('MANAGE_PARKING.SUCCESS_CREATE');
+          this.showSuccess('Parking creado correctamente');
           this.router.navigate(['/admin/dashboard']);
         },
         error: (err) => {
           console.error(err);
-          this.errorMessage ='MANAGE_PARKING.ERRORS.CREATE';
+          this.errorMessage ='Error al crear el parking';
           this.isLoading = false;
           this.router.navigate(['/admin/dashboard']);
         }
@@ -174,7 +174,7 @@ export class ManageParking implements OnInit {
              this.plazas[index] = { ...this.plazas[index], ...updatedSpot };
           }
           this.closeSpotModal();
-          this.showSuccess('MANAGE_PARKING.SUCCESS_UPDATE_SPOT');
+          this.showSuccess('Plaza actualizada correctamente');
         },
         error: () => this.spotErrorMessage = 'MANAGE_PARKING.ERRORS.UPDATE_SPOT'
       });
@@ -183,7 +183,7 @@ export class ManageParking implements OnInit {
         next: (newSpot) => {
           this.plazas.push(newSpot);
           this.closeSpotModal();
-          this.showSuccess('MANAGE_PARKING.SUCCESS_CREATE_SPOT');
+          this.showSuccess('Plaza creada correctamente');
         },
         error: () => this.spotErrorMessage = 'MANAGE_PARKING.ERRORS.CREATE_SPOT'
       });
