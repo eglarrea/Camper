@@ -74,7 +74,7 @@ export class BookingDetail implements OnInit {
         if (err.status === 200) {
            this.handleCancelSuccess();
         } else {
-           this.handleError(err, 'HISTORY_DETAIL.ERRORS.CANCEL');
+           this.handleError(err, 'Hubo un error al intentar cancelar la reserva.');
            this.isLoading = false;
         }
       }
@@ -82,7 +82,7 @@ export class BookingDetail implements OnInit {
   }
 
   private handleCancelSuccess() {
-    this.showSuccess('HISTORY_DETAIL.SUCCESS_CANCEL');
+    this.showSuccess('Reserva cancelada correctamente.');
     if (this.booking) {
       this.booking.estado = '0';
     }
@@ -101,7 +101,7 @@ export class BookingDetail implements OnInit {
         this.isLoading = false;
       },
       error: (err) => {
-        this.handleError(err, 'HISTORY_DETAIL.ERRORS.QR', true);
+        this.handleError(err, 'No se pudo obtener el código QR.', true);
         this.isLoading = false;
       }
     });
@@ -120,15 +120,15 @@ export class BookingDetail implements OnInit {
 
     this.bookingService.rateBooking(this.booking.id, this.rateValue).subscribe({
       next: (response: any) => {
-        this.showSuccess('HISTORY_DETAIL.SUCCESS_RATE');
+        this.showSuccess('¡Gracias por tu valoración!');
         this.loadBooking(this.booking.id);
       },
       error: (err) => {
         if (err.status === 200) {
-           this.showSuccess('HISTORY_DETAIL.SUCCESS_RATE');
+           this.showSuccess('¡Gracias por tu valoración!');
            this.loadBooking(this.booking.id);
         } else {
-           this.handleError(err, 'HISTORY_DETAIL.ERRORS.RATE');
+           this.handleError(err, 'Hubo un error al intentar valorar el parking.');
            this.isLoading = false;
         }
       }
@@ -156,7 +156,7 @@ export class BookingDetail implements OnInit {
     let errorMsg = this.translate.instant(defaultMsg);
 
     if (isQr && err.status === 400) {
-       errorMsg = 'HISTORY_DETAIL.ERRORS.QR';
+       errorMsg = 'Error: No se encontró la reserva o no tienes permiso para ver este QR.';
     }
 
     if (err.error) {
